@@ -1,20 +1,24 @@
 {
   "name": "sanity-plugin-muna",
-  "version": "0.0.1",
-  "description": "Backend schemas for muna",
+  "version": "0.0.0",
+  "description": "Muna (memory) is a Sanity schema for describing and presenting cultural heritage objects.",
   "main": "lib/index.js",
   "scripts": {
     "prepublishOnly": "babel -d lib/ src/"
   },
   "keywords": [
     "sanity",
-    "cultural heritave",
+    "cultural heritage",
     "javascript",
     "schema"
   ],
   "author": {
     "name": "Tarje Sælen Lavik",
     "email": "tarje.lavik@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tarjelavik/sanity-plugin-muna"
   },
   "license": "MIT",
   "devDependencies": {
