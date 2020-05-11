@@ -1,150 +1,119 @@
-import {FaUser} from 'react-icons/fa'
+import { FaUser } from "react-icons/fa";
+
+import { editorialState, accessState, referredToBy } from "../props";
 
 export default {
-  title: 'Actor',
-  name: 'actor',
-  type: 'document',
+  title: "Actor",
+  name: "actor",
+  type: "document",
   initialValue: {
-    editorialState: 'workingDraft',
-    accessState: 'secret'
+    editorialState: "workingDraft",
+    accessState: "secret",
   },
   icon: FaUser,
   fieldsets: [
     {
-      name: 'state',
-      title: 'State',
-      options: {collapsible: true, collapsed: false}
-    }
+      name: "state",
+      title: "State",
+      options: { collapsible: true, collapsed: false },
+    },
+    {
+      name: "minimum",
+      title: "Felt for minimumsregistrering",
+      options: { collapsible: true, collapsed: false },
+    },
   ],
   fields: [
+    editorialState,
+    accessState,
     {
-      name: 'editorialState',
-      title: 'Redaksjonell status',
-      titleEN: 'Editorial state',
-      type: 'string',
-      fieldset: 'state',
-      validation: Rule => Rule.required(),
-      options: {
-        list: [
-          {title: 'Utkast', value: 'workingDraft'},
-          {title: 'Trenger gjennomgang', value: 'review'},
-          {title: 'Publisert', value: 'published'}
-        ],
-        layout: 'radio',
-        direction: 'horizontal'
-      }
+      name: "label",
+      title: "Visningsnavn",
+      titleEN: "Display name",
+      type: "string",
+      validation: (Rule) => Rule.required(),
     },
     {
-      name: 'accessState',
-      title: 'Tilgangsstatus',
-      titleEN: 'Access state',
-      type: 'string',
-      fieldset: 'state',
-      validation: Rule => Rule.required(),
-      options: {
-        list: [
-          {title: 'Privat', value: 'secret'},
-          {title: 'Open', value: 'open'}
-        ],
-        layout: 'radio',
-        direction: 'horizontal'
-      }
-    },
-    {
-      name: 'label',
-      title: 'Visningsnavn',
-      titleEN: 'Display name',
-      type: 'string',
-      validation: Rule => Rule.required()
-    },
-    {
-      name: 'hasType',
-      title: 'Klassifisert som',
-      titleEN: 'Classified as',
-      type: 'array',
+      name: "hasType",
+      title: "Klassifisert som",
+      titleEN: "Classified as",
+      type: "array",
       of: [
         {
-          type: 'reference',
-          to: [{type: 'typeClass'}],
+          type: "reference",
+          to: [{ type: "typeClass" }],
           options: {
-            filter: 'references(*[_type == "systemCategory" && label.nor in [$sysCat]]._id)',
-            filterParams: {sysCat: 'Aktørtype'}
-          }
-        }
-      ]
+            filter:
+              'references(*[_type == "systemCategory" && label.nor in [$sysCat]]._id)',
+            filterParams: { sysCat: "Aktørtype" },
+          },
+        },
+      ],
     },
     {
-      name: 'mainRepresentation',
-      title: 'Hovedbilde',
-      titleEN: 'Image',
-      type: 'image',
+      name: "mainRepresentation",
+      title: "Hovedbilde",
+      titleEN: "Image",
+      type: "image",
       options: {
-        hotspot: true
-      }
+        hotspot: true,
+      },
     },
+    referredToBy,
     {
-      name: 'description',
-      title: 'Beskrivelse',
-      titleEN: 'Description',
-      description: 'A shortish description',
-      type: 'localeBlockSimple'
-    },
-    {
-      name: 'activityStream',
-      title: 'Aktivitetsstrøm',
-      titleEN: 'Activity stream',
-      description: 'En aktivitetsstrøm samler alle hendelser knyttet til denne aktøren. Fødsel og død er "inline" til personen, mens andre aktiviteter som ekteskap er egne dokument.',
-      descriptionEN: 'Add all known events this smuck did',
-      type: 'array',
+      name: "activityStream",
+      title: "Aktivitetsstrøm",
+      titleEN: "Activity stream",
+      description:
+        'En aktivitetsstrøm samler alle hendelser knyttet til denne aktøren. Fødsel og død er "inline" til personen, mens andre aktiviteter som ekteskap er egne dokument.',
+      descriptionEN: "Add all known events this smuck did",
+      type: "array",
       of: [
-        {type: 'birth'},
-        {type: 'reference', to: [{type: 'activity'}]},
-        {type: 'relocation'},
-        {type: 'death'}
+        { type: "birth" },
+        { type: "reference", to: [{ type: "activity" }] },
+        { type: "relocation" },
+        { type: "death" },
       ],
       options: {
-        editModal: 'fullscreen'
-      }
+        editModal: "fullscreen",
+      },
     },
     {
-      name: 'name',
-      title: 'Navn',
-      titleEN: 'Names',
-      description: 'Add all known names and pseudonyms you wish',
-      type: 'array',
-      of: [
-        {type: 'name'}
-      ],
+      name: "name",
+      title: "Navn",
+      titleEN: "Names",
+      description: "Add all known names and pseudonyms you wish",
+      type: "array",
+      of: [{ type: "name" }],
       options: {
-        editModal: 'popup'
-      }
+        editModal: "popup",
+      },
     },
     {
-      name: 'identifier',
-      title: 'Identifikatorer',
-      titleEN: 'Identifiers',
-      description: 'Add identifiers this actor is identified by, both internally and externally, like in KulturNav og VIAF.',
-      type: 'array',
-      of: [
-        {type: 'identifier'}
-      ],
+      name: "identifier",
+      title: "Identifikatorer",
+      titleEN: "Identifiers",
+      description:
+        "Add identifiers this actor is identified by, both internally and externally, like in KulturNav og VIAF.",
+      type: "array",
+      of: [{ type: "identifier" }],
       options: {
-        editModal: 'popup'
-      }
-    }
+        editModal: "popup",
+      },
+    },
   ],
   preview: {
     select: {
-      title: 'label',
-      media: 'mainRepresentation'
+      title: "label",
+      media: "mainRepresentation",
     },
-    prepare (selection) {
-      const {title, media} = selection
+    prepare(selection) {
+      const { title, media } = selection;
 
       return {
         title: title,
-        media: media
-      }
-    }
-  }
-}
+        media: media,
+      };
+    },
+  },
+};

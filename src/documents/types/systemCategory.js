@@ -1,4 +1,5 @@
 import {FaTag} from 'react-icons/fa'
+import { editorialState, accessState, label, altLabel } from "../../props";
 
 export default {
   title: 'System category',
@@ -17,51 +18,10 @@ export default {
     }
   ],
   fields: [
-    {
-      name: 'editorialState',
-      title: 'Redaksjonell status',
-      titleEN: 'Editorial state',
-      type: 'string',
-      fieldset: 'state',
-      validation: Rule => Rule.required(),
-      options: {
-        list: [
-          {title: 'Utkast', value: 'workingDraft'},
-          {title: 'Trenger gjennomgang', value: 'review'},
-          {title: 'Publisert', value: 'published'}
-        ],
-        layout: 'radio',
-        direction: 'horizontal'
-      }
-    },
-    {
-      name: 'accessState',
-      title: 'Tilgangsstatus',
-      titleEN: 'Access state',
-      type: 'string',
-      fieldset: 'state',
-      validation: Rule => Rule.required(),
-      options: {
-        list: [
-          {title: 'Privat', value: 'secret'},
-          {title: 'Open', value: 'open'}
-        ],
-        layout: 'radio',
-        direction: 'horizontal'
-      }
-    },
-    {
-      name: 'label',
-      title: 'Foretrukket navn',
-      titleEN: 'Preferred label',
-      type: 'localeString'
-    },
-    {
-      name: 'altLabel',
-      title: 'Alternativt navn',
-      titleEN: 'Alternative label',
-      type: 'localeString'
-    },
+    editorialState,
+    accessState,
+    label,
+    altLabel,
     {
       name: 'broader',
       title: 'Overordnet term',

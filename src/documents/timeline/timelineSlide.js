@@ -1,70 +1,63 @@
+import { timespan } from "../../props";
+
 // TODO: Finish timeline with references to internal stuff and external. +datamodell
 // See http://timeline.knightlab.com/docs/json-format.html#json-slide for more info
 
 export default {
-  title: 'Timeline slide',
-  name: 'timelineSlide',
-  type: 'object',
+  title: "Timeline slide",
+  name: "timelineSlide",
+  type: "object",
   fields: [
     {
-      name: 'headline', // path: title.text.heading
-      title: 'Tittel',
-      titleEN: 'Headline',
-      type: 'localeString'
+      name: "headline", // path: title.text.heading
+      title: "Tittel",
+      titleEN: "Headline",
+      type: "localeString",
     },
     {
-      name: 'text', // path: title.text.text
-      title: 'Tekst',
-      titleEN: 'Text',
-      type: 'localeBlock'
+      name: "text", // path: title.text.text
+      title: "Tekst",
+      titleEN: "Text",
+      type: "localeBlock",
     },
     {
-      name: 'media',
-      title: 'Media',
-      titleEN: 'Media',
-      type: 'array',
-      of: [
-        {type: 'mediaObject'},
-        {type: 'externalMediaObject'}
-      ],
-      validation: Rule => Rule.length(1).error('You should only register one media object')
+      name: "media",
+      title: "Media",
+      titleEN: "Media",
+      type: "array",
+      of: [{ type: "mediaObject" }, { type: "externalMediaObject" }],
+      validation: (Rule) =>
+        Rule.length(1).error("You should only register one media object"),
     },
+    timespan,
     {
-      name: 'timespan',
-      title: 'Tidsspenn',
-      titleEN: 'Timespan',
-      type: 'array',
-      of: [{type: 'timespan'}],
-      validation: Rule => Rule.length(1).warning('You should only register one timespan')
-    },
-    {
-      name: 'group',
-      title: 'Gruppe',
-      titleEN: 'Group',
-      type: 'array',
-      of: [{type: 'string'}],
+      name: "group",
+      title: "Gruppe",
+      titleEN: "Group",
+      type: "array",
+      of: [{ type: "string" }],
       options: {
-        layout: 'tags'
+        layout: "tags",
       },
-      validation: Rule => Rule.length(1).error('An event can only be in one group!')
+      validation: (Rule) =>
+        Rule.length(1).error("An event can only be in one group!"),
     },
     {
-      name: 'background',
-      title: 'Bakgrunn',
-      titleEN: 'Background',
-      type: 'background'
-    }
+      name: "background",
+      title: "Bakgrunn",
+      titleEN: "Background",
+      type: "background",
+    },
   ],
   preview: {
     select: {
-      title: 'headline.nor'
+      title: "headline.nor",
     },
-    prepare (selection) {
-      const {title} = selection
+    prepare(selection) {
+      const { title } = selection;
       return {
-        title: title
-      }
-    }
-  }
-
-}
+        title: title,
+      };
+    },
+  },
+};

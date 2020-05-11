@@ -1,14 +1,18 @@
+import { label } from "../props"
+
 export default {
   title: 'geoJSON',
   name: 'geojson',
   type: 'object',
-  fields: [
+  fieldsets: [
     {
-      name: 'label',
-      title: 'Tittel',
-      titleEN: 'Title',
-      type: 'localeString'
+      name: "minimum",
+      title: "Minimumsregistrering",
+      options: { collapsible: true, collapsed: false },
     },
+  ],
+  fields: [
+    label,
     {
       name: 'description',
       title: 'Beskrivelse',

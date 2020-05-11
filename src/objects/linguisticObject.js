@@ -4,11 +4,7 @@ import {FaMarker} from 'react-icons/fa'
 export default {
   title: 'Text',
   name: 'linguisticObject',
-  type: 'document',
-  initialValue: {
-    editorialState: 'workingDraft',
-    accessState: 'secret'
-  },
+  type: 'object',
   icon: FaMarker,
   fieldsets: [
     {
@@ -59,17 +55,6 @@ export default {
       validation: Rule => Rule.required()
     },
     {
-      name: 'slug',
-      title: 'Slug',
-      titleEN: 'Slug',
-      description: 'Some frontends will require a slug to be set to be able to show the post',
-      type: 'slug',
-      options: {
-        source: 'label.nor',
-        maxLength: 96
-      }
-    },
-    {
       name: 'creator',
       title: 'Skaper',
       titleEN: 'Author',
@@ -80,6 +65,12 @@ export default {
           type: 'actorInRole'
         }
       ]
+    },
+    {
+      name: 'body',
+      title: 'Tekst',
+      titleEN: 'Body',
+      type: 'genericText'
     },
     {
       name: 'language',
@@ -129,25 +120,6 @@ export default {
       titleEN: 'Published at',
       description: 'This can be used to schedule post for publishing',
       type: 'datetime'
-    },
-    {
-      name: 'mainImage',
-      title: 'Hovedbilde',
-      titleEN: 'Main image',
-      type: 'mainImage'
-    },
-    {
-      name: 'excerpt',
-      title: 'Sammendrag',
-      titleEN: 'Excerpt',
-      description: 'This ends up on summary pages, on Google, when people share your post in social media.',
-      type: 'localeBlockSimple'
-    },
-    {
-      name: 'body',
-      title: 'Tekst',
-      titleEN: 'Body',
-      type: 'localeBlock'
     },
     {
       name: 'documentedIn',

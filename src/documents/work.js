@@ -1,4 +1,5 @@
 import {FaCrown} from 'react-icons/fa'
+import { label } from "../props"
 
 export default {
   title: 'Work',
@@ -6,13 +7,7 @@ export default {
   type: 'document',
   icon: FaCrown,
   fields: [
-    {
-      name: 'label',
-      title: 'Tittel',
-      titleEN: 'Title',
-      type: 'localeString',
-      validation: Rule => Rule.required()
-    },
+    label,
     {
       name: 'activityStream',
       title: 'Aktivitetsstrøm',

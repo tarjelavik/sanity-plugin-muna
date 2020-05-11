@@ -4,6 +4,8 @@
 
 Muna tries to combine the expressiveness of CIDOC-CRM and the customizable editor Sanity. Objects can connected to events, actors, reports and loads more. If you have a good knowledge of CIDOC-CRM and is willing to try a rather untested schema here is the way to get started!
 
+***Warning!*** Muna will be unstable for some time. Fork and do you own thing or [suggest improvements!](https://github.com/tarjelavik/sanity-plugin-muna/issues) 
+
 ```bash
 npm install -g @sanity/cli
 sanity init

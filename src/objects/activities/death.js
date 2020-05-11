@@ -1,9 +1,16 @@
+import { carriedOutBy, timespan, tookPlaceAt, referredToBy } from '../../props'
+
 var capitalize = require('capitalize')
 
 export default {
   title: 'Death',
   name: 'death',
   fieldsets: [
+    {
+      name: "minimum",
+      title: "Minimumsregistrering",
+      options: { collapsible: true, collapsed: false },
+    },
     {
       name: 'time',
       title: 'Time',
@@ -12,41 +19,10 @@ export default {
   ],
   type: 'object',
   fields: [
-    {
-      name: 'carriedOutBy',
-      title: 'Utført av',
-      titleEN: 'Carried out by',
-      type: 'array',
-      of: [{type: 'actorInRole'}]
-    },
-    {
-      name: 'timespan',
-      title: 'Tidsspenn',
-      titleEN: 'Timespan',
-      fieldset: 'time',
-      type: 'array',
-      of: [{type: 'timespan'}],
-      validation: Rule => Rule.length(1).warning('You should only register one timespan')
-    },
-    {
-      name: 'tookPlaceAt',
-      title: 'Fant sted ved',
-      titleEN: 'Took place at',
-      type: 'array',
-      of: [
-        {type: 'reference',
-          to: [
-            {type: 'place'}
-          ]
-        }
-      ]
-    },
-    {
-      name: 'description',
-      title: 'Beskrivelse',
-      titleEN: 'Description',
-      type: 'localeBlock'
-    }
+    carriedOutBy,
+    timespan,
+    tookPlaceAt,
+    referredToBy,
   ],
   preview: {
     select: {

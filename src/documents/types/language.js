@@ -1,40 +1,36 @@
-import {FaLanguage} from 'react-icons/fa'
+import { FaLanguage } from "react-icons/fa";
+import { label, altLabel } from "../../props";
 
 export default {
-  title: 'Language',
-  name: 'language',
-  type: 'document',
+  title: "Language",
+  name: "language",
+  type: "document",
   icon: FaLanguage,
   fieldsets: [
     {
-      name: 'state',
-      title: 'State',
-      options: {collapsible: true, collapsed: false}
-    }
-  ],
-  fields: [
-    {
-      name: 'label',
-      title: 'Foretrukket navn',
-      titleEN: 'Preferred label',
-      type: 'localeString'
+      name: "state",
+      title: "State",
+      options: { collapsible: true, collapsed: false },
     },
     {
-      name: 'altLabel',
-      title: 'Alternativt navn',
-      titleEN: 'Alternative label',
-      type: 'localeString'
-    }
+      name: "minimum",
+      title: "Minimumsregistrering",
+      options: { collapsible: true, collapsed: false },
+    },
+  ],
+  fields: [
+    label,
+    altLabel,
   ],
   preview: {
     select: {
-      title: 'label.nor'
+      title: "label.nor",
     },
-    prepare (selection) {
-      const {title} = selection
+    prepare(selection) {
+      const { title } = selection;
       return {
-        title: title
-      }
-    }
-  }
-}
+        title: title,
+      };
+    },
+  },
+};

@@ -1,68 +1,48 @@
+import { timespan, carriedOutBy, tookPlaceAt, referredToBy } from "../../props";
+
 export default {
-  title: 'Transformation',
-  name: 'transformation',
-  type: 'object',
+  title: "Transformation",
+  name: "transformation",
+  type: "object",
+  fieldsets: [
+    {
+      name: "minimum",
+      title: "Minimumsregistrering",
+      options: { collapsible: true, collapsed: false },
+    },
+  ],
   fields: [
     {
-      name: 'hasType',
-      title: 'Klassifisert som',
-      titleEN: 'Classified as',
-      type: 'array',
+      name: "hasType",
+      title: "Klassifisert som",
+      titleEN: "Classified as",
+      type: "array",
       of: [
         {
-          type: 'reference',
-          to: [{type: 'typeClass'}],
+          type: "reference",
+          to: [{ type: "typeClass" }],
           options: {
-            filter: 'references(*[_type == "systemCategory" && label.nor in [$sysCat]]._id)',
-            filterParams: {sysCat: 'Hendelsestype'}
-          }
-        }
-      ]
+            filter:
+              'references(*[_type == "systemCategory" && label.nor in [$sysCat]]._id)',
+            filterParams: { sysCat: "Hendelsestype" },
+          },
+        },
+      ],
     },
-    {
-      name: 'carriedOutBy',
-      title: 'Utført av',
-      titleEN: 'Carried out by',
-      type: 'array',
-      of: [{type: 'actorInRole'}]
-    },
-    {
-      name: 'timespan',
-      title: 'Tidsspenn',
-      titleEN: 'Timespan',
-      type: 'array',
-      of: [{type: 'timespan'}],
-      validation: Rule => Rule.length(1).warning('You should only register one timespan')
-    },
-    {
-      name: 'tookPlaceAt',
-      title: 'Fant sted ved',
-      titleEN: 'Took place at',
-      type: 'array',
-      of: [
-        {type: 'reference',
-          to: [
-            {type: 'place'}
-          ]
-        }
-      ]
-    },
-    {
-      name: 'description',
-      title: 'Beskrivelse',
-      titleEN: 'Description',
-      type: 'localeBlock'
-    }
+    carriedOutBy,
+    timespan,
+    tookPlaceAt,
+    referredToBy,
   ],
   preview: {
     select: {
-      date: 'productionDate'
+      date: "productionDate",
     },
-    prepare (selection) {
-      const {date} = selection
+    prepare(selection) {
+      const { date } = selection;
       return {
-        title: `Transformation${date ? ', dated ' + date : ''}`
-      }
-    }
-  }
-}
+        title: `Transformation${date ? ", dated " + date : ""}`,
+      };
+    },
+  },
+};

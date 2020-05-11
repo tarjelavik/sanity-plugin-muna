@@ -1,144 +1,84 @@
-import {FaTruckLoading} from 'react-icons/fa'
+import { FaTruckLoading } from "react-icons/fa";
+import { timespan, editorialState, accessState, referredToBy } from "../props";
 
-var capitalize = require('capitalize')
+var capitalize = require("capitalize");
 
 export default {
-  title: 'Relocation',
-  name: 'relocation',
-  type: 'document',
+  title: "Relocation",
+  name: "relocation",
+  type: "document",
   initialValue: {
-    editorialState: 'workingDraft',
-    accessState: 'secret'
+    editorialState: "workingDraft",
+    accessState: "secret",
   },
   icon: FaTruckLoading,
   fieldsets: [
     {
-      name: 'state',
-      title: 'State',
-      options: {collapsible: true, collapsed: false}
-    }
+      name: "state",
+      title: "Status",
+      options: { collapsible: true, collapsed: false },
+    },
+    {
+      name: "minimum",
+      title: "Felt for minimumsregistrering",
+      options: { collapsible: true, collapsed: false },
+    },
   ],
   fields: [
+    editorialState,
+    accessState,
+    timespan,
     {
-      name: 'editorialState',
-      title: 'Redaksjonell status',
-      titleEN: 'Editorial state',
-      type: 'string',
-      fieldset: 'state',
-      validation: Rule => Rule.required(),
-      options: {
-        list: [
-          {title: 'Utkast', value: 'workingDraft'},
-          {title: 'Trenger gjennomgang', value: 'review'},
-          {title: 'Publisert', value: 'published'}
-        ],
-        layout: 'radio',
-        direction: 'horizontal'
-      }
+      name: "movedFrom",
+      title: "Flyttet fra",
+      titleEN: "Moved from",
+      type: "reference",
+      to: [{ type: "place" }],
     },
     {
-      name: 'accessState',
-      title: 'Tilgangsstatus',
-      titleEN: 'Access state',
-      type: 'string',
-      fieldset: 'state',
-      validation: Rule => Rule.required(),
-      options: {
-        list: [
-          {title: 'Privat', value: 'secret'},
-          {title: 'Open', value: 'open'}
-        ],
-        layout: 'radio',
-        direction: 'horizontal'
-      }
+      name: "movedTo",
+      title: "Flyttet til",
+      titleEN: "Moved to",
+      type: "reference",
+      to: [{ type: "place" }],
     },
     {
-      name: 'timespan',
-      title: 'Tidsspenn',
-      titleEN: 'Timespan',
-      type: 'array',
-      of: [{type: 'timespan'}],
-      validation: Rule => Rule.length(1).warning('You should only register one timespan')
+      name: "tookPlaceAt",
+      title: "Tok sted ved",
+      titleEN: "Took place at",
+      description: "Det generelle området eller stedet dette skjedde",
+      type: "array",
+      of: [{ type: "reference", to: [{ type: "place" }] }],
     },
     {
-      name: 'movedFrom',
-      title: 'Flyttet fra',
-      titleEN: 'Moved from',
-      type: 'reference',
-      to: [
-        {type: 'place'}
-      ]
+      name: "moved",
+      title: "Flyttet",
+      titleEN: "Moved",
+      type: "array",
+      of: [{ type: "reference", to: [{ type: "group" }, { type: "actor" }] }],
     },
+    referredToBy,
     {
-      name: 'movedTo',
-      title: 'Flyttet til',
-      titleEN: 'Moved to',
-      type: 'reference',
-      to: [
-        {type: 'place'}
-      ]
+      name: "wasMotivatedBy",
+      title: "Motivert av",
+      titleEN: "Motivated by",
+      type: "array",
+      of: [{ type: "reference", to: [{ type: "event" }] }],
     },
-    {
-      name: 'tookPlaceAt',
-      title: 'Tok sted ved',
-      titleEN: 'Took place at',
-      description: 'Det generelle området eller stedet dette skjedde',
-      type: 'array',
-      of: [
-        {type: 'reference',
-          to: [
-            {type: 'place'}
-          ]
-        }
-      ]
-    },
-    {
-      name: 'moved',
-      title: 'Flyttet',
-      titleEN: 'Moved',
-      type: 'array',
-      of: [
-        {type: 'reference',
-          to: [
-            {type: 'group'},
-            {type: 'actor'}
-          ]
-        }
-      ]
-    },
-    {
-      name: 'description',
-      title: 'Beskrivelse',
-      titleEN: 'Description',
-      type: 'localeBlockReport'
-    },
-    {
-      name: 'wasMotivatedBy',
-      title: 'Motivert av',
-      titleEN: 'Motivated by',
-      type: 'array',
-      of: [
-        {type: 'reference',
-          to: [
-            {type: 'event'}
-          ]
-        }
-      ]
-    }
   ],
   preview: {
     select: {
-      type: '_type',
-      published: 'accessState'
+      type: "_type",
+      published: "accessState",
     },
-    prepare (selection) {
-      const {type, published} = selection
-      const secret = published === 'secret' ? '🔒' : ''
+    prepare(selection) {
+      const { type, published } = selection;
+      const secret = published === "secret" ? "🔒" : "";
 
       return {
         title: `${capitalize(type)}`,
-        subtitle: secret
-      }
-    }
-  }
-}
+        subtitle: secret,
+      };
+    },
+  },
+};
