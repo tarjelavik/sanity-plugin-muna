@@ -9,6 +9,7 @@ import {
   usedSpecificObject,
   referredToBy,
 } from "../../props";
+import { defaultFieldsets } from "../../fieldsets";
 
 export default {
   title: "Report",
@@ -19,28 +20,7 @@ export default {
     accessState: "secret",
   },
   icon: GiCrackedGlass,
-  fieldsets: [
-    {
-      name: "state",
-      title: "State",
-      options: { collapsible: true, collapsed: false },
-    },
-    {
-      name: "minimum",
-      title: "Minimumsregistrering",
-      options: { collapsible: true, collapsed: false },
-    },
-    {
-      name: "documentation",
-      title: "Documentation",
-      options: { collapsible: true, collapsed: false },
-    },
-    {
-      name: "technique",
-      title: "Technique",
-      options: { collapsible: true, collapsed: false },
-    },
-  ],
+  fieldsets: defaultFieldsets,
   fields: [
     editorialState,
     accessState,

@@ -26,6 +26,7 @@ import {
   measurement,
   consistsOf,
 } from "../../props";
+import { defaultFieldsets } from "../../fieldsets";
 
 export default {
   name: "madeObject",
@@ -38,53 +39,7 @@ export default {
     accessState: "secret",
   },
   icon: FaBookDead,
-  fieldsets: [
-    {
-      name: "state",
-      title: "Status",
-      options: { collapsible: true, collapsed: false },
-    },
-    {
-      name: "minimum",
-      title: "Felt for minimumsregistrering",
-      options: { collapsible: true, collapsed: false },
-    },
-    {
-      name: "representation",
-      title: "Hovedbilde og IIIF manifest",
-      options: { collapsible: true, collapsed: false },
-    },
-    {
-      name: "partsOfTheObject",
-      title: "Felt relatert til deler eller seksjoner",
-      options: { collapsible: true, collapsed: true },
-    },
-    {
-      name: "additionalInformation",
-      title: "Alternative navn, identifikatorer og beskrivelser",
-      options: { collapsible: true, collapsed: true },
-    },
-    {
-      name: "visualObject",
-      title: "Felt relatert til visuelle objekt",
-      options: { collapsible: true, collapsed: true },
-    },
-    {
-      name: "linguisticObject",
-      title: "Felt relatert til tekstlige objekt",
-      options: { collapsible: true, collapsed: true },
-    },
-    {
-      name: "physicalDescription",
-      title: "Felt relatert til fysisk beskrivelse",
-      options: { collapsible: true, collapsed: true },
-    },
-    {
-      name: "collectionManagement",
-      title: "Felt relatert til samlingspleie",
-      options: { collapsible: true, collapsed: true },
-    },
-  ],
+  fieldsets: defaultFieldsets,
   fields: [
     editorialState,
     accessState,

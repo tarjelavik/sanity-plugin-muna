@@ -1,25 +1,14 @@
-import { label } from "../props"
+import { label, referredToBy } from "../props"
+import { defaultFieldsets } from "../fieldsets"
 
 export default {
   title: 'geoJSON',
   name: 'geojson',
   type: 'object',
-  fieldsets: [
-    {
-      name: "minimum",
-      title: "Minimumsregistrering",
-      options: { collapsible: true, collapsed: false },
-    },
-  ],
+  fieldsets: defaultFieldsets,
   fields: [
     label,
-    {
-      name: 'description',
-      title: 'Beskrivelse',
-      titleEN: 'Description',
-      description: 'A shortish description',
-      type: 'localeBlockSimple'
-    },
+    referredToBy,
     {
       name: 'data',
       title: 'Data',

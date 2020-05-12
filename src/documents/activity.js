@@ -1,36 +1,15 @@
 import { MdLocalActivity } from "react-icons/md";
-import { timespan } from "../props";
+import { timespan, referredToBy, carriedOutBy, usedSpecificTechnique, usedGeneralTechnique, usedSpecificObject, label, tookPlaceAt } from "../props";
+import { defaultFieldsets } from "../fieldsets";
 
 export default {
   title: "Activity",
   name: "activity",
   type: "document",
   icon: MdLocalActivity,
-  fieldsets: [
-    {
-      name: "purpose",
-      title: "Fields related to the purpose of the activity",
-      options: { collapsible: true, collapsed: true },
-    },
-    {
-      name: "objects",
-      title: "Fields related to the objects or object types used",
-      options: { collapsible: true, collapsed: true },
-    },
-    {
-      name: "technique",
-      title: "Fields related to techniques, designs or procedures used",
-      options: { collapsible: true, collapsed: true },
-    },
-  ],
+  fieldsets: defaultFieldsets,
   fields: [
-    {
-      name: "label",
-      title: "Tittel",
-      titleEN: "Title",
-      type: "localeString",
-      validation: (Rule) => Rule.required(),
-    },
+    label,
     {
       name: "hasType",
       title: "Aktivitetstype",
@@ -48,13 +27,7 @@ export default {
         },
       ],
     },
-    {
-      name: "carriedOutBy",
-      title: "Utført av",
-      titleEN: "Carried out by",
-      type: "array",
-      of: [{ type: "actorInRole" }],
-    },
+    carriedOutBy,
     {
       name: "hasParticipant",
       title: "Hadde medvirkende",
@@ -70,20 +43,8 @@ export default {
       to: [{ type: "collection" }, { type: "actor" }, { type: "group" }],
     },
     timespan,
-    {
-      name: "tookPlaceAt",
-      title: "Tok sted ved",
-      titleEN: "Took place at",
-      description: "",
-      type: "array",
-      of: [{ type: "reference", to: [{ type: "place" }] }],
-    },
-    {
-      name: "description",
-      title: "Beskrivelse",
-      titleEN: "Description",
-      type: "localeBlock",
-    },
+    tookPlaceAt,
+    referredToBy,
     {
       name: "consistsOf",
       title: "Underaktiviteter",
@@ -144,43 +105,9 @@ export default {
         },
       ],
     },
-    {
-      name: "usedSpecificObject",
-      title: "Brukte spesifikt objekt",
-      titleEN: "Used specific object",
-      description: "",
-      fieldset: "objects",
-      type: "array",
-      of: [{ type: "reference", to: [{ type: "madeObject" }] }],
-    },
-    {
-      name: "usedGeneralTechnique",
-      title: "Brukte generell teknikk",
-      titleEN: "Used general technique",
-      description: "",
-      fieldset: "technique",
-      type: "array",
-      of: [
-        {
-          type: "reference",
-          to: [{ type: "typeClass" }],
-          options: {
-            filter:
-              'references(*[_type == "systemCategory" && label.nor in [$sysCat]]._id)',
-            filterParams: { sysCat: "technique" },
-          },
-        },
-      ],
-    },
-    {
-      name: "usedSpecificTechnique",
-      title: "Brukte spesifikk teknikk",
-      titleEN: "Used specific technique",
-      description: "",
-      fieldset: "technique",
-      type: "array",
-      of: [{ type: "reference", to: [{ type: "designOrProcedure" }] }],
-    },
+    usedSpecificObject,
+    usedGeneralTechnique,
+    usedSpecificTechnique,
     {
       name: "generalPurpose",
       title: "Generelt formål",

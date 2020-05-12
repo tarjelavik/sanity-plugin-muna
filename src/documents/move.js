@@ -1,5 +1,5 @@
 import { FaTruckLoading } from "react-icons/fa";
-import { timespan, editorialState, accessState, label, carriedOutBy, tookPlaceAt } from "../props";
+import { timespan, editorialState, accessState, label, carriedOutBy, tookPlaceAt, referredToBy } from "../props";
 
 var capitalize = require("capitalize");
 
@@ -31,6 +31,7 @@ export default {
     carriedOutBy,
     timespan,
     tookPlaceAt,
+    referredToBy,
     {
       name: "moved",
       title: "Flyttet",
@@ -42,12 +43,6 @@ export default {
           to: [{ type: "madeObject" }, { type: "group" }, { type: "actor" }],
         },
       ],
-    },
-    {
-      name: "description",
-      title: "Beskrivelse",
-      titleEN: "Description",
-      type: "localeBlockReport",
     },
     {
       name: "movedFrom",

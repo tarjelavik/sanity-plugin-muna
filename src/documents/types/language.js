@@ -1,23 +1,13 @@
 import { FaLanguage } from "react-icons/fa";
 import { label, altLabel } from "../../props";
+import { defaultFieldsets } from "../../fieldsets";
 
 export default {
   title: "Language",
   name: "language",
   type: "document",
   icon: FaLanguage,
-  fieldsets: [
-    {
-      name: "state",
-      title: "State",
-      options: { collapsible: true, collapsed: false },
-    },
-    {
-      name: "minimum",
-      title: "Minimumsregistrering",
-      options: { collapsible: true, collapsed: false },
-    },
-  ],
+  fieldsets: defaultFieldsets,
   fields: [
     label,
     altLabel,

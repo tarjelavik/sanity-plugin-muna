@@ -1,16 +1,11 @@
 import { timespan, carriedOutBy, referredToBy, tookPlaceAt } from "../../props";
+import { defaultFieldsets } from "../../fieldsets";
 
 export default {
   title: "Sampling",
   name: "sampling",
   type: "object",
-  fieldsets: [
-    {
-      name: "minimum",
-      title: "Minimumsregistrering",
-      options: { collapsible: true, collapsed: false },
-    },
-  ],
+  fieldsets: defaultFieldsets,
   fields: [
     carriedOutBy,
     timespan,

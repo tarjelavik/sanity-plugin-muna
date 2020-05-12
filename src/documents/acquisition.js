@@ -1,5 +1,5 @@
 import { FaGifts } from "react-icons/fa";
-import { editorialState, accessState, timespan, label } from "../props";
+import { editorialState, accessState, timespan, label, referredToBy } from "../props";
 
 export default {
   title: "Acquisition",
@@ -43,12 +43,7 @@ export default {
         },
       ],
     },
-    {
-      name: "description",
-      title: "Beskrivelse",
-      titleEN: "Description",
-      type: "localeBlockReport",
-    },
+    referredToBy,
     timespan,
     {
       name: "transferredTitleTo",

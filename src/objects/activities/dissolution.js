@@ -1,4 +1,5 @@
-import { timespan, tookPlaceAt } from "../../props";
+import { timespan, tookPlaceAt, referredToBy } from "../../props";
+import { defaultFieldsets } from "../../fieldsets";
 
 var capitalize = require("capitalize");
 
@@ -8,6 +9,7 @@ export default {
   title: "Dissolution",
   name: "dissolution",
   type: "object",
+  fieldsets: defaultFieldsets,
   fields: [
     {
       name: "hasType",
@@ -35,12 +37,7 @@ export default {
       type: "array",
       of: [{ type: "reference", to: [{ type: "event" }] }],
     },
-    {
-      name: "description",
-      title: "Beskrivelse",
-      titleEN: "Description",
-      type: "localeBlock",
-    },
+    referredToBy,
   ],
   preview: {
     select: {

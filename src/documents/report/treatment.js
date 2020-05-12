@@ -1,25 +1,16 @@
-import { timespan, tookPlaceAt } from "../../props";
+import { timespan, tookPlaceAt, referredToBy, carriedOutBy } from "../../props";
+import { defaultFieldsets } from "../../fieldsets";
 
 export default {
   title: "Treatment",
   name: "treatment",
   type: "object",
+  fieldsets: defaultFieldsets,
   fields: [
-    {
-      name: "carriedOutBy",
-      title: "Utført av",
-      titleEN: "Carried out by",
-      type: "array",
-      of: [{ type: "actorInRole" }],
-    },
+    carriedOutBy,
     timespan,
     tookPlaceAt,
-    {
-      name: "description",
-      title: "Beskrivelse",
-      titleEN: "Description",
-      type: "localeBlock",
-    },
+    referredToBy,
     {
       name: "assessedBy",
       title: "Vurdert av",

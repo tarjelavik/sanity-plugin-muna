@@ -1,5 +1,6 @@
 import { FaTag } from "react-icons/fa";
 import { editorialState, accessState, label, altLabel } from "../../props";
+import { defaultFieldsets } from "../../fieldsets";
 
 export default {
   title: "Type",
@@ -10,18 +11,7 @@ export default {
     accessState: "secret",
   },
   icon: FaTag,
-  fieldsets: [
-    {
-      name: "state",
-      title: "Status",
-      options: { collapsible: true, collapsed: false },
-    },
-    {
-      name: "minimum",
-      title: "Felt for minimumsregistrering",
-      options: { collapsible: true, collapsed: false },
-    },
-  ],
+  fieldsets: defaultFieldsets,
   fields: [
     editorialState,
     accessState,

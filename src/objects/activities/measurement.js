@@ -12,18 +12,18 @@ export default {
     },
   ],
   fields: [
-    timespan,
-    carriedOutBy,
     {
       name: "observedDimension",
-      title: "Dimmensjon",
+      title: "Dimensjon",
       titleEN: "Dimension",
       description: "Events and activities connected to this object",
       type: "array",
       of: [{ type: "dimension" }],
     },
-    tookPlaceAt,
+    timespan,
+    carriedOutBy,
     referredToBy,
+    tookPlaceAt,
   ],
   preview: {
     select: {

@@ -1,103 +1,102 @@
-import React from 'react'
+import React from "react";
 
-const highlightIcon = () => (
-  <span style={{fontWeight: 'bold'}}>H</span>
-)
-const highlightRender = props => (
-  <span style={{backgroundColor: 'yellow'}}>{props.children}</span>
-)
+const highlightIcon = () => <span style={{ fontWeight: "bold" }}>H</span>;
+const highlightRender = (props) => (
+  <span style={{ backgroundColor: "yellow" }}>{props.children}</span>
+);
 
 export default {
-  name: 'genericText',
-  type: 'array',
-  title: 'Excerpt',
+  name: "genericText",
+  type: "array",
+  title: "Excerpt",
   of: [
     {
-      title: 'Block',
-      type: 'block',
+      title: "Block",
+      type: "block",
       styles: [
-        {title: 'Normal', value: 'normal'},
-        {title: 'H1', value: 'h1'},
-        {title: 'H2', value: 'h2'},
-        {title: 'Quote', value: 'blockquote'}
+        { title: "Normal", value: "normal" },
+        { title: "H1", value: "h1" },
+        { title: "H2", value: "h2" },
+        { title: "Quote", value: "blockquote" },
       ],
       lists: [
-        {title: 'Numbered', value: 'number'},
-        {title: 'Bulleted', value: 'bullet'}
+        { title: "Numbered", value: "number" },
+        { title: "Bulleted", value: "bullet" },
       ],
       marks: {
         decorators: [
-          {title: 'Strong', value: 'strong'},
-          {title: 'Emphasis', value: 'em'},
+          { title: "Strong", value: "strong" },
+          { title: "Emphasis", value: "em" },
           {
-            title: 'Highlight',
-            value: 'highlight',
+            title: "Highlight",
+            value: "highlight",
             blockEditor: {
               icon: highlightIcon,
-              render: highlightRender
-            }
+              render: highlightRender,
+            },
           },
-          {title: 'Code', value: 'code'}
+          { title: "Code", value: "code" },
         ],
         annotations: [
           {
-            name: 'link',
-            type: 'object',
-            title: 'External link',
+            name: "link",
+            type: "object",
+            title: "External link",
             fields: [
               {
-                name: 'href',
-                type: 'url',
-                title: 'URL'
+                name: "href",
+                type: "url",
+                title: "URL",
               },
               {
-                title: 'Open in new tab',
-                name: 'blank',
-                description: 'Read https://css-tricks.com/use-target_blank/',
-                type: 'boolean'
-              }
-            ]
+                title: "Open in new tab",
+                name: "blank",
+                description: "Read https://css-tricks.com/use-target_blank/",
+                type: "boolean",
+              },
+            ],
           },
           {
-            name: 'internalLink',
-            type: 'object',
-            title: 'Internal link',
+            name: "internalLink",
+            type: "object",
+            title: "Internal link",
             fields: [
               {
-                name: 'reference',
-                type: 'reference',
-                title: 'Reference',
+                name: "reference",
+                type: "reference",
+                title: "Reference",
                 to: [
-                  {type: 'actor'},
-                  {type: 'madeObject'},
-                  {type: 'collection'},
-                  {type: 'group'},
-                  {type: 'event'},
-                  {type: 'material'},
-                  {type: 'timeline'}
+                  { type: "actor" },
+                  { type: "madeObject" },
+                  { type: "collection" },
+                  { type: "group" },
+                  { type: "event" },
+                  { type: "material" },
+                  { type: "timeline" },
                   // other types you may want to link to
-                ]
-              }
-            ]
-          }
-        ]
-      }
+                ],
+              },
+            ],
+          },
+        ],
+      },
     },
     {
-      type: 'reference',
+      type: "reference",
       to: [
-        {type: 'actor'},
-        {type: 'madeObject'},
-        {type: 'collection'},
-        {type: 'group'},
-        {type: 'event'},
-        {type: 'place'},
-        {type: 'material'},
-        {type: 'timeline'}
-      ]
+        { type: "actor" },
+        { type: "madeObject" },
+        { type: "collection" },
+        { type: "group" },
+        { type: "event" },
+        { type: "place" },
+        { type: "material" },
+        { type: "timeline" },
+      ],
     },
-    {type: 'instagramPost'},
-    {type: 'imageCompare'},
-    {type: 'geojson'}
-  ]
-}
+    { type: "instagramPost" },
+    { type: "imageCompare" },
+    { type: "geojson" },
+    { type: "figure" },
+  ],
+};

@@ -1,6 +1,6 @@
 import { FaGlasses } from "react-icons/fa";
 
-import { editorialState, accessState, label } from "../props";
+import { editorialState, accessState, label, referredToBy } from "../props";
 
 export default {
   title: "Exhibition",
@@ -36,12 +36,7 @@ export default {
         },
       ],
     },
-    {
-      name: "description",
-      title: "Beskrivelse",
-      titleEN: "Description",
-      type: "localeBlock",
-    },
+    referredToBy
   ],
   preview: {
     select: {

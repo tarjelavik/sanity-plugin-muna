@@ -1,32 +1,37 @@
+import { referredToBy } from "../props"
+import { defaultFieldsets } from "../fieldsets"
+
 export default {
   title: 'Identifier',
   name: 'identifier',
   type: 'object',
+  fieldsets: defaultFieldsets,
   fields: [
     {
-      name: 'identifier',
+      name: 'content',
       title: 'Identifikator',
       titleEN: 'Identifier',
       type: 'string'
     },
     {
-      name: 'url',
-      title: 'URL',
-      titleEN: 'URL',
-      type: 'url'
+      name: "hasType",
+      title: "Klassifisert som",
+      titleEN: "Classified as",
+      type: "array",
+      of: [
+        {
+          type: "reference",
+          to: [{ type: "typeClass" }],
+          options: {
+            filter:
+              'references(*[_type == "systemCategory" && label.nor in [$sysCat]]._id)',
+            filterParams: { sysCat: "Identifikatortype" },
+          },
+        },
+      ],
+      validation: (Rule) => Rule.required(),
     },
-    {
-      name: 'label',
-      title: 'Navn',
-      titleEN: 'Label',
-      type: 'string'
-    },
-    {
-      name: 'description',
-      title: 'Beskrivelse',
-      titleEN: 'Description',
-      type: 'localeBlock'
-    }
+    referredToBy,
   ],
   preview: {
     select: {

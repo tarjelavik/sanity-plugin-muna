@@ -1,18 +1,13 @@
 import { GiExplosiveMaterials } from "react-icons/gi";
 import { label, altLabel } from "../../props";
+import { defaultFieldsets } from "../../fieldsets";
 
 export default {
   title: "Material",
   name: "material",
   type: "document",
   icon: GiExplosiveMaterials,
-  fieldsets: [
-    {
-      name: "minimum",
-      title: "Minimumsregistrering",
-      options: { collapsible: true, collapsed: false },
-    },
-  ],
+  fieldsets: defaultFieldsets,
   fields: [
     label, 
     altLabel

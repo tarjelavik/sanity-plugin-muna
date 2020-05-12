@@ -1,10 +1,12 @@
 import { appelationTypes } from "../vocabularies/defaultVocabularies";
-import { timespan } from "../props";
+import { timespan, referredToBy } from "../props";
+import { defaultFieldsets } from "../fieldsets";
 
 export default {
   title: "Name",
   name: "name",
   type: "object",
+  fieldsets: defaultFieldsets,
   fields: [
     {
       name: "name",
@@ -30,12 +32,7 @@ export default {
       of: [{ type: "reference", to: [{ type: "language" }] }],
     },
     timespan,
-    {
-      name: "description",
-      title: "Beskrivelse",
-      titleEN: "Description",
-      type: "localeBlock",
-    },
+    referredToBy,
   ],
   preview: {
     select: {

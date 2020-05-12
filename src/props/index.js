@@ -77,7 +77,7 @@ const label = {
   description: "",
   descriptionEN: "",
   fieldset: "minimum",
-  type: "string",
+  type: "localeString",
   validation: (Rule) => Rule.required(),
 };
 
@@ -385,6 +385,11 @@ const timespan = {
   titleEN: "Timespan",
   type: "array",
   of: [{ type: "timespan" }],
+  options: [
+    {
+      editModal: "fullscreen",
+    },
+  ],
   validation: (Rule) =>
     Rule.length(1).warning("You should only register one timespan"),
 };
