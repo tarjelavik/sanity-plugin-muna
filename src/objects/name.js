@@ -21,7 +21,7 @@ export default {
       type: "string",
       options: {
         list: appelationTypes,
-        layout: "radio",
+        layout: "dropdown",
       },
     },
     {
@@ -37,7 +37,7 @@ export default {
   preview: {
     select: {
       name: "name",
-      type: "nameType",
+      type: "hasType",
     },
     prepare(selection) {
       const { type, name } = selection;

@@ -1,5 +1,5 @@
 import { MdLocalActivity } from "react-icons/md";
-import { timespan, referredToBy, carriedOutBy, usedSpecificTechnique, usedGeneralTechnique, usedSpecificObject, label, tookPlaceAt } from "../props";
+import { timespan, referredToBy, carriedOutBy, usedSpecificTechnique, usedGeneralTechnique, usedSpecificObject, label, tookPlaceAt, hadParticipant } from "../props";
 import { defaultFieldsets } from "../fieldsets";
 
 export default {
@@ -28,13 +28,7 @@ export default {
       ],
     },
     carriedOutBy,
-    {
-      name: "hasParticipant",
-      title: "Hadde medvirkende",
-      titleEN: "Had participant",
-      type: "array",
-      of: [{ type: "actorInRole" }],
-    },
+    hadParticipant,
     {
       name: "target",
       title: "Mål",

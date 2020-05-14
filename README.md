@@ -20,6 +20,7 @@ The Sanity studio will fire up on `http://localhost:3333/`.
 * [ ] Improve schema
 * [ ] Add documentation
 * [ ] Add deskStructure.js example
+* [ ] Explain systemCategories
 
 # Example
 

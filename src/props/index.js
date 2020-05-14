@@ -81,15 +81,15 @@ const label = {
   validation: (Rule) => Rule.required(),
 };
 
-const title = {
-  name: "title",
-  title: "Titler",
-  titleEN: "Titles",
-  description: "Legg til alternative titler eller titler på andre språk",
-  descriptionEN: "Add all known titles",
+const identifiedBy = {
+  name: "identifiedBy",
+  title: "Identifisert av",
+  titleEN: "Identified by",
+  description: "Legg til titler, navn eller identifikatorer.",
+  descriptionEN: "Add all known titles, name or identifiers.",
   fieldset: "minimum",
   type: "array",
-  of: [{ type: "name" }],
+  of: [{ type: "name" }, { type: "identifier" }],
   options: {
     editModal: "popup",
   },
@@ -210,20 +210,6 @@ const composedOf = {
   descriptionEN: "Other identified madeObjects this object is composed of",
   type: "array",
   of: [{ type: "reference", to: [{ type: "madeObject" }] }],
-};
-
-const identifiedBy = {
-  name: "identifiedBy",
-  title: "Identifikator",
-  titleEN: "Identifier",
-  description: "Legg til identifikator",
-  descriptionEN: "Add all known identifiers",
-  fieldset: "additionalInformation",
-  type: "array",
-  of: [{ type: "identifier" }],
-  options: {
-    editModal: "dialog",
-  },
 };
 
 const isSubjectOf = {
@@ -385,11 +371,9 @@ const timespan = {
   titleEN: "Timespan",
   type: "array",
   of: [{ type: "timespan" }],
-  options: [
-    {
-      editModal: "fullscreen",
-    },
-  ],
+  options: {
+    editModal: "fullscreen",
+  },
   validation: (Rule) =>
     Rule.length(1).warning("You should only register one timespan"),
 };
@@ -398,6 +382,14 @@ const carriedOutBy = {
   name: "carriedOutBy",
   title: "Utført av",
   titleEN: "Carried out by",
+  type: "array",
+  of: [{ type: "actorInRole" }],
+};
+
+const hadParticipant = {
+  name: "hadParticipant",
+  title: "Hadde medvirkende",
+  titleEN: "Had participant",
   type: "array",
   of: [{ type: "actorInRole" }],
 };
@@ -424,7 +416,7 @@ export {
   mainManifest,
   preferredIdentifier,
   label,
-  title,
+  identifiedBy,
   hasType,
   rights,
   subject,
@@ -433,7 +425,6 @@ export {
   hasCurrentOwner,
   hasFormerOrCurrentOwner,
   composedOf,
-  identifiedBy,
   isSubjectOf,
   depicts,
   represents,
@@ -447,6 +438,7 @@ export {
   usedSpecificObject,
   timespan,
   carriedOutBy,
+  hadParticipant,
   tookPlaceAt,
   altLabel,
 };

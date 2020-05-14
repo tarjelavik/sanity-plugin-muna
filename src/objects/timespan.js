@@ -91,20 +91,32 @@ export default {
       date: 'date',
       be: 'beginOfTheEnd',
       ee: 'endOfTheEnd',
-      blocks: 'description'
+      blocks: 'description.nor'
     },
     prepare (selection) {
-      const {bb, eb, date, be, ee, blocks} = selection
+      var dayjs = require('dayjs')
+      var _ = require('lodash')
+      var localizedFormat = require('dayjs/plugin/localizedFormat')
+      dayjs.extend(localizedFormat)
+      require('dayjs/locale/nb')
+
+      const {bb, eb, date, be, ee } = selection
+      var dates = _.pickBy({bb: bb, eb: eb, date: date, be: be, ee: ee}, _.identity)
+
+      const {blocks} = selection
       const block = (blocks || []).find(block => block._type === 'block')
 
+      let d = Object.assign({}, ...Object.keys(dates).map(k => ({[k]: dayjs(dates[k]).locale('nb').format('LL')})));
+
       return {
-        title: `${date || ''}${bb || ''}${bb && eb ? '~' : ''}${eb || ''}` + `${(bb || eb) && (be || ee) ? ' / ' : ''}` + `${be || ''}${be && ee ? '~' : ''}${ee || ''}`,
-        description: block
+        //title: `${d.date}`,
+        title: `${d.date || ''}${d.bb || ''}${d.bb && d.eb ? '~' : ''}${d.eb || ''}` + `${(d.bb || d.eb) && (d.be || d.ee) ? ' / ' : ''}` + `${d.be || ''}${d.be && d.ee ? '~' : ''}${d.ee || ''}`,
+        subtitle: block
           ? block.children
-            .filter(child => child._type === 'span')
-            .map(span => span.text)
-            .join('')
-          : 'No description'
+            .filter((child) => child._type === "span")
+            .map((span) => span.text)
+            .join("")
+        : "No description"
       }
     }
   }

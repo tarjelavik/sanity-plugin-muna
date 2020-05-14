@@ -30,12 +30,12 @@ export default {
   preview: {
     select: {
       actor: 'actor.label',
-      role: 'role'
+      role: 'role.0.label.nor'
     },
     prepare (selection) {
       const {actor, role} = selection
       return {
-        title: actor + ', ' + role
+        title: `${actor}${role ? ', ' + role : ''}`
       }
     }
   }

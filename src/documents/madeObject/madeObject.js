@@ -10,7 +10,6 @@ import {
   mainManifest,
   preferredIdentifier,
   label,
-  title,
   rights,
   subject,
   referredToBy,
@@ -47,7 +46,7 @@ export default {
     mainManifest,
     preferredIdentifier,
     label,
-    title,
+    identifiedBy,
     {
       name: "hasType",
       title: "Klassifisert som",
@@ -69,9 +68,9 @@ export default {
       ],
       validation: (Rule) => Rule.required(),
     },
-    rights,
-    subject,
     referredToBy,
+    subject,
+    rights,
     {
       name: "activityStream",
       title: "Aktivitetsstrøm",
@@ -92,17 +91,16 @@ export default {
     hasCurrentOwner,
     hasFormerOrCurrentOwner,
     composedOf,
-    identifiedBy,
     isSubjectOf,
     depicts, // remove?
     showsVisualObject,
     carries,
     measurement,
-    consistsOf
+    consistsOf,
   ],
   preview: {
     select: {
-      title: "label",
+      title: "label.nor",
       id: "preferredIdentifier",
       type: "hasType.0.label.nor",
       blocks: "description",
