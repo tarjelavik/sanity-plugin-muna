@@ -1,16 +1,11 @@
 import { timespan, carriedOutBy, tookPlaceAt, referredToBy } from "../../props";
+import { defaultFieldsets } from "../../fieldsets";
 
 export default {
   title: "Transformation",
   name: "transformation",
   type: "object",
-  fieldsets: [
-    {
-      name: "minimum",
-      title: "Minimumsregistrering",
-      options: { collapsible: true, collapsed: false },
-    },
-  ],
+  fieldsets: defaultFieldsets,
   fields: [
     {
       name: "hasType",
@@ -20,12 +15,7 @@ export default {
       of: [
         {
           type: "reference",
-          to: [{ type: "typeClass" }],
-          options: {
-            filter:
-              'references(*[_type == "systemCategory" && label.nor in [$sysCat]]._id)',
-            filterParams: { sysCat: "Hendelsestype" },
-          },
+          to: [{ type: "eventType" }],
         },
       ],
     },

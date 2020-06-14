@@ -7,6 +7,7 @@ import {
   referredToBy,
   tookPlaceAt,
 } from "../props";
+import { defaultFieldsets } from "../fieldsets";
 
 export default {
   title: "Period",
@@ -18,40 +19,11 @@ export default {
     accessState: "secret",
   },
   icon: FaEmpire,
-  fieldsets: [
-    {
-      name: "state",
-      title: "State",
-      options: { collapsible: true, collapsed: false },
-    },
-    {
-      name: "minimum",
-      title: "Mandatory fields for minimum registration",
-      options: { collapsible: true, collapsed: false },
-    },
-  ],
+  fieldsets: defaultFieldsets,
   fields: [
     editorialState,
     accessState,
     label,
-    {
-      name: "hasType",
-      title: "Klassifisert som",
-      titleEN: "Classified as",
-      type: "array",
-      of: [
-        {
-          type: "reference",
-          to: [{ type: "typeClass" }],
-          options: {
-            filter:
-              'references(*[_type == "systemCategory" && label.nor in [$sysCat]]._id)',
-            filterParams: { sysCat: "Hendelsestype" },
-          },
-        },
-      ],
-      validation: (Rule) => Rule.required(),
-    },
     referredToBy,
     timespan,
     tookPlaceAt,

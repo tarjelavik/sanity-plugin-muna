@@ -1,6 +1,14 @@
 import { FaMapMarker } from "react-icons/fa";
 
-import { editorialState, accessState, label, referredToBy } from "../props";
+import {
+  editorialState,
+  accessState,
+  label,
+  referredToBy,
+  identifiedBy,
+  definedByGeoJSON,
+} from "../props";
+import { defaultFieldsets } from "../fieldsets";
 
 export default {
   title: "Place",
@@ -12,22 +20,12 @@ export default {
     accessState: "open",
   },
   icon: FaMapMarker,
-  fieldsets: [
-    {
-      name: "state",
-      title: "State",
-      options: { collapsible: true, collapsed: true },
-    },
-    {
-      name: "minimum",
-      title: "Minimumsregistrering",
-      options: { collapsible: true, collapsed: false },
-    },
-  ],
+  fieldsets: defaultFieldsets,
   fields: [
     editorialState,
     accessState,
     label,
+    identifiedBy,
     {
       name: "hasType",
       title: "Klassifisert som",
@@ -36,46 +34,12 @@ export default {
       of: [
         {
           type: "reference",
-          to: [{ type: "typeClass" }],
-          options: {
-            filter:
-              'references(*[_type == "systemCategory" && label.nor in [$sysCat]]._id)',
-            filterParams: { sysCat: "Stedstype" },
-          },
+          to: [{ type: "placeType" }],
         },
       ],
     },
     referredToBy,
-    {
-      name: "geoJSON",
-      title: "Lokasjon",
-      titleEN: "Location",
-      description: "Where the hell did this happen?!",
-      type: "feature",
-    },
-    {
-      name: "name",
-      title: "Navn",
-      titleEN: "Names",
-      description: "Add all known names and pseudonyms you wish",
-      type: "array",
-      of: [{ type: "name" }],
-      options: {
-        editModal: "popup",
-      },
-    },
-    {
-      name: "identifier",
-      title: "Identifikatorer",
-      titleEN: "Identifiers",
-      description:
-        "Add identifiers this actor is identified by, both internally and externally, like in KulturNav og VIAF.",
-      type: "array",
-      of: [{ type: "identifier" }],
-      options: {
-        editModal: "popup",
-      },
-    },
+    definedByGeoJSON,
   ],
   preview: {
     select: {

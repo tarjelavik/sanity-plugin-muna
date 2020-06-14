@@ -1,13 +1,20 @@
 import {FaCrown} from 'react-icons/fa'
-import { label } from "../props"
+import { label, labelSingleton, identifiedBy } from "../props"
+import { defaultFieldsets } from '../fieldsets'
+
+/**
+ * WIP
+ */
 
 export default {
   title: 'Work',
   name: 'work',
   type: 'document',
   icon: FaCrown,
+  fieldsets: defaultFieldsets,
   fields: [
-    label,
+    labelSingleton,
+    identifiedBy,
     {
       name: 'activityStream',
       title: 'Aktivitetsstrøm',

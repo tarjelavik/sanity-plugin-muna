@@ -6,53 +6,27 @@ import {
   label,
   timespan,
   referredToBy,
+  identifiedBy,
 } from "../props";
+import { defaultFieldsets } from "../fieldsets";
 
 export default {
   title: "Project",
   name: "project",
   type: "document",
   icon: FaProjectDiagram,
-  fieldsets: [
-    {
-      name: "state",
-      title: "Status",
-      options: { collapsible: true, collapsed: false },
-    },
-    {
-      name: "minimum",
-      title: "Felt for minimumsregistrering",
-      options: { collapsible: true, collapsed: false },
-    },
-  ],
+  fieldsets: defaultFieldsets,
   fields: [
     editorialState,
     accessState,
     label,
+    identifiedBy,
     {
       name: "active",
       title: "Pågående?",
       titleEN: "Ongoing?",
       type: "boolean",
       fieldset: "state",
-    },
-    {
-      name: "hasType",
-      title: "Klassifisert som",
-      titleEN: "Classified as",
-      type: "array",
-      of: [
-        {
-          type: "reference",
-          to: [{ type: "typeClass" }],
-          options: {
-            filter:
-              'references(*[_type == "systemCategory" && label.nor in [$sysCat]]._id)',
-            filterParams: { sysCat: "Prosjekttype" },
-          },
-        },
-      ],
-      validation: (Rule) => Rule.required(),
     },
     {
       name: "concerned",

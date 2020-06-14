@@ -6,7 +6,10 @@ import {
   label,
   referredToBy,
   tookPlaceAt,
+  preferredIdentifier,
+  identifiedBy,
 } from "../props";
+import { defaultFieldsets } from "../fieldsets";
 
 export default {
   title: "Storage",
@@ -18,22 +21,13 @@ export default {
     accessState: "secret",
   },
   icon: FaBox,
-  fieldsets: [
-    {
-      name: "state",
-      title: "State",
-      options: { collapsible: true, collapsed: false },
-    },
-    {
-      name: "minimum",
-      title: "Mandatory fields for minimum registration",
-      options: { collapsible: true, collapsed: false },
-    },
-  ],
+  fieldsets: defaultFieldsets,
   fields: [
     editorialState,
     accessState,
+    preferredIdentifier,
     label,
+    identifiedBy,
     {
       name: "hasType",
       title: "Klassifisert som",
@@ -42,12 +36,7 @@ export default {
       of: [
         {
           type: "reference",
-          to: [{ type: "typeClass" }],
-          options: {
-            filter:
-              'references(*[_type == "systemCategory" && label.nor in [$sysCat]]._id)',
-            filterParams: { sysCat: "Lagringstype" },
-          },
+          to: [{ type: "storageType" }],
         },
       ],
       validation: (Rule) => Rule.required(),

@@ -55,10 +55,6 @@
     },
     {
       "implements": "part:@sanity/base/schema-type",
-      "path": "documents/relocation.js"
-    },
-    {
-      "implements": "part:@sanity/base/schema-type",
       "path": "documents/storage.js"
     },
     {
@@ -71,11 +67,11 @@
     },
     {
       "implements": "part:@sanity/base/schema-type",
-      "path": "documents/writing.js"
+      "path": "documents/writtenText.js"
     },
     {
       "implements": "part:@sanity/base/schema-type",
-      "path": "documents/madeObject/madeObject.js"
+      "path": "documents/madeObject.js"
     },
     {
       "implements": "part:@sanity/base/schema-type",
@@ -115,7 +111,51 @@
     },
     {
       "implements": "part:@sanity/base/schema-type",
+      "path": "documents/types/acquisitionType.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "documents/types/activityType.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "documents/types/actorType.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "documents/types/conditionType.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
       "path": "documents/types/concept.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "documents/types/dimensionType.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "documents/types/eventType.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "documents/types/exhibitionType.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "documents/types/groupType.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "documents/types/identifierType.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "documents/types/measurementUnit.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "documents/types/objectType.js"
     },
     {
       "implements": "part:@sanity/base/schema-type",
@@ -127,11 +167,51 @@
     },
     {
       "implements": "part:@sanity/base/schema-type",
-      "path": "documents/types/systemCategory.js"
+      "path": "documents/types/placeType.js"
     },
     {
       "implements": "part:@sanity/base/schema-type",
-      "path": "documents/types/typeClass.js"
+      "path": "documents/types/role.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "documents/types/reportType.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "documents/types/sectionType.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "documents/types/storageType.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "documents/types/technique.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "documents/types/textType.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "iiif/annotation.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "iiif/annotationPage.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "iiif/canvas.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "iiif/painting.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "iiif/range.js"
     },
     {
       "implements": "part:@sanity/base/schema-type",
@@ -159,11 +239,11 @@
     },
     {
       "implements": "part:@sanity/base/schema-type",
-      "path": "objects/dimension.js"
+      "path": "objects/conditionState.js"
     },
     {
       "implements": "part:@sanity/base/schema-type",
-      "path": "objects/feature.js"
+      "path": "objects/dimension.js"
     },
     {
       "implements": "part:@sanity/base/schema-type",
@@ -172,6 +252,22 @@
     {
       "implements": "part:@sanity/base/schema-type",
       "path": "objects/geojson.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "objects/geojsonFeature.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "objects/geojsonFeatureCollection.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "objects/geojsonFeaturePoint.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "objects/geojsonProperties.js"
     },
     {
       "implements": "part:@sanity/base/schema-type",
@@ -199,19 +295,15 @@
     },
     {
       "implements": "part:@sanity/base/schema-type",
+      "path": "objects/visualObject.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
       "path": "objects/spacetimeVolume.js"
     },
     {
       "implements": "part:@sanity/base/schema-type",
       "path": "objects/timespan.js"
-    },
-    {
-      "implements": "part:@sanity/base/schema-type",
-      "path": "objects/valueSlider.js"
-    },
-    {
-      "implements": "part:@sanity/base/schema-type",
-      "path": "objects/activities/beginningActivity.js"
     },
     {
       "implements": "part:@sanity/base/schema-type",
@@ -227,11 +319,11 @@
     },
     {
       "implements": "part:@sanity/base/schema-type",
-      "path": "objects/activities/dissolution.js"
+      "path": "objects/activities/destruction.js"
     },
     {
       "implements": "part:@sanity/base/schema-type",
-      "path": "objects/activities/endingActivity.js"
+      "path": "objects/activities/dissolution.js"
     },
     {
       "implements": "part:@sanity/base/schema-type",
@@ -259,19 +351,11 @@
     },
     {
       "implements": "part:@sanity/base/schema-type",
-      "path": "singletons/siteSettings.js"
+      "path": "site/navigationItem.js"
     },
     {
       "implements": "part:@sanity/base/schema-type",
-      "path": "site/navItem.js"
-    },
-    {
-      "implements": "part:@sanity/base/schema-type",
-      "path": "site/navSection.js"
-    },
-    {
-      "implements": "part:@sanity/base/schema-type",
-      "path": "site/navigation.js"
+      "path": "site/navigationMenu.js"
     },
     {
       "implements": "part:@sanity/base/schema-type",
@@ -280,6 +364,22 @@
     {
       "implements": "part:@sanity/base/schema-type",
       "path": "site/route.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "site/page.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "site/post.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "site/siteSettings.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "site/plugs/hero.js"
     },
     {
       "implements": "part:@sanity/base/schema-type",

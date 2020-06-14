@@ -1,6 +1,7 @@
 import { FaClipboard } from "react-icons/fa";
 
-import { editorialState, accessState, label, referredToBy } from "../props";
+import { editorialState, accessState, label, referredToBy, labelSingleton, identifiedBy } from "../props";
+import { defaultFieldsets } from "../fieldsets";
 
 export default {
   title: "Design or procedure",
@@ -11,35 +12,12 @@ export default {
     accessState: "secret",
   },
   icon: FaClipboard,
-  fieldsets: [
-    {
-      name: "state",
-      title: "State",
-      options: { collapsible: true, collapsed: false },
-    },
-  ],
+  fieldsets: defaultFieldsets,
   fields: [
     editorialState,
     accessState,
-    label,
-    {
-      name: "hasType",
-      title: "Klassifisert som",
-      titleEN: "Classified as",
-      type: "array",
-      of: [
-        {
-          type: "reference",
-          to: [{ type: "typeClass" }],
-          options: {
-            filter:
-              'references(*[_type == "systemCategory" && label.nor in [$sysCat]]._id)',
-            filterParams: { sysCat: "Prosedyretype" },
-          },
-        },
-      ],
-      validation: (Rule) => Rule.required(),
-    },
+    labelSingleton,
+    identifiedBy,
     referredToBy,
     {
       name: "documentedIn",

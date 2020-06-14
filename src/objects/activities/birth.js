@@ -1,4 +1,5 @@
 import { timespan, carriedOutBy, tookPlaceAt, referredToBy } from "../../props";
+import { defaultFieldsets } from "../../fieldsets";
 
 var capitalize = require("capitalize");
 
@@ -6,18 +7,7 @@ export default {
   title: "Birth",
   name: "birth",
   type: "object",
-  fieldsets: [
-    {
-      name: "minimum",
-      title: "Minimumsregistrering",
-      options: { collapsible: true, collapsed: false },
-    },
-    {
-      name: "time",
-      title: "Time",
-      options: { collapsible: false, collapsed: false },
-    },
-  ],
+  fieldsets: defaultFieldsets,
   fields: [carriedOutBy, timespan, tookPlaceAt, referredToBy],
   preview: {
     select: {

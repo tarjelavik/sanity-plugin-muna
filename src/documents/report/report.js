@@ -8,8 +8,15 @@ import {
   usedObjectOfType,
   usedSpecificObject,
   referredToBy,
+  hasIdentified,
 } from "../../props";
 import { defaultFieldsets } from "../../fieldsets";
+
+
+/**
+ * Report
+ * A combination of E14_Condition_Assessment and E33_Linguistic_Object
+ */
 
 export default {
   title: "Report",
@@ -24,7 +31,6 @@ export default {
   fields: [
     editorialState,
     accessState,
-    label,
     {
       name: "concerned",
       title: "Omhandler",
@@ -38,6 +44,7 @@ export default {
         },
       ],
     },
+    label,
     {
       name: "hasType",
       title: "Klassifisert som",
@@ -46,24 +53,13 @@ export default {
       of: [
         {
           type: "reference",
-          to: [{ type: "typeClass" }],
-          options: {
-            filter:
-              'references(*[_type == "systemCategory" && label.nor in [$sysCat]]._id)',
-            filterParams: { sysCat: "Rapporttype" },
-          },
+          to: [{ type: "reportType" }],
         },
       ],
       validation: (Rule) => Rule.required(),
     },
     referredToBy,
-    {
-      name: "conditionAssignment",
-      title: "Tilstandsvurdering",
-      titleEN: "Condition assignment",
-      type: "array",
-      of: [{ type: "valueSlider" }],
-    },
+    hasIdentified,
     {
       name: "activityStream",
       title: "Aktivitetsstrøm",

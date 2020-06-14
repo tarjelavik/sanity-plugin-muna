@@ -13,12 +13,7 @@ export default {
       title: "Klassifisert som",
       titleEN: "Classified as",
       type: "reference",
-      to: [{ type: "typeClass" }],
-      options: {
-        filter:
-          'references(*[_type == "systemCategory" && label.nor in [$sysCat]]._id)',
-        filterParams: { sysCat: "Dimensjonstype" },
-      },
+      to: [{ type: "dimensionType" }],
       validation: (Rule) => Rule.required(),
     },
     {
@@ -32,10 +27,8 @@ export default {
       title: "Måleenhet",
       titleEN: "Measurement unit",
       description: "WIP, should use API",
-      type: "string",
-      options: {
-        list: units,
-      },
+      type: "reference",
+      to: [{ type: "measurementUnit" }],
       validation: (Rule) => Rule.required(),
     },
   ],

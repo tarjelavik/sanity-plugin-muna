@@ -1,6 +1,8 @@
 import { FaGlasses } from "react-icons/fa";
 
-import { editorialState, accessState, label, referredToBy } from "../props";
+import { editorialState, accessState, label, referredToBy, labelSingleton, identifiedBy, language } from "../props";
+import { defaultFieldsets } from "../fieldsets";
+import coalescedLabel from "../helpers/helpers";
 
 export default {
   title: "Exhibition",
@@ -12,17 +14,13 @@ export default {
     accessState: "secret",
   },
   icon: FaGlasses,
-  fieldsets: [
-    {
-      name: "state",
-      title: "State",
-      options: { collapsible: true, collapsed: false },
-    },
-  ],
+  fieldsets: defaultFieldsets,
   fields: [
     editorialState,
     accessState,
-    label,
+    labelSingleton,
+    identifiedBy,
+    language,
     {
       name: "creator",
       title: "Skaper",
@@ -40,13 +38,13 @@ export default {
   ],
   preview: {
     select: {
-      title: "label.nor",
+      title: "label",
     },
     prepare(selection) {
       const { title } = selection;
 
       return {
-        title: title,
+        title: coalescedLabel(title),
       };
     },
   },

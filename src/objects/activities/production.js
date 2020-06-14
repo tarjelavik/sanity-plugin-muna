@@ -6,6 +6,7 @@ import {
   usedGeneralTechnique,
   usedSpecificTechnique,
 } from "../../props";
+import { defaultFieldsets } from "../../fieldsets";
 
 var capitalize = require("capitalize");
 
@@ -13,19 +14,15 @@ export default {
   title: "Production",
   name: "production",
   type: "object",
-  fieldsets: [
-    {
-      name: "minimum",
-      title: "Minimumsregistrering",
-      options: { collapsible: true, collapsed: false },
-    },
-    {
-      name: "technique",
-      title: "Teknikk",
-      options: { collapsible: true, collapsed: false },
-    },
-  ],
+  fieldsets: defaultFieldsets,
   fields: [
+    {
+      name: "consistsOf",
+      title: "Underaktiviteter",
+      titleEN: "Sub activities",
+      type: "array",
+      of: [{ type: "production" }],
+    },
     {
       name: "hasType",
       title: "Klassifisert som",
@@ -34,7 +31,7 @@ export default {
       of: [
         {
           type: "reference",
-          to: [{ type: "typeClass" }],
+          to: [{ type: "eventType" }],
           options: {
             filter:
               'references(*[_type == "systemCategory" && label.nor in [$sysCat]]._id)',
@@ -45,13 +42,6 @@ export default {
     },
     carriedOutBy,
     timespan,
-    {
-      name: "geoJSON",
-      title: "Lokasjon",
-      titleEN: "Geographic features",
-      type: "array",
-      of: [{ type: "feature" }],
-    },
     tookPlaceAt,
     referredToBy,
     {

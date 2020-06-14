@@ -1,1 +1,1 @@
-module.exports = { "extends": "plugin:prettier/recommended" };
+export default { "extends": "plugin:prettier/recommended" };

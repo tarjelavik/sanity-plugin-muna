@@ -1,6 +1,7 @@
 import { FaUser } from "react-icons/fa";
 
-import { editorialState, accessState, referredToBy } from "../props";
+import { editorialState, accessState, referredToBy, labelSingleton, identifiedBy } from "../props";
+import { defaultFieldsets } from "../fieldsets";
 
 export default {
   title: "Actor",
@@ -11,28 +12,12 @@ export default {
     accessState: "secret",
   },
   icon: FaUser,
-  fieldsets: [
-    {
-      name: "state",
-      title: "State",
-      options: { collapsible: true, collapsed: false },
-    },
-    {
-      name: "minimum",
-      title: "Felt for minimumsregistrering",
-      options: { collapsible: true, collapsed: false },
-    },
-  ],
+  fieldsets: defaultFieldsets,
   fields: [
     editorialState,
     accessState,
-    {
-      name: "label",
-      title: "Visningsnavn",
-      titleEN: "Display name",
-      type: "string",
-      validation: (Rule) => Rule.required(),
-    },
+    labelSingleton,
+    identifiedBy,
     {
       name: "hasType",
       title: "Klassifisert som",
@@ -41,12 +26,7 @@ export default {
       of: [
         {
           type: "reference",
-          to: [{ type: "typeClass" }],
-          options: {
-            filter:
-              'references(*[_type == "systemCategory" && label.nor in [$sysCat]]._id)',
-            filterParams: { sysCat: "Aktørtype" },
-          },
+          to: [{ type: "actorType" }],
         },
       ],
     },
@@ -71,34 +51,13 @@ export default {
       of: [
         { type: "birth" },
         { type: "reference", to: [{ type: "activity" }] },
-        { type: "relocation" },
+        { type: "move" },
+        { type: "joining" },
+        { type: "leaving" },
         { type: "death" },
       ],
       options: {
         editModal: "fullscreen",
-      },
-    },
-    {
-      name: "name",
-      title: "Navn",
-      titleEN: "Names",
-      description: "Add all known names and pseudonyms you wish",
-      type: "array",
-      of: [{ type: "name" }],
-      options: {
-        editModal: "popup",
-      },
-    },
-    {
-      name: "identifier",
-      title: "Identifikatorer",
-      titleEN: "Identifiers",
-      description:
-        "Add identifiers this actor is identified by, both internally and externally, like in KulturNav og VIAF.",
-      type: "array",
-      of: [{ type: "identifier" }],
-      options: {
-        editModal: "popup",
       },
     },
   ],

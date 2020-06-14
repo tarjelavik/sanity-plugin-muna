@@ -17,16 +17,16 @@ export default {
     accessState,
     label,
     altLabel,
-    /* {
+    {
       name: 'broader',
       title: 'Overordnet term',
       titleEN: 'Broader',
       type: 'array',
       of: [
-        {type: 'reference', to: [{type: 'typeClass'}]}
+        {type: 'reference', to: [{type: 'concept'}]}
       ]
     },
-    {
+    /* {
       name: 'narrower',
       title: 'Underordnet term',
       titleEN: 'Narrower',
@@ -45,7 +45,7 @@ export default {
         {type: 'reference', to: [{type: 'typeClass'}]}
       ]
     }, */
-    /* {
+    {
       name: 'activityStream',
       title: 'Aktivitetsstrøm',
       titleEN: 'Activity stream',
@@ -54,7 +54,7 @@ export default {
       of: [
         {type: 'creation'}
       ]
-    } */
+    }
   ],
   preview: {
     select: {

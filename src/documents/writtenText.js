@@ -1,11 +1,11 @@
 import jsonata from "jsonata";
 import { FaMarker } from "react-icons/fa";
-import { editorialState, accessState } from "../props";
+import { editorialState, accessState, label, language, labelSingleton, identifiedBy } from "../props";
 import { defaultFieldsets } from "../fieldsets";
 
 export default {
   title: "Text",
-  name: "writing",
+  name: "writtenText",
   type: "document",
   initialValue: {
     editorialState: "workingDraft",
@@ -16,13 +16,8 @@ export default {
   fields: [
     editorialState,
     accessState,
-    {
-      name: "label",
-      title: "Tittel",
-      titleEN: "Title",
-      type: "localeString",
-      validation: (Rule) => Rule.required(),
-    },
+    labelSingleton,
+    identifiedBy,
     {
       name: "slug",
       title: "Slug",
@@ -48,13 +43,7 @@ export default {
         },
       ],
     },
-    {
-      name: "language",
-      title: "Språk",
-      titleEN: "Language",
-      type: "array",
-      of: [{ type: "reference", to: [{ type: "language" }] }],
-    },
+    language,
     {
       name: "hasType",
       title: "Klassifisert som",
@@ -63,12 +52,7 @@ export default {
       of: [
         {
           type: "reference",
-          to: [{ type: "typeClass" }],
-          options: {
-            filter:
-              'references(*[_type == "systemCategory" && label.nor in [$sysCat]]._id)',
-            filterParams: { sysCat: "Teksttype" },
-          },
+          to: [{ type: "textType" }],
         },
       ],
       validation: (Rule) => Rule.required(),
@@ -81,12 +65,7 @@ export default {
       of: [
         {
           type: "reference",
-          to: [{ type: "typeClass" }],
-          options: {
-            filter:
-              'references(*[_type == "systemCategory" && label.nor in [$sysCat]]._id)',
-            filterParams: { sysCat: "Kategorier" },
-          },
+          to: [{ type: "concept" }],
         },
       ],
     },

@@ -1,6 +1,9 @@
+import { valueSlider } from "../props"
+
 export default {
-  title: 'Slider',
-  name: 'valueSlider',
+  name: 'conditionState',
+  title: 'Tilstandsstatus',
+  titleEN: 'Condition state',
   type: 'object',
   fields: [
     {
@@ -8,24 +11,10 @@ export default {
       title: 'Klassifisert som',
       titleEN: 'Classified as',
       type: 'reference',
-      to: [{type: 'typeClass'}],
-      options: {
-        filter: 'references(*[_type == "systemCategory" && label.nor in [$sysCat]]._id)',
-        filterParams: {sysCat: 'Tilstandstype'}
-      },
+      to: [{type: 'conditionType'}],
       validation: Rule => Rule.required()
     },
-    {
-      name: 'condition',
-      title: 'Tilstand',
-      titleEN: 'Condition',
-      description: '1 is horrible, 100 is MINT!',
-      type: 'number',
-      options: {
-        layout: 'slider',
-        range: {min: 1, max: 100, step: 1}
-      }
-    },
+    valueSlider,
     {
       name: 'attributes',
       title: 'Egenskaper',
@@ -43,7 +32,7 @@ export default {
   preview: {
     select: {
       type: 'hasType.label.nor',
-      value: 'condition'
+      value: 'value'
     },
     prepare (selection) {
       const {type, value} = selection

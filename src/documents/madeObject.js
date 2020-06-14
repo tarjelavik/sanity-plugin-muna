@@ -7,10 +7,10 @@ import {
   editorialState,
   accessState,
   mainRepresentation,
-  mainManifest,
+  subjectOfManifest,
   preferredIdentifier,
   label,
-  rights,
+  license,
   subject,
   referredToBy,
   relation,
@@ -24,8 +24,10 @@ import {
   carries,
   measurement,
   consistsOf,
-} from "../../props";
-import { defaultFieldsets } from "../../fieldsets";
+  labelSingleton,
+  iiifStructures,
+} from "../props";
+import { defaultFieldsets } from "../fieldsets";
 
 export default {
   name: "madeObject",
@@ -43,9 +45,10 @@ export default {
     editorialState,
     accessState,
     mainRepresentation,
-    mainManifest,
+    subjectOfManifest,
+    iiifStructures,
     preferredIdentifier,
-    label,
+    labelSingleton,
     identifiedBy,
     {
       name: "hasType",
@@ -58,19 +61,14 @@ export default {
       of: [
         {
           type: "reference",
-          to: [{ type: "typeClass" }],
-          options: {
-            filter:
-              'references(*[_type == "systemCategory" && label.nor in [...($sysCat)]]._id)',
-            filterParams: { sysCat: ["Objekt-/verkstype", "Seksjonstype"] },
-          },
+          to: [{ type: "objectType" }],
         },
       ],
       validation: (Rule) => Rule.required(),
     },
     referredToBy,
     subject,
-    rights,
+    license,
     {
       name: "activityStream",
       title: "Aktivitetsstrøm",
@@ -84,7 +82,7 @@ export default {
         { type: "reference", to: [{ type: "acquisition" }] },
         { type: "move" },
         { type: "activity" },
-        { type: "endingActivity" },
+        { type: "destruction" },
       ],
     },
     relation,
@@ -100,7 +98,7 @@ export default {
   ],
   preview: {
     select: {
-      title: "label.nor",
+      title: "label",
       id: "preferredIdentifier",
       type: "hasType.0.label.nor",
       blocks: "description",

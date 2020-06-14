@@ -1,5 +1,6 @@
 import { FaUsers } from "react-icons/fa";
-import { accessState, label, editorialState, referredToBy } from "../props";
+import { accessState, label, editorialState, referredToBy, labelSingleton, identifiedBy } from "../props";
+import { defaultFieldsets } from "../fieldsets";
 
 export default {
   title: "Group",
@@ -10,22 +11,12 @@ export default {
     accessState: "secret",
   },
   icon: FaUsers,
-  fieldsets: [
-    {
-      name: "state",
-      title: "State",
-      options: { collapsible: true, collapsed: false },
-    },
-    {
-      name: "minimum",
-      title: "Felt for minimumsregistrering",
-      options: { collapsible: true, collapsed: false },
-    },
-  ],
+  fieldsets: defaultFieldsets,
   fields: [
     editorialState,
     accessState,
-    label,
+    labelSingleton,
+    identifiedBy,
     {
       name: "hasType",
       title: "Klassifisert som",
@@ -34,12 +25,7 @@ export default {
       of: [
         {
           type: "reference",
-          to: [{ type: "typeClass" }],
-          options: {
-            filter:
-              'references(*[_type == "systemCategory" && label.nor in [$sysCat]]._id)',
-            filterParams: { sysCat: "Gruppetype" },
-          },
+          to: [{ type: "groupType" }],
         },
       ],
       validation: (Rule) => Rule.required(),
@@ -55,7 +41,7 @@ export default {
         { type: "formation" },
         { type: "joining" },
         { type: "leaving" },
-        { type: "relocation" },
+        { type: "move" },
         { type: "dissolution" },
       ],
       options: {

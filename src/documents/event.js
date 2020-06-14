@@ -5,7 +5,10 @@ import {
   accessState,
   label,
   referredToBy,
+  labelSingleton,
+  identifiedBy,
 } from "../props";
+import { defaultFieldsets } from "../fieldsets";
 
 export default {
   title: "Event",
@@ -17,22 +20,12 @@ export default {
     accessState: "secret",
   },
   icon: FaCalendar,
-  fieldsets: [
-    {
-      name: "state",
-      title: "State",
-      options: { collapsible: true, collapsed: false },
-    },
-    {
-      name: "minimum",
-      title: "Mandatory fields for minimum registration",
-      options: { collapsible: true, collapsed: false },
-    },
-  ],
+  fieldsets: defaultFieldsets,
   fields: [
     editorialState,
     accessState,
-    label,
+    labelSingleton,
+    identifiedBy,
     {
       name: "hasType",
       title: "Klassifisert som",
@@ -41,12 +34,7 @@ export default {
       of: [
         {
           type: "reference",
-          to: [{ type: "typeClass" }],
-          options: {
-            filter:
-              'references(*[_type == "systemCategory" && label.nor in [$sysCat]]._id)',
-            filterParams: { sysCat: "Hendelsestype" },
-          },
+          to: [{ type: "eventType" }],
         },
       ],
       validation: (Rule) => Rule.required(),

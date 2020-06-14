@@ -9,7 +9,7 @@ export default {
   icon: GiExplosiveMaterials,
   fieldsets: defaultFieldsets,
   fields: [
-    label, 
+    label,
     altLabel
   ],
   preview: {

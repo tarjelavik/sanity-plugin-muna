@@ -49,6 +49,7 @@ export default {
       name: 'link',
       title: 'Lenke',
       titleEN: 'Link',
+      descriptionEN: 'Optional URL to use as the href for wrapping the media with an <a> tag.',
       type: 'url',
       options: {
         isHighlighted: true
@@ -58,6 +59,7 @@ export default {
       name: 'linkTarget',
       title: 'Lenkemål',
       titleEN: 'Link target',
+      descriptionEN: 'Optional target to be associated with link if used.',
       type: 'string',
       options: {
         isHighlighted: true

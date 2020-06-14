@@ -2,7 +2,7 @@ import { timespan, carriedOutBy, tookPlaceAt } from "../../props";
 
 export default {
   title: "Destruction",
-  name: "endingActivity",
+  name: "destruction",
   type: "object",
   fields: [
     {
@@ -13,12 +13,7 @@ export default {
       of: [
         {
           type: "reference",
-          to: [{ type: "typeClass" }],
-          options: {
-            filter:
-              'references(*[_type == "systemCategory" && label.nor in [$sysCat]]._id)',
-            filterParams: { sysCat: "Hendelsestype" },
-          },
+          to: [{ type: "eventType" }],
         },
       ],
     },

@@ -21,12 +21,7 @@ export default {
       of: [
         {
           type: "reference",
-          to: [{ type: "typeClass" }],
-          options: {
-            filter:
-              'references(*[_type == "systemCategory" && label.nor in [$sysCat]]._id)',
-            filterParams: { sysCat: "Identifikatortype" },
-          },
+          to: [{ type: "identifierType" }],
         },
       ],
       validation: (Rule) => Rule.required(),

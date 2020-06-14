@@ -1,5 +1,5 @@
 import { MdLocalActivity } from "react-icons/md";
-import { timespan, referredToBy, carriedOutBy, usedSpecificTechnique, usedGeneralTechnique, usedSpecificObject, label, tookPlaceAt, hadParticipant } from "../props";
+import { timespan, referredToBy, carriedOutBy, usedSpecificTechnique, usedGeneralTechnique, usedSpecificObject, label, tookPlaceAt, hadParticipant, usedObjectOfType, identifiedBy, labelSingleton } from "../props";
 import { defaultFieldsets } from "../fieldsets";
 
 export default {
@@ -9,7 +9,8 @@ export default {
   icon: MdLocalActivity,
   fieldsets: defaultFieldsets,
   fields: [
-    label,
+    labelSingleton,
+    identifiedBy,
     {
       name: "hasType",
       title: "Aktivitetstype",
@@ -18,12 +19,7 @@ export default {
       of: [
         {
           type: "reference",
-          to: [{ type: "typeClass" }],
-          options: {
-            filter:
-              'references(*[_type == "systemCategory" && label.nor in [$sysCat]]._id)',
-            filterParams: { sysCat: "Aktivitetstype" },
-          },
+          to: [{ type: "activityType" }],
         },
       ],
     },
@@ -80,25 +76,7 @@ export default {
         },
       ],
     },
-    {
-      name: "usedObjectOfType",
-      title: "Brukte objekt av type",
-      titleEN: "Used object of type",
-      description: "",
-      fieldset: "objects",
-      type: "array",
-      of: [
-        {
-          type: "reference",
-          to: [{ type: "typeClass" }],
-          options: {
-            filter:
-              'references(*[_type == "systemCategory" && label.nor in [$sysCat]]._id)',
-            filterParams: { sysCat: "Objekt-/verkstype" },
-          },
-        },
-      ],
-    },
+    usedObjectOfType,
     usedSpecificObject,
     usedGeneralTechnique,
     usedSpecificTechnique,
@@ -112,12 +90,7 @@ export default {
       of: [
         {
           type: "reference",
-          to: [{ type: "typeClass" }],
-          options: {
-            filter:
-              'references(*[_type == "systemCategory" && label.nor in [$sysCat]]._id)',
-            filterParams: { sysCat: "purposeType" },
-          },
+          to: [{ type: "concept" }],
         },
       ],
     },

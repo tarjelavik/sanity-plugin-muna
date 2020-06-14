@@ -1,16 +1,11 @@
 import { timespan, referredToBy, tookPlaceAt, carriedOutBy } from "../../props";
+import { defaultFieldsets } from "../../fieldsets";
 
 export default {
   title: "Measurement",
   name: "measurement",
   type: "object",
-  fieldsets: [
-    {
-      name: "minimum",
-      title: "Minimumsregistrering",
-      options: { collapsible: true, collapsed: false },
-    },
-  ],
+  fieldsets: defaultFieldsets,
   fields: [
     {
       name: "observedDimension",
@@ -27,12 +22,16 @@ export default {
   ],
   preview: {
     select: {
-      date: "date",
+      actor: "carriedOutBy.0.actor.label",
+      dimension: "observedDimension.0.hasType.label.nor",
+      unit: "observedDimension.0.hasUnit",
+      value: "observedDimension.0.value"
     },
     prepare(selection) {
-      const { date } = selection;
+      const { actor, dimension, unit, value } = selection;
       return {
-        title: `Measurement${date ? ", dated " + date : ""}`,
+        title: `Measurement ${actor ? 'by ' + actor : ''}`,
+        subtitle: `${dimension}: ${value} ${unit || ''}`,
       };
     },
   },

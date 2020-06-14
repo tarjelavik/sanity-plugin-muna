@@ -1,4 +1,5 @@
 import { timespan, tookPlaceAt, referredToBy } from "../../props";
+import { defaultFieldsets } from "../../fieldsets";
 
 var capitalize = require("capitalize");
 
@@ -6,13 +7,7 @@ export default {
   title: "Leaving",
   name: "leaving",
   type: "object",
-  fieldsets: [
-    {
-      name: "minimum",
-      title: "Minimumsregistrering",
-      options: { collapsible: true, collapsed: false },
-    },
-  ],
+  fieldsets: defaultFieldsets,
   fields: [
     {
       name: "hasType",
@@ -22,12 +17,7 @@ export default {
       of: [
         {
           type: "reference",
-          to: [{ type: "typeClass" }],
-          options: {
-            filter:
-              'references(*[_type == "systemCategory" && label.nor in [$sysCat]]._id)',
-            filterParams: { sysCat: "Hendelsestype" },
-          },
+          to: [{ type: "eventType" }],
         },
       ],
     },

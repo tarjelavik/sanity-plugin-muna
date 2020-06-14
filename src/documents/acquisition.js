@@ -1,5 +1,6 @@
 import { FaGifts } from "react-icons/fa";
-import { editorialState, accessState, timespan, label, referredToBy } from "../props";
+import { editorialState, accessState, timespan, label, referredToBy, labelSingleton, identifiedBy } from "../props";
+import { defaultFieldsets } from "../fieldsets";
 
 export default {
   title: "Acquisition",
@@ -10,22 +11,12 @@ export default {
     accessState: "secret",
   },
   icon: FaGifts,
-  fieldsets: [
-    {
-      name: "state",
-      title: "Status",
-      options: { collapsible: true, collapsed: false },
-    },
-    {
-      name: "minimum",
-      title: "Felt for minimumsregistrering",
-      options: { collapsible: true, collapsed: false },
-    },
-  ],
+  fieldsets: defaultFieldsets,
   fields: [
     editorialState,
     accessState,
-    label,
+    labelSingleton,
+    identifiedBy,
     {
       name: "hasType",
       title: "Klassifisert som",
@@ -34,12 +25,7 @@ export default {
       of: [
         {
           type: "reference",
-          to: [{ type: "typeClass" }],
-          options: {
-            filter:
-              'references(*[_type == "systemCategory" && label.nor in [$sysCat]]._id)',
-            filterParams: { sysCat: "Akkvisisjonstype" },
-          },
+          to: [{ type: "acquisitionType" }],
         },
       ],
     },

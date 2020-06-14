@@ -7,7 +7,10 @@ import {
   label,
   referredToBy,
   preferredIdentifier,
+  labelSingleton,
+  identifiedBy,
 } from "../props";
+import { defaultFieldsets } from "../fieldsets";
 
 export default {
   title: "Collection",
@@ -18,54 +21,13 @@ export default {
     accessState: "secret",
   },
   icon: GiBookshelf,
-  fieldsets: [
-    {
-      name: "state",
-      title: "State",
-      options: { collapsible: true, collapsed: false },
-    },
-    {
-      name: "minimum",
-      title: "Minimumsregistrering",
-      options: { collapsible: true, collapsed: false },
-    },
-    {
-      name: "additionalInformation",
-      title: "Alternative navn, identifikatorer og beskrivelser",
-      options: { collapsible: true, collapsed: true },
-    },
-  ],
+  fieldsets: defaultFieldsets,
   fields: [
     editorialState,
     accessState,
-    label,
-    {
-      name: "title",
-      title: "Titler",
-      titleEN: "Titles",
-      description: "Legg til alternative titler",
-      descriptionEN: "Add all known titles",
-      fieldset: "additionalInformation",
-      type: "array",
-      of: [{ type: "name" }],
-      options: {
-        editModal: "popup",
-      },
-    },
-    {
-      name: "identifiedBy",
-      title: "Identifikator",
-      titleEN: "Identifier",
-      description: "Legg til identifikator",
-      descriptionEN: "Add all known identifiers",
-      fieldset: "additionalInformation",
-      type: "array",
-      of: [{ type: "identifier" }],
-      options: {
-        editModal: "popup",
-      },
-    },
     preferredIdentifier,
+    labelSingleton,
+    identifiedBy,
     referredToBy,
     {
       name: "activityStream",
@@ -78,7 +40,7 @@ export default {
         { type: "transformation" },
         { type: "acquisition" },
         { type: "move" },
-        { type: "endingActivity" },
+        { type: "destruction" },
       ],
       options: {
         editModal: "fullscreen",

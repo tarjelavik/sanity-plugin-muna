@@ -1,5 +1,6 @@
 import { FaTruckLoading } from "react-icons/fa";
 import { timespan, editorialState, accessState, label, carriedOutBy, tookPlaceAt, referredToBy } from "../props";
+import { defaultFieldsets } from "../fieldsets";
 
 var capitalize = require("capitalize");
 
@@ -12,18 +13,7 @@ export default {
     accessState: "secret",
   },
   icon: FaTruckLoading,
-  fieldsets: [
-    {
-      name: "state",
-      title: "Status",
-      options: { collapsible: true, collapsed: false },
-    },
-    {
-      name: "minimum",
-      title: "Felt for minimumsregistrering",
-      options: { collapsible: true, collapsed: false },
-    },
-  ],
+  fieldsets: defaultFieldsets,
   fields: [
     editorialState,
     accessState,

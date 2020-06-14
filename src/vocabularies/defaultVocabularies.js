@@ -1,11 +1,11 @@
 export const supportedLanguages = [
   {id: 'nor', title: 'Norwegian', isDefault: true},
-  {id: 'sme', title: 'Sami'},
   {id: 'eng', title: 'English'},
+  {id: 'sme', title: 'Sami'},
   {id: 'ger', title: 'German'}
 ]
 
-export const rights = [
+export const licenseTypes = [
   {title: 'Public Domain Mark', value: 'https://creativecommons.org/publicdomain/mark/1.0/'},
   {title: 'CC0 1.0 - Public Domain Dedication', value: 'https://creativecommons.org/publicdomain/zero/1.0/'},
   {title: 'CC BY', value: 'https://creativecommons.org/licenses/by/4.0/'},
@@ -62,5 +62,5 @@ export default {
   units,
   appelationTypes,
   textTypes,
-  rights
+  licenseTypes
 }

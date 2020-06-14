@@ -1,4 +1,4 @@
-import { rights as rightsVocab } from "../vocabularies/defaultVocabularies";
+import { licenseTypes } from "../vocabularies/defaultVocabularies";
 
 const editorialState = {
   name: "editorialState",
@@ -9,12 +9,11 @@ const editorialState = {
   validation: (Rule) => Rule.required(),
   options: {
     list: [
-      { title: "Utkast", value: "workingDraft" },
-      { title: "Trenger gjennomgang", value: "review" },
       { title: "Publisert", value: "published" },
+      { title: "Til gjennomgang", value: "review" },
+      { title: "Utkast", value: "draft" },
     ],
     layout: "radio",
-    direction: "horizontal",
   },
 };
 
@@ -46,15 +45,23 @@ const mainRepresentation = {
   type: "mainRepresentation",
 };
 
-const mainManifest = {
+const subjectOfManifest = {
   title: "Hovedmanifest",
   titleEN: "Main manifest",
   description:
-    "Hovedmanifestet til objektet, for eksempel: https://digi.ub.uni-heidelberg.de/diglit/iiif/cpgraec132/manifest.json. Det kan også være en lenke til en sekvens eller et utvalg. For eksempel: https://digi.ub.uni-heidelberg.de/diglit/iiif/cpgraec132/range/r2",
+    "Hovedmanifestet til objektet, for eksempel: https://digi.ub.uni-heidelberg.de/diglit/iiif/cpgraec132/manifest.json.",
   descriptionEN: "The main manifest of this object",
   fieldset: "representation",
-  name: "mainManifest",
+  name: "subjectOfManifest",
   type: "url",
+};
+
+const iiifStructures = {
+  title: "IIIF structures",
+  name: "structures",
+  fieldset: "representation",
+  type: "array",
+  of: [{ type: "range" }],
 };
 
 const preferredIdentifier = {
@@ -80,6 +87,22 @@ const label = {
   type: "localeString",
   validation: (Rule) => Rule.required(),
 };
+
+const labelSingleton = {
+  name: "label",
+  title: "Tittel",
+  titleEN: "Title",
+  description: "",
+  descriptionEN: "",
+  fieldset: "minimum",
+  type: "string",
+  validation: (Rule) => Rule.required(),
+};
+
+/**
+ * Identified by
+ * P1_is_identified_by
+ */
 
 const identifiedBy = {
   name: "identifiedBy",
@@ -117,16 +140,21 @@ const hasType = {
   validation: (Rule) => Rule.required(),
 };
 
-const rights = {
-  name: "rights",
-  title: "Rettigheter og lisensiering",
-  titleEN: "Rights",
-  description: "Velg den korrekt lisensen eller rettighetserklæringen.",
+/**
+ * License
+ * dct:license
+ */
+
+const license = {
+  name: "license",
+  title: "Lisensiering",
+  titleEN: "License",
+  description: "Velg den korrekt lisensen eller rettighetserklæringen. ",
   descriptionEN: "Choose the correct lisense or mark",
   fieldset: "minimum",
   type: "string",
   options: {
-    list: rightsVocab,
+    list: licenseTypes,
   },
   validation: (Rule) => Rule.required(),
 };
@@ -156,7 +184,7 @@ const referredToBy = {
   type: "array",
   of: [
     { type: "linguisticObject" },
-    { type: "reference", to: [{ type: "writing" }] },
+    { type: "reference", to: [{ type: "text" }] },
   ],
   options: {
     editModal: "fullscreen",
@@ -217,13 +245,13 @@ const isSubjectOf = {
   title: "Omhandlet i",
   titleEN: "Subject of",
   description: "Tekster om dette objektet",
-  descriptionEN: "Texts about this object, both internal and other texts",
+  descriptionEN: "Texts that have this object as its main subject, both internal and other texts",
   fieldset: "additionalInformation",
   type: "array",
   of: [
     {
       type: "reference",
-      to: [{ type: "linguisticObject" }],
+      to: [{ type: "writtenText" }],
     },
   ],
 };
@@ -233,7 +261,7 @@ const depicts = {
   title: "Avbilder",
   titleEN: "Depicts",
   type: "array",
-  fieldset: "visualObject",
+  fieldset: "additionalInformation",
   of: [
     {
       type: "reference",
@@ -241,7 +269,7 @@ const depicts = {
         { type: "madeObject" },
         { type: "actor" },
         { type: "group" },
-        { type: "typeClass" },
+        { type: "concept" },
       ],
     },
   ],
@@ -259,7 +287,7 @@ const represents = {
         { type: "madeObject" },
         { type: "actor" },
         { type: "group" },
-        { type: "typeClass" },
+        { type: "concept" },
       ],
     },
   ],
@@ -270,8 +298,8 @@ const showsVisualObject = {
   title: "Viser merke eller bilde",
   titleEN: "Shown visual item",
   type: "array",
-  fieldset: "visualObject",
-  of: [{ type: "visualItem" }],
+  fieldset: "additionalInformation",
+  of: [{ type: "visualObject" }],
 };
 
 const carries = {
@@ -279,7 +307,7 @@ const carries = {
   title: "Bærer verk",
   titleEN: "Carries work",
   type: "array",
-  fieldset: "linguisticObject",
+  fieldset: "additionalInformation",
   of: [{ type: "reference", to: [{ type: "work" }] }],
 };
 
@@ -318,12 +346,7 @@ const usedGeneralTechnique = {
   of: [
     {
       type: "reference",
-      to: [{ type: "typeClass" }],
-      options: {
-        filter:
-          'references(*[_type == "systemCategory" && label.nor in [$sysCat]]._id)',
-        filterParams: { sysCat: "Teknikk" },
-      },
+      to: [{ type: "technique" }],
     },
   ],
 };
@@ -346,12 +369,7 @@ const usedObjectOfType = {
   of: [
     {
       type: "reference",
-      to: [{ type: "typeClass" }],
-      options: {
-        filter:
-          'references(*[_type == "systemCategory" && label.nor in [$sysCat]]._id)',
-        filterParams: { sysCat: "Objekt-/verkstype" },
-      },
+      to: [{ type: "objectType" }],
     },
   ],
 };
@@ -402,6 +420,9 @@ const tookPlaceAt = {
   of: [{ type: "reference", to: [{ type: "place" }] }],
 };
 
+/**
+ * skos:altLabel
+ */
 const altLabel = {
   name: "altLabel",
   title: "Alternativt navn",
@@ -409,16 +430,91 @@ const altLabel = {
   type: "localeString",
 };
 
+/**
+ * P35_has_identified
+ */
+const hasIdentified = {
+  name: "hasIdentified",
+  title: "Identifiserte tilstander",
+  titleEN: "Has identified condition states",
+  type: "array",
+  of: [{ type: "conditionState" }],
+};
+
+const valueSlider = {
+  name: "value",
+  title: "Verdi",
+  titleEN: "Value",
+  description: "1 is horrible, 100 is MINT!",
+  type: "number",
+  options: {
+    layout: "slider",
+    range: { min: 1, max: 100, step: 1 },
+  },
+};
+
+const language = {
+  name: "language",
+  title: "Språk",
+  titleEN: "Language",
+  type: "array",
+  of: [{ type: "reference", to: [{ type: "language" }] }],
+};
+
+const memberOf = {
+  name: "memberOf",
+  title: "Medlem av",
+  titleEN: "Member of",
+  type: "array",
+  of: [{ type: "reference", to: [{ type: "group" }] }],
+};
+
+const broader = {
+  name: "broader",
+  title: "Overordnet term",
+  titleEN: "Broader",
+  type: "array",
+  of: [{ type: "reference", to: [{ type: "typeClass" }] }],
+};
+
+const narrower = {
+  name: "narrower",
+  title: "Underordnet term",
+  titleEN: "Narrower",
+  description: "Trenger vi narrower? Blir mye å registrere...",
+  type: "array",
+  of: [{ type: "reference", to: [{ type: "typeClass" }] }],
+};
+
+const domain = {
+  name: "domain",
+  title: "Domene",
+  titleEN: "Domain",
+  type: "array",
+  of: [{ type: "reference", to: [{ type: "typeClass" }] }],
+};
+
+const definedByGeoJSON = {
+  name: "definedByGeoJSON",
+  title: "GeoJSON",
+  titleEN: "GeoJSON",
+  description: "Lag et GeoJSON objekt eller lim inn en hel GeoJSON fil.",
+  type: "array",
+  of: [{ type: "geojsonFeatureCollection" }, { type: "geojson" }],
+};
+
 export {
   editorialState,
   accessState,
   mainRepresentation,
-  mainManifest,
+  subjectOfManifest,
+  iiifStructures,
   preferredIdentifier,
   label,
+  labelSingleton,
   identifiedBy,
   hasType,
-  rights,
+  license,
   subject,
   referredToBy,
   relation,
@@ -441,4 +537,12 @@ export {
   hadParticipant,
   tookPlaceAt,
   altLabel,
+  hasIdentified,
+  valueSlider,
+  language,
+  memberOf,
+  broader,
+  narrower,
+  domain,
+  definedByGeoJSON,
 };

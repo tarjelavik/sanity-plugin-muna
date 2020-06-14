@@ -1,4 +1,4 @@
-import { label } from "../props"
+import { label, definedByGeoJSON } from "../props"
 
 export default {
   title: 'Presence',
@@ -40,13 +40,7 @@ export default {
         }
       ]
     },
-    {
-      name: 'data',
-      title: 'Data',
-      titleEN: 'Data',
-      description: 'Besøk geojson.io/ og konstruér din geoJSON. Lag punkt, linjer, rekangler eller polygon for å fortelle din historie.',
-      type: 'code'
-    }
+    definedByGeoJSON,
   ],
   preview: {
     select: {
