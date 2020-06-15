@@ -3,7 +3,7 @@ module.exports = {
   tagline: 'Muna (remember) is a Sanity schema for describing and presenting cultural heritage objects.',
   url: 'https://tarjelavik.github.io.',
   baseUrl: '/',
-  // favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.ico',
   organizationName: 'tarjelavik', // Usually your GitHub org/user name.
   projectName: 'sanity-plugin-muna', // Usually your repo name.
   themeConfig: {
