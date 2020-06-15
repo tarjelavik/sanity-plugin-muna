@@ -6,10 +6,15 @@ Muna tries to combine the expressiveness of CIDOC-CRM and the customizable edito
 
 ***Warning!*** Muna will be unstable for some time. Fork and do you own thing or [suggest improvements!](https://github.com/tarjelavik/sanity-plugin-muna/issues) 
 
+## Documentation
+
+Visit [muna-docs.vercel.app](https://muna-docs.vercel.app) for documentation.
+
+## Install
+
 ```bash
 npm install -g @sanity/cli
 sanity init
-# npm install react-icons --save
 sanity install muna
 sanity start
 ```
