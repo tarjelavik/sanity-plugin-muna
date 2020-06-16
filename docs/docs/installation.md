@@ -9,8 +9,10 @@ sidebar_label: Installation
 ```bash
 npm install -g @sanity/cli
 sanity init
-# npm install react-icons --save
 sanity install muna
+# Add some other Sanity plugins
+sanity install @sanity/code-input
+sanity install @sanity/color-input
 sanity start
 ```
 

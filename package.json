@@ -35,8 +35,8 @@
   },
   "dependencies": {
     "capitalize": "^2.0.3",
-    "jsonata": "^1.8.3",
     "dayjs": "^1.8.26",
+    "jsonata": "^1.8.3",
     "lodash": "^4.17.15",
     "react-icons": "^3.7.0",
     "react-instagram-embed": "^1.5.0"

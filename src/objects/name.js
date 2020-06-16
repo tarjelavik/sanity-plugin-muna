@@ -18,7 +18,8 @@ export default {
       title: "Type",
       titleEN: "Type",
       type: "reference",
-      to: "appelationType"
+      to: [{type: "appelationType"}]
+      
     },
     {
       name: "language",
