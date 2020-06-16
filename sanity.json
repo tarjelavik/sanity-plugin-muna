@@ -123,6 +123,10 @@
     },
     {
       "implements": "part:@sanity/base/schema-type",
+      "path": "documents/types/appelationType.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
       "path": "documents/types/conditionType.js"
     },
     {

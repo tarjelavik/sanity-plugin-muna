@@ -1,4 +1,3 @@
-import { appelationTypes } from "../vocabularies/defaultVocabularies";
 import { timespan, referredToBy } from "../props";
 import { defaultFieldsets } from "../fieldsets";
 
@@ -18,11 +17,8 @@ export default {
       name: "hasType",
       title: "Type",
       titleEN: "Type",
-      type: "string",
-      options: {
-        list: appelationTypes,
-        layout: "dropdown",
-      },
+      type: "reference",
+      to: "appelationType"
     },
     {
       name: "language",
@@ -42,8 +38,7 @@ export default {
     prepare(selection) {
       const { type, name } = selection;
       return {
-        title: `${name}`,
-        subtitle: `${appelationTypes.find((id) => id.value === type).title}`,
+        title: `${name}`
       };
     },
   },

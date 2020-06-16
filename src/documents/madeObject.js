@@ -26,8 +26,8 @@ import {
   consistsOf,
   labelSingleton,
   iiifStructures,
-} from "../props";
-import { defaultFieldsets } from "../fieldsets";
+} from "../../props";
+import { defaultFieldsets } from "../../fieldsets";
 
 export default {
   name: "madeObject",
@@ -44,9 +44,6 @@ export default {
   fields: [
     editorialState,
     accessState,
-    mainRepresentation,
-    subjectOfManifest,
-    iiifStructures,
     preferredIdentifier,
     labelSingleton,
     identifiedBy,
@@ -69,6 +66,9 @@ export default {
     referredToBy,
     subject,
     license,
+    mainRepresentation,
+    subjectOfManifest,
+    iiifStructures,
     {
       name: "activityStream",
       title: "Aktivitetsstrøm",
