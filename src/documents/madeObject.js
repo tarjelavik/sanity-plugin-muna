@@ -26,7 +26,7 @@ import {
   consistsOf,
   labelSingleton,
   iiifStructures,
-} from "../../props";
+} from "../props";
 import { defaultFieldsets } from "../fieldsets";
 
 export default {
