@@ -27,7 +27,7 @@ import {
   labelSingleton,
   iiifStructures,
 } from "../../props";
-import { defaultFieldsets } from "../../fieldsets";
+import { defaultFieldsets } from "../fieldsets";
 
 export default {
   name: "madeObject",
