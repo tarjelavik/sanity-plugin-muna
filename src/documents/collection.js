@@ -20,7 +20,7 @@ export default {
     editorialState: "workingDraft",
     accessState: "secret",
   },
-  icon: GiBookshelf,
+  // icon: GiBookshelf,
   fieldsets: defaultFieldsets,
   fields: [
     editorialState,

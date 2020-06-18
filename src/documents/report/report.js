@@ -26,7 +26,7 @@ export default {
     editorialState: "workingDraft",
     accessState: "secret",
   },
-  icon: GiCrackedGlass,
+  // icon: GiCrackedGlass,
   fieldsets: defaultFieldsets,
   fields: [
     editorialState,

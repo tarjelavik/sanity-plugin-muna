@@ -19,7 +19,6 @@ export default {
       titleEN: "Type",
       type: "reference",
       to: [{type: "appelationType"}]
-      
     },
     {
       name: "language",

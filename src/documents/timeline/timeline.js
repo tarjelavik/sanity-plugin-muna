@@ -9,7 +9,7 @@ export default {
     editorialState: "workingDraft",
     accessState: "secret",
   },
-  icon: GiCalendar,
+  // icon: GiCalendar,
   fieldsets: [
     {
       name: "state",

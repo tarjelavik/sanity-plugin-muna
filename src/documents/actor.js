@@ -11,7 +11,7 @@ export default {
     editorialState: "workingDraft",
     accessState: "secret",
   },
-  icon: FaUser,
+  // icon: FaUser,
   fieldsets: defaultFieldsets,
   fields: [
     editorialState,

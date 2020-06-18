@@ -39,7 +39,7 @@ export default {
     editorialState: "workingDraft",
     accessState: "secret",
   },
-  icon: FaBookDead,
+  // icon: FaBookDead,
   fieldsets: defaultFieldsets,
   fields: [
     editorialState,

@@ -13,7 +13,7 @@ export default {
     editorialState: "workingDraft",
     accessState: "secret",
   },
-  icon: FaGlasses,
+  // icon: FaGlasses,
   fieldsets: defaultFieldsets,
   fields: [
     editorialState,

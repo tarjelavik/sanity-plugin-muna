@@ -19,7 +19,7 @@ export default {
     editorialState: "workingDraft",
     accessState: "secret",
   },
-  icon: FaCalendar,
+  // icon: FaCalendar,
   fieldsets: defaultFieldsets,
   fields: [
     editorialState,

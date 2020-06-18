@@ -12,7 +12,7 @@ export default {
     editorialState: "workingDraft",
     accessState: "secret",
   },
-  icon: FaTruckLoading,
+  // icon: FaTruckLoading,
   fieldsets: defaultFieldsets,
   fields: [
     editorialState,

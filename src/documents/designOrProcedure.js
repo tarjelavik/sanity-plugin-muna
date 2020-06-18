@@ -11,7 +11,7 @@ export default {
     editorialState: "workingDraft",
     accessState: "secret",
   },
-  icon: FaClipboard,
+  // icon: FaClipboard,
   fieldsets: defaultFieldsets,
   fields: [
     editorialState,

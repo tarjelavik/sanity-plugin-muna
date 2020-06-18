@@ -10,7 +10,7 @@ export default {
     editorialState: 'workingDraft',
     accessState: 'secret'
   },
-  icon: FaTag,
+  // icon: FaTag,
   fieldsets: defaultFieldsets,
   fields: [
     editorialState,

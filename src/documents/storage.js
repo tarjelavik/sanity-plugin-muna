@@ -20,7 +20,7 @@ export default {
     editorialState: "published",
     accessState: "secret",
   },
-  icon: FaBox,
+  // icon: FaBox,
   fieldsets: defaultFieldsets,
   fields: [
     editorialState,

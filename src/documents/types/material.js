@@ -6,7 +6,7 @@ export default {
   title: "Material",
   name: "material",
   type: "document",
-  icon: GiExplosiveMaterials,
+  // icon: GiExplosiveMaterials,
   fieldsets: defaultFieldsets,
   fields: [
     label,

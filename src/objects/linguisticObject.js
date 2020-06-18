@@ -7,7 +7,7 @@ export default {
   title: "Text",
   name: "linguisticObject",
   type: "object",
-  icon: FaMarker,
+  // icon: FaMarker,
   fieldsets: defaultFieldsets,
   fields: [
     editorialState,

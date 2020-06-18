@@ -10,7 +10,7 @@ export default {
   title: 'Work',
   name: 'work',
   type: 'document',
-  icon: FaCrown,
+  // icon: FaCrown,
   fieldsets: defaultFieldsets,
   fields: [
     labelSingleton,

@@ -31,7 +31,7 @@ export default {
             title: "Highlight",
             value: "highlight",
             blockEditor: {
-              icon: highlightIcon,
+              // icon: highlightIcon,
               render: highlightRender,
             },
           },

@@ -10,7 +10,7 @@ export default {
     editorialState: "workingDraft",
     accessState: "secret",
   },
-  icon: FaGifts,
+  // icon: FaGifts,
   fieldsets: defaultFieldsets,
   fields: [
     editorialState,

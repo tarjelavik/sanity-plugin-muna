@@ -19,7 +19,7 @@ export default {
     editorialState: "published",
     accessState: "open",
   },
-  icon: FaMapMarker,
+  // icon: FaMapMarker,
   fieldsets: defaultFieldsets,
   fields: [
     editorialState,

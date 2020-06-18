@@ -7,7 +7,7 @@ export default {
   title: "Visual object",
   name: "visualObject",
   type: "object",
-  icon: FaImage,
+  // icon: FaImage,
   fieldsets: defaultFieldsets,
   fields: [represents, label, mainRepresentation, referredToBy],
   preview: {
