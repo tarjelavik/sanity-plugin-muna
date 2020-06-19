@@ -1,10 +1,8 @@
-import client from "part:@sanity/base/client";
-import { GiBookshelf } from "react-icons/gi";
+// import { GiBookshelf } from "react-icons/gi";
 
 import {
   editorialState,
   accessState,
-  label,
   referredToBy,
   preferredIdentifier,
   labelSingleton,

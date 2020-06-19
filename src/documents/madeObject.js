@@ -1,7 +1,5 @@
 import jsonata from "jsonata";
-/* import client from 'part:@sanity/base/client' */
-
-import { FaBookDead } from "react-icons/fa";
+// import { FaBookDead } from "react-icons/fa";
 
 import {
   editorialState,

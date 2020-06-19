@@ -1,4 +1,4 @@
-import {FaTag} from 'react-icons/fa'
+// import {FaTag} from 'react-icons/fa'
 import { editorialState, accessState, label, altLabel } from "../../props"
 import { defaultFieldsets } from '../../fieldsets'
 

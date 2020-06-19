@@ -1,5 +1,5 @@
+// import { FaMarker } from "react-icons/fa";
 import jsonata from "jsonata";
-import { FaMarker } from "react-icons/fa";
 import { editorialState, accessState, label, language, labelSingleton, identifiedBy } from "../props";
 import { defaultFieldsets } from "../fieldsets";
 

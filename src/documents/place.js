@@ -1,4 +1,4 @@
-import { FaMapMarker } from "react-icons/fa";
+// import { FaMapMarker } from "react-icons/fa";
 
 import {
   editorialState,

@@ -1,4 +1,4 @@
-import { FaLanguage } from "react-icons/fa";
+// import { FaLanguage } from "react-icons/fa";
 import { label, altLabel } from "../../props";
 import { defaultFieldsets } from "../../fieldsets";
 

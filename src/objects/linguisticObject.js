@@ -1,13 +1,10 @@
-import jsonata from "jsonata";
-import { FaMarker } from "react-icons/fa";
-import { editorialState, accessState, label } from "../props";
+import { editorialState, accessState } from "../props";
 import { defaultFieldsets } from "../fieldsets";
 
 export default {
   title: "Text",
   name: "linguisticObject",
   type: "object",
-  // icon: FaMarker,
   fieldsets: defaultFieldsets,
   fields: [
     editorialState,

@@ -1,5 +1,3 @@
-import { FaImage } from "react-icons/fa";
-
 import { mainRepresentation, label, represents, referredToBy } from "../props";
 import { defaultFieldsets } from "../fieldsets";
 
@@ -7,7 +5,6 @@ export default {
   title: "Visual object",
   name: "visualObject",
   type: "object",
-  // icon: FaImage,
   fieldsets: defaultFieldsets,
   fields: [represents, label, mainRepresentation, referredToBy],
   preview: {

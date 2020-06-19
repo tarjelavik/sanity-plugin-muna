@@ -1,4 +1,4 @@
-import { GiCalendar } from "react-icons/gi";
+// import { GiCalendar } from "react-icons/gi";
 import { editorialState, accessState } from "../../props";
 
 export default {

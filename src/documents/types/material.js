@@ -1,4 +1,4 @@
-import { GiExplosiveMaterials } from "react-icons/gi";
+// import { GiExplosiveMaterials } from "react-icons/gi";
 import { label, altLabel } from "../../props";
 import { defaultFieldsets } from "../../fieldsets";
 

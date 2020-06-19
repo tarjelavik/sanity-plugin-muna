@@ -1,5 +1,4 @@
-import { FaUser } from "react-icons/fa";
-
+// import { FaUser } from "react-icons/fa";
 import { editorialState, accessState, referredToBy, labelSingleton, identifiedBy } from "../props";
 import { defaultFieldsets } from "../fieldsets";
 

@@ -1,4 +1,4 @@
-import { FaTruckLoading } from "react-icons/fa";
+// import { FaTruckLoading } from "react-icons/fa";
 import { timespan, editorialState, accessState, label, carriedOutBy, tookPlaceAt, referredToBy } from "../props";
 import { defaultFieldsets } from "../fieldsets";
 

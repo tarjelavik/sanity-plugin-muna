@@ -1,4 +1,4 @@
-import {FaCrown} from 'react-icons/fa'
+// import { FaCrown } from 'react-icons/fa'
 import { label, labelSingleton, identifiedBy } from "../props"
 import { defaultFieldsets } from '../fieldsets'
 

@@ -1,4 +1,4 @@
-import { FaProjectDiagram } from "react-icons/fa";
+// import { FaProjectDiagram } from "react-icons/fa";
 
 import {
   editorialState,

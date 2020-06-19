@@ -1,5 +1,4 @@
-import { FaClipboard } from "react-icons/fa";
-
+// import { FaClipboard } from "react-icons/fa";
 import { editorialState, accessState, label, referredToBy, labelSingleton, identifiedBy } from "../props";
 import { defaultFieldsets } from "../fieldsets";
 

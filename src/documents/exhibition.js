@@ -1,5 +1,4 @@
-import { FaGlasses } from "react-icons/fa";
-
+// import { FaGlasses } from "react-icons/fa";
 import { editorialState, accessState, label, referredToBy, labelSingleton, identifiedBy, language } from "../props";
 import { defaultFieldsets } from "../fieldsets";
 import coalescedLabel from "../helpers/helpers";
