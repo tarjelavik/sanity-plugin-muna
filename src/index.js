@@ -12,7 +12,6 @@ export { default as period } from 'documents/period.js'
 export { default as place } from 'documents/place.js'
 export { default as project } from 'documents/project.js'
 export { default as storage } from 'documents/storage.js'
-export { default as visualItem } from 'documents/visualItem.js'
 export { default as work } from 'documents/work.js'
 export { default as writtenText } from 'documents/writtenText.js'
 
