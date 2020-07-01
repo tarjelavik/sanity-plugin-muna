@@ -59,6 +59,10 @@
     },
     {
       "implements": "part:@sanity/base/schema-type",
+      "path": "documents/visualItem.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
       "path": "documents/work.js"
     },
     {
