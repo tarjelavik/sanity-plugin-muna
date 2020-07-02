@@ -7,10 +7,9 @@ export default {
   fieldsets: defaultFieldsets,
   fields: [
     {
-      title: 'items',
-      name: 'items',
-      type: 'array',
-      of: [{type: 'annotation'}]
+      title: 'Body',
+      name: 'body',
+      type: 'painting'
     }
   ],
 };
