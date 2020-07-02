@@ -3,7 +3,10 @@
     "source": "./src",
     "compiled": "./lib"
   },
-
+  "plugins": [
+    "@sanity/code-input",
+    "@sanity/color-input"
+  ],
   "parts": [
     {
       "implements": "part:@sanity/base/schema-type",
