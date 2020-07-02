@@ -23,7 +23,7 @@ export default {
       title: "Overordnet term",
       titleEN: "Broader",
       type: "array",
-      of: [{ type: "reference", to: [{ type: "textType" }] }],
+      of: [{ type: "reference", to: [{ type: "identifierType" }] }],
     },
     {
       name: "activityStream",
