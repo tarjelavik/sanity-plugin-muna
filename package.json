@@ -35,6 +35,8 @@
     "react": "^16.13.1"
   },
   "dependencies": {
+    "@sanity/code-input": "^1.149.16",
+    "@sanity/color-input": "^1.149.16",
     "capitalize": "^2.0.3",
     "dayjs": "^1.8.26",
     "jsonata": "^1.8.3",
