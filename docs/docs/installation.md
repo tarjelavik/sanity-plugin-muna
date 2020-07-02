@@ -10,9 +10,6 @@ sidebar_label: Installation
 npm install -g @sanity/cli
 sanity init
 sanity install muna
-# Add some other Sanity plugins
-sanity install @sanity/code-input
-sanity install @sanity/color-input
 sanity start
 ```
 
