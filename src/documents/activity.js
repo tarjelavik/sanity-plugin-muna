@@ -1,4 +1,4 @@
-// import { MdLocalActivity } from "react-icons/md";
+import { MdLocalActivity } from "react-icons/md";
 import { timespan, referredToBy, carriedOutBy, usedSpecificTechnique, usedGeneralTechnique, usedSpecificObject, label, tookPlaceAt, hadParticipant, usedObjectOfType, identifiedBy, labelSingleton } from "../props";
 import { defaultFieldsets } from "../fieldsets";
 
@@ -6,7 +6,7 @@ export default {
   title: "Activity",
   name: "activity",
   type: "document",
-  // icon: MdLocalActivity,
+  icon: MdLocalActivity,
   fieldsets: defaultFieldsets,
   fields: [
     labelSingleton,

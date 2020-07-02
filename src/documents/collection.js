@@ -1,4 +1,4 @@
-// import { GiBookshelf } from "react-icons/gi";
+import { GiBookshelf } from "react-icons/gi";
 
 import {
   editorialState,
@@ -18,7 +18,7 @@ export default {
     editorialState: "workingDraft",
     accessState: "secret",
   },
-  // icon: GiBookshelf,
+  icon: GiBookshelf,
   fieldsets: defaultFieldsets,
   fields: [
     editorialState,

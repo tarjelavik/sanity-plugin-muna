@@ -1,4 +1,4 @@
-// import { FaTag } from "react-icons/fa";
+import { FaTag } from "react-icons/fa";
 import { editorialState, accessState, label, altLabel, broader, domain } from "../../props";
 import { defaultFieldsets } from "../../fieldsets";
 import coalescedLabel from "../../helpers/helpers";
@@ -11,7 +11,7 @@ export default {
     editorialState: "workingDraft",
     accessState: "secret",
   },
-  // icon: FaTag,
+  icon: FaTag,
   fieldsets: defaultFieldsets,
   fields: [
     editorialState,

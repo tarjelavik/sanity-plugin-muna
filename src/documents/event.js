@@ -1,4 +1,4 @@
-// import { FaCalendar } from "react-icons/fa";
+import { FaCalendar } from "react-icons/fa";
 import {
   timespan,
   editorialState,
@@ -19,7 +19,7 @@ export default {
     editorialState: "workingDraft",
     accessState: "secret",
   },
-  // icon: FaCalendar,
+  icon: FaCalendar,
   fieldsets: defaultFieldsets,
   fields: [
     editorialState,

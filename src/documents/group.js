@@ -1,4 +1,4 @@
-// import { FaUsers } from "react-icons/fa";
+import { FaUsers } from "react-icons/fa";
 import { accessState, label, editorialState, referredToBy, labelSingleton, identifiedBy } from "../props";
 import { defaultFieldsets } from "../fieldsets";
 
@@ -10,7 +10,7 @@ export default {
     editorialState: "workingDraft",
     accessState: "secret",
   },
-  // icon: FaUsers,
+  icon: FaUsers,
   fieldsets: defaultFieldsets,
   fields: [
     editorialState,

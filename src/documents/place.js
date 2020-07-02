@@ -1,4 +1,4 @@
-// import { FaMapMarker } from "react-icons/fa";
+import { FaMapMarker } from "react-icons/fa";
 
 import {
   editorialState,
@@ -19,7 +19,7 @@ export default {
     editorialState: "published",
     accessState: "open",
   },
-  // icon: FaMapMarker,
+  icon: FaMapMarker,
   fieldsets: defaultFieldsets,
   fields: [
     editorialState,

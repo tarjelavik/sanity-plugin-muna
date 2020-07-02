@@ -1,4 +1,4 @@
-// import { FaBox } from "react-icons/fa";
+import { FaBox } from "react-icons/fa";
 import {
   timespan,
   editorialState,
@@ -20,7 +20,7 @@ export default {
     editorialState: "published",
     accessState: "secret",
   },
-  // icon: FaBox,
+  icon: FaBox,
   fieldsets: defaultFieldsets,
   fields: [
     editorialState,

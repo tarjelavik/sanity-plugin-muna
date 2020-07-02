@@ -4,7 +4,7 @@ export default {
   name: 'siteSettings',
   type: 'document',
   title: 'Site Settings',
-  // icon: FaCog,
+  icon: FaCog,
   __experimental_actions: ['update', /* 'create', 'delete', */ 'publish'],
   fields: [
     {

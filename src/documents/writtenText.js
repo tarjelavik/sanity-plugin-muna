@@ -1,4 +1,4 @@
-// import { FaMarker } from "react-icons/fa";
+import { FaMarker } from "react-icons/fa";
 import jsonata from "jsonata";
 import { editorialState, accessState, label, language, labelSingleton, identifiedBy } from "../props";
 import { defaultFieldsets } from "../fieldsets";
@@ -11,7 +11,7 @@ export default {
     editorialState: "workingDraft",
     accessState: "secret",
   },
-  // icon: FaMarker,
+  icon: FaMarker,
   fieldsets: defaultFieldsets,
   fields: [
     editorialState,

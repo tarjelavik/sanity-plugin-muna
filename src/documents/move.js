@@ -1,4 +1,4 @@
-// import { FaTruckLoading } from "react-icons/fa";
+import { FaTruckLoading } from "react-icons/fa";
 import { timespan, editorialState, accessState, label, carriedOutBy, tookPlaceAt, referredToBy } from "../props";
 import { defaultFieldsets } from "../fieldsets";
 
@@ -12,7 +12,7 @@ export default {
     editorialState: "workingDraft",
     accessState: "secret",
   },
-  // icon: FaTruckLoading,
+  icon: FaTruckLoading,
   fieldsets: defaultFieldsets,
   fields: [
     editorialState,

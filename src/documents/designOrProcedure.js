@@ -1,4 +1,4 @@
-// import { FaClipboard } from "react-icons/fa";
+import { FaClipboard } from "react-icons/fa";
 import { editorialState, accessState, label, referredToBy, labelSingleton, identifiedBy } from "../props";
 import { defaultFieldsets } from "../fieldsets";
 
@@ -10,7 +10,7 @@ export default {
     editorialState: "workingDraft",
     accessState: "secret",
   },
-  // icon: FaClipboard,
+  icon: FaClipboard,
   fieldsets: defaultFieldsets,
   fields: [
     editorialState,

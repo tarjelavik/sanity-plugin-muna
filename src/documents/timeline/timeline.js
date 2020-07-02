@@ -1,4 +1,4 @@
-// import { GiCalendar } from "react-icons/gi";
+import { GiCalendar } from "react-icons/gi";
 import { editorialState, accessState } from "../../props";
 
 export default {
@@ -9,7 +9,7 @@ export default {
     editorialState: "workingDraft",
     accessState: "secret",
   },
-  // icon: GiCalendar,
+  icon: GiCalendar,
   fieldsets: [
     {
       name: "state",

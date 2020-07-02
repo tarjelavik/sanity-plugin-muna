@@ -1,4 +1,4 @@
-// import { FaCrown } from 'react-icons/fa'
+import { FaCrown } from 'react-icons/fa'
 import { label, labelSingleton, identifiedBy } from "../props"
 import { defaultFieldsets } from '../fieldsets'
 
@@ -10,7 +10,7 @@ export default {
   title: 'Work',
   name: 'work',
   type: 'document',
-  // icon: FaCrown,
+  icon: FaCrown,
   fieldsets: defaultFieldsets,
   fields: [
     labelSingleton,

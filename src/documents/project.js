@@ -1,4 +1,4 @@
-// import { FaProjectDiagram } from "react-icons/fa";
+import { FaProjectDiagram } from "react-icons/fa";
 
 import {
   editorialState,
@@ -14,7 +14,7 @@ export default {
   title: "Project",
   name: "project",
   type: "document",
-  // icon: FaProjectDiagram,
+  icon: FaProjectDiagram,
   fieldsets: defaultFieldsets,
   fields: [
     editorialState,

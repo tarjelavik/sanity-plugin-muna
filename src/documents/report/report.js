@@ -1,4 +1,4 @@
-// import { GiCrackedGlass } from "react-icons/gi";
+import { GiCrackedGlass } from "react-icons/gi";
 import {
   editorialState,
   accessState,
@@ -26,7 +26,7 @@ export default {
     editorialState: "workingDraft",
     accessState: "secret",
   },
-  // icon: GiCrackedGlass,
+  icon: GiCrackedGlass,
   fieldsets: defaultFieldsets,
   fields: [
     editorialState,

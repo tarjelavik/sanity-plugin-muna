@@ -1,4 +1,4 @@
-// import { GiExplosiveMaterials } from "react-icons/gi";
+import { GiExplosiveMaterials } from "react-icons/gi";
 import { label, altLabel } from "../../props";
 import { defaultFieldsets } from "../../fieldsets";
 
@@ -6,7 +6,7 @@ export default {
   title: "Material",
   name: "material",
   type: "document",
-  // icon: GiExplosiveMaterials,
+  icon: GiExplosiveMaterials,
   fieldsets: defaultFieldsets,
   fields: [
     label,

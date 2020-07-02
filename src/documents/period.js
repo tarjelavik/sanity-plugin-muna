@@ -1,4 +1,4 @@
-// import { FaEmpire } from "react-icons/fa";
+import { FaEmpire } from "react-icons/fa";
 import {
   timespan,
   editorialState,
@@ -18,7 +18,7 @@ export default {
     editorialState: "workingDraft",
     accessState: "secret",
   },
-  // icon: FaEmpire,
+  icon: FaEmpire,
   fieldsets: defaultFieldsets,
   fields: [
     editorialState,

@@ -1,4 +1,4 @@
-// import { FaGifts } from "react-icons/fa";
+import { FaGifts } from "react-icons/fa";
 import { editorialState, accessState, timespan, label, referredToBy, labelSingleton, identifiedBy } from "../props";
 import { defaultFieldsets } from "../fieldsets";
 
@@ -10,7 +10,7 @@ export default {
     editorialState: "workingDraft",
     accessState: "secret",
   },
-  // icon: FaGifts,
+  icon: FaGifts,
   fieldsets: defaultFieldsets,
   fields: [
     editorialState,

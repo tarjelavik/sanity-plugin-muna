@@ -1,5 +1,5 @@
 import jsonata from "jsonata";
-// import { FaBookDead } from "react-icons/fa";
+import { FaBookDead } from "react-icons/fa";
 
 import {
   editorialState,
@@ -37,7 +37,7 @@ export default {
     editorialState: "workingDraft",
     accessState: "secret",
   },
-  // icon: FaBookDead,
+  icon: FaBookDead,
   fieldsets: defaultFieldsets,
   fields: [
     editorialState,

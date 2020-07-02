@@ -1,4 +1,4 @@
-// import {FaTag} from 'react-icons/fa'
+import {FaTag} from 'react-icons/fa'
 import { editorialState, accessState, label, altLabel } from "../../props"
 import { defaultFieldsets } from '../../fieldsets'
 
@@ -10,7 +10,7 @@ export default {
     editorialState: 'workingDraft',
     accessState: 'secret'
   },
-  // icon: FaTag,
+  icon: FaTag,
   fieldsets: defaultFieldsets,
   fields: [
     editorialState,
