@@ -15,6 +15,8 @@ sanity start
 
 The Sanity studio will fire up on `http://localhost:3333/`, but without the desk structure you deserve ;-).
 
+### Desk structure
+
 Copy the content of the `deskStructure` folder into your Sanity studio and add this to `sanity.json`:
 
 ```json
@@ -26,4 +28,11 @@ Copy the content of the `deskStructure` folder into your Sanity studio and add t
     },
   ]
   ...
+```
+
+Finally install `react-icons`, since the version that Sanity uses is old.
+
+```bash
+# For the icons in deskStructure.js
+npm install --save react-icons
 ```
