@@ -4,12 +4,13 @@ import { defaultFieldsets } from "../../fieldsets";
 import coalescedLabel from "../../helpers/helpers";
 
 export default {
-  title: "Appelation type",
+  title: "Navnetype",
+  titleEN: "Appelation type",
   name: "appelationType",
   type: "document",
   initialValue: {
-    editorialState: "workingDraft",
-    accessState: "secret",
+    editorialState: "published",
+    accessState: "open",
   },
   icon: FaTag,
   fieldsets: defaultFieldsets,

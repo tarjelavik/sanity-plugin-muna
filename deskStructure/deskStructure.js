@@ -51,6 +51,7 @@ const hiddenDocTypes = listItem =>
     'conditionType',
     'activityType',
     'acquisitionType',
+    'appelationType',
     'role',
     'navigationMenu',
     'navigationItem',

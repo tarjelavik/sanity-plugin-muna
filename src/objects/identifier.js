@@ -17,26 +17,22 @@ export default {
       name: "hasType",
       title: "Klassifisert som",
       titleEN: "Classified as",
-      type: "array",
-      of: [
-        {
-          type: "reference",
-          to: [{ type: "identifierType" }],
-        },
-      ],
+      type: "reference",
+      to: [{ type: "identifierType" }],
       validation: (Rule) => Rule.required(),
     },
     referredToBy,
   ],
   preview: {
     select: {
-      identifier: 'identifier',
-      label: 'label'
+      title: 'content',
+      type: "hasType.label.nor",
     },
     prepare (selection) {
-      const {identifier, label} = selection
+      const {title, type} = selection
       return {
-        title: `${identifier}${label ? ', ' + label : ''}`
+        title: title,
+        subtitle: type
       }
     }
   }

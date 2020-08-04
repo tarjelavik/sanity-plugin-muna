@@ -1,5 +1,5 @@
 import { FaUser } from "react-icons/fa";
-import { editorialState, accessState, referredToBy, labelSingleton, identifiedBy } from "../props";
+import { editorialState, accessState, referredToBy, labelSingleton, identifiedBy, memberOf } from "../props";
 import { defaultFieldsets } from "../fieldsets";
 
 export default {
@@ -38,6 +38,7 @@ export default {
         hotspot: true,
       },
     },
+    memberOf,
     referredToBy,
     {
       name: "activityStream",

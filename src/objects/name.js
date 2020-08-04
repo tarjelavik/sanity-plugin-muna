@@ -32,13 +32,15 @@ export default {
   ],
   preview: {
     select: {
-      name: "name",
-      type: "hasType",
+      title: "name",
+      type: "hasType.label.nor",
+      lang: "language.0.label.nor",
     },
     prepare(selection) {
-      const { type, name } = selection;
+      const { title, type, lang } = selection;
       return {
-        title: `${name}`
+        title: title,
+        subtitle: `${type} ${lang ? "på " + lang : ""}`
       };
     },
   },

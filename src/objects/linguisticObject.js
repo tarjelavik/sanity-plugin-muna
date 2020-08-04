@@ -5,6 +5,10 @@ export default {
   title: "Text",
   name: "linguisticObject",
   type: "object",
+  initialValue: {
+    editorialState: "published",
+    accessState: "open",
+  },
   fieldsets: defaultFieldsets,
   fields: [
     editorialState,

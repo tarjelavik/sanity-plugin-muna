@@ -8,8 +8,8 @@ export default {
   name: "role",
   type: "document",
   initialValue: {
-    editorialState: "workingDraft",
-    accessState: "secret",
+    editorialState: "published",
+    accessState: "open",
   },
   icon: FaTag,
   fieldsets: defaultFieldsets,
