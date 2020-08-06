@@ -82,7 +82,7 @@ export default {
   preview: {
     select: {
       type: "hasType.0.label.nor",
-      title: "label.nor",
+      title: "label",
       published: "accessState",
     },
     prepare(selection) {

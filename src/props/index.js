@@ -200,7 +200,13 @@ const relation = {
   of: [
     {
       type: "reference",
-      to: [{ type: "madeObject" }, { type: "actor" }, { type: "group" }],
+      to: [
+        { type: "madeObject" }, 
+        { type: "actor" }, 
+        { type: "group" },
+        { type: "event" },
+        { type: "activity" },
+      ],
     },
   ],
 };

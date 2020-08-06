@@ -15,7 +15,7 @@ export default {
   name: "collection",
   type: "document",
   initialValue: {
-    editorialState: "workingDraft",
+    editorialState: "published",
     accessState: "secret",
   },
   icon: GiBookshelf,
@@ -73,7 +73,7 @@ export default {
   ],
   preview: {
     select: {
-      title: "label.nor",
+      title: "label",
       subtitle: "preferredIdentifier",
     },
     prepare(selection) {

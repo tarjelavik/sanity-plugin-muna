@@ -28,7 +28,7 @@ export default {
   ],
   preview: {
     select: {
-      title: 'label.nor'
+      title: 'label'
     },
     prepare (selection) {
       const {title} = selection

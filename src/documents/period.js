@@ -15,8 +15,8 @@ export default {
   description: "Should be fetched from KulturNav",
   type: "document",
   initialValue: {
-    editorialState: "workingDraft",
-    accessState: "secret",
+    editorialState: "published",
+    accessState: "open",
   },
   icon: FaEmpire,
   fieldsets: defaultFieldsets,

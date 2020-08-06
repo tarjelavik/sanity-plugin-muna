@@ -65,8 +65,8 @@ export default {
   ],
   preview: {
     select: {
+      title: "label",
       type: "hasType.0.label.nor",
-      title: "label.nor",
     },
     prepare(selection) {
       const { title, type } = selection;

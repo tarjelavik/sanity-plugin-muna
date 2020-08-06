@@ -127,7 +127,7 @@ export default {
   ],
   preview: {
     select: {
-      title: "label.nor",
+      title: "label",
       type: "hasType.0.label.nor",
     },
     prepare(selection) {
