@@ -1,6 +1,6 @@
 {
   "name": "sanity-plugin-muna",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Muna (remember) is a Sanity schema for describing and presenting cultural heritage objects.",
   "main": "lib/index.js",
   "scripts": {
