@@ -1,5 +1,5 @@
 import { FaGlasses } from "react-icons/fa";
-import { editorialState, accessState, label, referredToBy, labelSingleton, identifiedBy, language } from "../props";
+import { editorialState, accessState, referredToBy, labelSingleton, identifiedBy, language, usedSpecificObjectSet, tookPlaceAt } from "../props";
 import { defaultFieldsets } from "../fieldsets";
 import { coalescedLabel } from "../helpers/helpers";
 
@@ -33,7 +33,20 @@ export default {
         },
       ],
     },
-    referredToBy
+    {
+      name: 'activityStream',
+      title: 'Aktivitetsstrøm',
+      titleEN: 'Activity stream',
+      description: 'Events and activities connected to this object',
+      type: 'array',
+      of: [
+        {type: 'creation'},
+        {type: 'move'}
+      ]
+    },
+    tookPlaceAt,
+    referredToBy,
+    usedSpecificObjectSet
   ],
   preview: {
     select: {

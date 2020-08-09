@@ -32,13 +32,8 @@ export default {
       name: "hasType",
       title: "Klassifisert som",
       titleEN: "Classified as",
-      type: "array",
-      of: [
-        {
-          type: "reference",
-          to: [{ type: "storageType" }],
-        },
-      ],
+      type: "reference",
+      to: [{ type: "storageType" }],
       validation: (Rule) => Rule.required(),
     },
     referredToBy,

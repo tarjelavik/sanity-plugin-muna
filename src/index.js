@@ -78,6 +78,7 @@ export { default as manifest } from './objects/manifest.js'
 export { default as name } from './objects/name.js'
 export { default as presence } from './objects/presence.js'
 export { default as visualObject } from './objects/visualObject.js'
+export { default as set } from './objects/set.js'
 export { default as spacetimeVolume } from './objects/spacetimeVolume.js'
 export { default as timespan } from './objects/timespan.js'
 

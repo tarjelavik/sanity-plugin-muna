@@ -29,7 +29,7 @@ export default {
       fieldset: "state",
     },
     {
-      name: "concerned",
+      name: "isAbout",
       title: "Omhandler",
       titleEN: "About",
       description:
@@ -38,7 +38,7 @@ export default {
       of: [
         {
           type: "reference",
-          to: [{ type: "madeObject" }, { type: "collection" }],
+          to: [{ type: "madeObject" }, { type: "collection" }, { type: "actor" }, { type: "group" }],
         },
       ],
     },

@@ -30,7 +30,12 @@ export default {
       of: [
         {
           type: "reference",
-          to: [{ type: "madeObject" }, { type: "group" }, { type: "actor" }],
+          to: [
+            { type: "madeObject" }, 
+            { type: "exhibition" }, 
+            { type: "group" }, 
+            { type: "actor" }
+          ],
         },
       ],
     },

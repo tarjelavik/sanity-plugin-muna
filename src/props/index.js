@@ -389,6 +389,14 @@ const usedSpecificObject = {
   of: [{ type: "reference", to: [{ type: "madeObject" }] }],
 };
 
+const usedSpecificObjectSet = {
+  name: "usedSpecificObject",
+  title: "Brukte spesifikt objekt",
+  titleEN: "Used spesific object",
+  type: "set",
+};
+
+
 const timespan = {
   name: "timespan",
   title: "Tidsspenn",
@@ -475,6 +483,22 @@ const memberOf = {
   of: [{ type: "reference", to: [{ type: "group" }] }],
 };
 
+/**
+ * hasMember
+ * la:has_member
+ */
+const hasMember = {
+  name: "hasMember",
+  title: "Har deler",
+  titleEN: "Has member",
+  type: "array",
+  of: [{ type: "reference", to: [{ type: "madeObject" }] }],
+};
+
+/**
+ * broader
+ * skos:broader
+ */
 const broader = {
   name: "broader",
   title: "Overordnet term",
@@ -538,6 +562,7 @@ export {
   usedSpecificTechnique,
   usedObjectOfType,
   usedSpecificObject,
+  usedSpecificObjectSet,
   timespan,
   carriedOutBy,
   hadParticipant,
@@ -547,6 +572,7 @@ export {
   valueSlider,
   language,
   memberOf,
+  hasMember,
   broader,
   narrower,
   domain,

@@ -26,16 +26,21 @@ export default {
         description: 'This can be used to schedule post for publishing',
       },
       {
-        name: 'mainImage',
-        type: 'mainImage',
-        title: 'Main image',
-      },
-      {
         name: 'excerpt',
         type: 'simpleText',
         title: 'Excerpt',
         description:
           'This ends up on summary pages, on Google, when people share your post in social media.',
+      },
+      {
+        name: 'mainImage',
+        type: 'mainImage',
+        title: 'Main image',
+      },
+      {
+        name: 'body',
+        type: 'genericText',
+        title: 'Body',
       },
       {
         name: 'authors',
@@ -59,11 +64,6 @@ export default {
             },
           },
         ],
-      },
-      {
-        name: 'body',
-        type: 'genericText',
-        title: 'Body',
       },
     ],
     orderings: [

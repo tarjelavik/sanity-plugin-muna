@@ -1,5 +1,6 @@
 import { GiCalendar } from "react-icons/gi";
 import { editorialState, accessState } from "../../props";
+import { defaultFieldsets } from "../../fieldsets";
 
 export default {
   name: "timeline",
@@ -10,13 +11,7 @@ export default {
     accessState: "secret",
   },
   icon: GiCalendar,
-  fieldsets: [
-    {
-      name: "state",
-      title: "Status",
-      options: { collapsible: true, collapsed: false },
-    },
-  ],
+  fieldsets: defaultFieldsets,
   fields: [
     editorialState,
     accessState,
@@ -84,7 +79,10 @@ export default {
       of: [
         {
           type: "reference",
-          to: [{ type: "event" }],
+          to: [
+            { type: "event" },
+            { type: "activity" }
+          ],
         },
         { type: "timelineSlide" },
       ],

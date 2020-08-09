@@ -306,6 +306,10 @@
     },
     {
       "implements": "part:@sanity/base/schema-type",
+      "path": "objects/set.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
       "path": "objects/spacetimeVolume.js"
     },
     {

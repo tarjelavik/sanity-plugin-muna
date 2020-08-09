@@ -1,6 +1,7 @@
 import { FaClipboard } from "react-icons/fa";
-import { editorialState, accessState, label, referredToBy, labelSingleton, identifiedBy } from "../props";
+import { editorialState, accessState, label, referredToBy, identifiedBy } from "../props";
 import { defaultFieldsets } from "../fieldsets";
+import { coalescedLabel } from "../helpers/helpers";
 
 export default {
   title: "Design or procedure",
@@ -15,8 +16,14 @@ export default {
   fields: [
     editorialState,
     accessState,
-    labelSingleton,
+    label,
     identifiedBy,
+    {
+      name: "body",
+      title: "Tekst",
+      titleEN: "Body",
+      type: "localeBlock",
+    },
     referredToBy,
     {
       name: "documentedIn",
@@ -33,13 +40,13 @@ export default {
   ],
   preview: {
     select: {
-      title: "label.nor",
+      title: "label",
     },
     prepare(selection) {
       const { title } = selection;
-
+      
       return {
-        title: title,
+        title: coalescedLabel(title),
       };
     },
   },
