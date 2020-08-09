@@ -1,7 +1,7 @@
 import {FaTag} from 'react-icons/fa'
 import { editorialState, accessState, label, altLabel } from "../../props"
 import { defaultFieldsets } from '../../fieldsets'
-import coalescedLabel from '../../helpers/helpers'
+import { coalescedLabel } from '../../helpers/helpers'
 
 export default {
   title: 'Concept',
@@ -59,7 +59,7 @@ export default {
   ],
   preview: {
     select: {
-      title: 'label.nor',
+      title: 'label',
       broader: 'broader.0.label.nor'
     },
     prepare (selection) {

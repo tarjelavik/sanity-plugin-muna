@@ -7,6 +7,7 @@ import {
   usedSpecificTechnique,
 } from "../../props";
 import { defaultFieldsets } from "../../fieldsets";
+import { timespanAsString } from "../../helpers/helpers";
 
 var capitalize = require("capitalize");
 
@@ -31,12 +32,7 @@ export default {
       of: [
         {
           type: "reference",
-          to: [{ type: "eventType" }],
-          options: {
-            filter:
-              'references(*[_type == "systemCategory" && label.nor in [$sysCat]]._id)',
-            filterParams: { sysCat: "Hendelsestype" },
-          },
+          to: [{ type: "activityType" }],
         },
       ],
     },
@@ -65,13 +61,20 @@ export default {
   ],
   preview: {
     select: {
-      date: "productionDate",
+      bb: 'timespan.0.beginOfTheBegin',
+      eb: 'timespan.0.endOfTheBegin',
+      date: 'timespan.0.date',
+      be: 'timespan.0.beginOfTheEnd',
+      ee: 'timespan.0.endOfTheEnd',
       type: "_type",
     },
     prepare(selection) {
-      const { type, date } = selection;
+      const { type, bb, eb, date, be, ee } = selection;
+      const timespan = timespanAsString(bb, eb, date, be, ee, 'nb')
+
       return {
-        title: `${capitalize(type)}${date ? ", dated " + date : ""}`,
+        title: `${capitalize(type)}`,
+        subtitle: timespan
       };
     },
   },

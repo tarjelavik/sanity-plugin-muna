@@ -31,7 +31,8 @@ export default {
     prepare (selection) {
       const {actor, role} = selection
       return {
-        title: `${actor}${role ? ', ' + role : ''}`
+        title: actor,
+        subtitle: `${role ? role : ''}`
       }
     }
   }

@@ -334,7 +334,7 @@ const consistsOf = {
   descriptionEN:
     "The material the item is produced with, eg. leather and-or parchment.",
   type: "array",
-  fieldset: "physicalDescription",
+  fieldset: "technique",
   of: [
     {
       type: "reference",

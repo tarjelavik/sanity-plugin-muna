@@ -1,7 +1,7 @@
 import { FaLanguage } from "react-icons/fa";
 import { label, altLabel } from "../../props";
 import { defaultFieldsets } from "../../fieldsets";
-import coalescedLabel from "../../helpers/helpers";
+import { coalescedLabel } from "../../helpers/helpers.js";
 
 export default {
   title: "Language",

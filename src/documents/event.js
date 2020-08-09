@@ -9,6 +9,8 @@ import {
   identifiedBy,
 } from "../props";
 import { defaultFieldsets } from "../fieldsets";
+import { timespanAsString } from "../helpers/helpers";
+import { capitalize } from "lodash";
 
 export default {
   title: "Event",
@@ -66,14 +68,20 @@ export default {
   preview: {
     select: {
       title: "label",
+      bb: 'timespan.0.beginOfTheBegin',
+      eb: 'timespan.0.endOfTheBegin',
+      date: 'timespan.0.date',
+      be: 'timespan.0.beginOfTheEnd',
+      ee: 'timespan.0.endOfTheEnd',
       type: "hasType.0.label.nor",
     },
     prepare(selection) {
-      const { title, type } = selection;
-
+      const { title, type, bb, eb, date, be, ee } = selection;
+      const timespan = timespanAsString(bb, eb, date, be, ee, 'nb')
+      console.log(type)
       return {
         title: title,
-        subtitle: type,
+        subtitle: `${type ? capitalize(type) + ': ' : ''} ${timespan}`
       };
     },
   },

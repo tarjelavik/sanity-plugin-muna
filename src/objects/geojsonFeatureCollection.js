@@ -1,6 +1,6 @@
 import { label } from "../props";
 import { defaultFieldsets } from "../fieldsets";
-import coalescedLabel from "../helpers/helpers";
+import { coalescedLabel } from "../helpers/helpers";
 
 export default {
   title: "Feature Collection",
