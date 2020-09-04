@@ -2,7 +2,20 @@
 id: installation
 title: Installation
 sidebar_label: Installation
+slug: /installation
 ---
+
+## [Experimantal] "One-click" installation
+
+:::danger
+Combine the experimental Create functionality of sanity.io/create with the unstable Muna schema! Great fun 💥!
+
+<button class="button"><a href="https://www.sanity.io/create?template=tarjelavik/sanity-template-muna">Create your Muna Studio</a></button> 
+
+[Github template](https://github.com/tarjelavik/sanity-template-muna)
+:::
+
+## Install as a plugin in your existing Studio
 
 ***Warning!*** Muna will be unstable for some time. Fork and do you own thing or [suggest improvements!](https://github.com/tarjelavik/sanity-plugin-muna/issues) 
 
@@ -13,9 +26,9 @@ sanity install muna
 sanity start
 ```
 
-The Sanity studio will fire up on `http://localhost:3333/`, but without the desk structure you deserve ;-).
+The Sanity studio will fire up on `http://localhost:3333/`, but without the desk structure you deserve!.
 
-### Desk structure
+## Desk structure
 
 Copy the content of the `deskStructure` folder into your Sanity studio and add this to `sanity.json`:
 

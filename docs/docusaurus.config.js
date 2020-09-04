@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Muna',
   tagline: 'Muna (remember) is a Sanity schema for describing and presenting cultural heritage objects.',
-  url: 'https://tarjelavik.github.io.',
+  url: 'https://docs.muna.xyz/',
   baseUrl: '/',
   favicon: 'img/favicon.ico',
   organizationName: 'tarjelavik', // Usually your GitHub org/user name.
@@ -13,11 +13,17 @@ module.exports = {
         alt: 'Muna Logo',
         src: 'img/logo.svg',
       }, */
-      links: [
+      items: [
         {
-          to: 'docs/home',
+          to: 'docs/installation',
           activeBasePath: 'docs',
-          label: 'Docs',
+          label: 'Install',
+          position: 'left',
+        },
+        {
+          to: 'docs/model/home',
+          activeBasePath: 'docs/model',
+          label: 'Model',
           position: 'left',
         },
         {
@@ -57,8 +63,6 @@ module.exports = {
       '@docusaurus/preset-classic',
       {
         docs: {
-          // It is recommended to set document id as docs home page (`docs/` path).
-          homePageId: 'doc1',
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           editUrl:
