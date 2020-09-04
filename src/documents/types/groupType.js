@@ -1,7 +1,7 @@
 import { FaTag } from "react-icons/fa";
 import { editorialState, accessState, label, altLabel, broader, domain } from "../../props";
 import { defaultFieldsets } from "../../fieldsets";
-import { coalescedLabel } from "../../helpers/helpers.js";
+import { coalesceLabel } from "../../helpers/helpers.js";
 
 export default {
   title: "Gryppetype",
@@ -42,7 +42,7 @@ export default {
     prepare(selection) {
       const { title, broader } = selection;
       return {
-        title: coalescedLabel(title),
+        title: coalesceLabel(title),
         subtitle: broader
           ? `⬆️` + broader
           : "🔝 Toppkonsept",

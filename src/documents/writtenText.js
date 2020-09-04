@@ -77,18 +77,12 @@ export default {
       type: "datetime",
     },
     {
-      name: "mainImage",
-      title: "Hovedbilde",
-      titleEN: "Main image",
-      type: "mainImage",
-    },
-    {
       name: "excerpt",
       title: "Sammendrag",
       titleEN: "Excerpt",
       description:
         "This ends up on summary pages, on Google, when people share your post in social media.",
-      type: "localeBlockSimple",
+      type: "blockContent",
     },
     {
       name: "body",
@@ -96,6 +90,13 @@ export default {
       titleEN: "Body",
       type: "localeBlock",
     },
+    {
+      name: "mainImage",
+      title: "Hovedbilde",
+      titleEN: "Main image",
+      type: "mainImage",
+    },
+
     {
       name: "documentedIn",
       title: "Dokumentert i",

@@ -1,6 +1,6 @@
 import { label } from "../props";
 import { defaultFieldsets } from "../fieldsets";
-import { coalescedLabel } from "../helpers/helpers";
+import { coalesceLabel } from "../helpers/helpers";
 
 export default {
   title: "Feature Collection",
@@ -40,7 +40,7 @@ export default {
 
       const {title, types} = selection
       const type = types ? pickTypes(types) : ""
-      const label = coalescedLabel(title)
+      const label = coalesceLabel(title)
 
       return {
         title: label,

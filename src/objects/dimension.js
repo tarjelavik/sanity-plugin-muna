@@ -1,12 +1,9 @@
-import { units } from "../vocabularies/defaultVocabularies";
-import { label } from "../props";
-import { defaultFieldsets } from "../fieldsets";
+import { coalesceLabel } from "../helpers/helpers";
 
 export default {
   title: "Dimension",
   name: "dimension",
   type: "object",
-  fieldsets: defaultFieldsets,
   fields: [
     {
       name: "hasType",
@@ -34,14 +31,14 @@ export default {
   ],
   preview: {
     select: {
-      type: "hasType.label.nor",
+      type: "hasType.label",
       value: "value",
-      unit: "hasUnit",
+      unit: "hasUnit.label",
     },
     prepare(selection) {
       const { type, value, unit } = selection;
       return {
-        title: `${type}: ${value || ""} ${unit || ""}`,
+        title: `${coalesceLabel(type)}: ${value || ""} ${coalesceLabel(unit) || ""}`,
       };
     },
   },

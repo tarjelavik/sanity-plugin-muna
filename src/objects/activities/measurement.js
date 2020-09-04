@@ -1,5 +1,6 @@
 import { timespan, referredToBy, tookPlaceAt, carriedOutBy } from "../../props";
 import { defaultFieldsets } from "../../fieldsets";
+import { coalesceLabel } from "../../helpers/helpers";
 
 export default {
   title: "Measurement",
@@ -23,15 +24,44 @@ export default {
   preview: {
     select: {
       actor: "carriedOutBy.0.actor.label",
-      dimension: "observedDimension.0.hasType.label.nor",
-      unit: "observedDimension.0.hasUnit",
-      value: "observedDimension.0.value"
+      dimension0: "observedDimension.0.hasType.label",
+      unit0: "observedDimension.0.hasUnit.label",
+      value0: "observedDimension.0.value",
+      dimension1: "observedDimension.1.hasType.label",
+      unit1: "observedDimension.1.hasUnit.label",
+      value1: "observedDimension.1.value",
+      dimension2: "observedDimension.2.hasType.label",
+      unit2: "observedDimension.2.hasUnit.label",
+      value2: "observedDimension.2.value",
     },
     prepare(selection) {
-      const { actor, dimension, unit, value } = selection;
+      const { 
+        actor, 
+        dimension0, 
+        dimension1, 
+        dimension2, 
+        unit0, 
+        unit1, 
+        unit2, 
+        value0, 
+        value1,
+        value2 } = selection;
+      
+      let d0, d1, d2
+
+      if (dimension0) {
+        d0 = `${coalesceLabel(dimension0) + ': ' || ''}${value0 + ' ' || ''}${coalesceLabel(unit0) || ''}`
+      }
+      if (dimension1) {
+        d1 = `${coalesceLabel(dimension1) + ': ' || ''}${value1 + ' ' || ''}${coalesceLabel(unit1) || ''}`
+      }
+      if (dimension2) {
+        d2 = `${coalesceLabel(dimension2) + ': ' || ''}${value2 + ' ' || ''}${coalesceLabel(unit2) || ''}`
+      }
+        
       return {
-        title: `Measurement ${actor ? 'by ' + actor : ''}`,
-        subtitle: `${dimension}: ${value} ${unit || ''}`,
+        title: `${d0 ? d0 : ''}${d1 ? ', ' + d1 : ''}${d2 ? ', ' + d2 : ''}`,
+        subtitle: `Measurement ${actor ? 'by ' + actor : ''}`,
       };
     },
   },

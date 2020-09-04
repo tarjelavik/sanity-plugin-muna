@@ -1,7 +1,7 @@
 import { FaClipboard } from "react-icons/fa";
 import { editorialState, accessState, label, referredToBy, identifiedBy } from "../props";
 import { defaultFieldsets } from "../fieldsets";
-import { coalescedLabel } from "../helpers/helpers";
+import { coalesceLabel } from "../helpers/helpers";
 
 export default {
   title: "Design or procedure",
@@ -46,7 +46,7 @@ export default {
       const { title } = selection;
       
       return {
-        title: coalescedLabel(title),
+        title: coalesceLabel(title),
       };
     },
   },

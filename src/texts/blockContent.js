@@ -6,7 +6,7 @@ const highlightRender = (props) => (
 );
 
 export default {
-  name: "genericText",
+  name: "blockContent",
   type: "array",
   title: "Excerpt",
   of: [

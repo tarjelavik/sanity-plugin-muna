@@ -1,7 +1,7 @@
 import { GiExplosiveMaterials } from "react-icons/gi";
 import { label, altLabel } from "../../props";
 import { defaultFieldsets } from "../../fieldsets";
-import { coalescedLabel } from "../../helpers/helpers.js";
+import { coalesceLabel } from "../../helpers/helpers.js";
 
 export default {
   title: "Material",
@@ -20,7 +20,7 @@ export default {
     prepare(selection) {
       const { title } = selection;
       return {
-        title: coalescedLabel(title),
+        title: coalesceLabel(title),
       };
     },
   },

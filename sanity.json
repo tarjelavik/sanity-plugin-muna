@@ -5,7 +5,8 @@
   },
   "plugins": [
     "@sanity/code-input",
-    "@sanity/color-input"
+    "@sanity/color-input",
+    "intl-input"
   ],
   "parts": [
     {
@@ -390,11 +391,75 @@
     },
     {
       "implements": "part:@sanity/base/schema-type",
+      "path": "site/plugs/generalArticle.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "site/plugs/bigText.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "site/plugs/form.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "site/plugs/grid.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
       "path": "site/plugs/hero.js"
     },
     {
       "implements": "part:@sanity/base/schema-type",
-      "path": "texts/genericText.js"
+      "path": "site/plugs/html.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "site/plugs/illustration.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "site/plugs/infoRows.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "site/plugs/pageHeader.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "site/plugs/quote.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "site/plugs/social.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "site/plugs/socialCollection.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "site/plugs/testimonials.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "site/plugs/textWithIllustration.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "site/plugs/twoColumn.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "site/plugs/uiComponent.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "site/plugs/videoPlug.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "texts/blockContent.js"
     },
     {
       "implements": "part:@sanity/base/schema-type",
@@ -422,7 +487,7 @@
     },
     {
       "implements": "part:@sanity/base/schema-type",
-      "path": "texts/simpleText.js"
+      "path": "texts/simpleBlockContent.js"
     }
   ]
 }

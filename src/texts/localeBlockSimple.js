@@ -15,7 +15,7 @@ export default {
     {
       title: lang.title,
       name: lang.id,
-      type: 'simpleText',
+      type: 'simpleBlockContent',
       fieldset: lang.isDefault ? null : 'translations'
     }
   )),

@@ -5,7 +5,7 @@ var localizedFormat = require('dayjs/plugin/localizedFormat')
 dayjs.extend(localizedFormat)
 require('dayjs/locale/nb')
 
-export const coalescedLabel = (label, lang) => {
+export const coalesceLabel = (label, lang) => {
   let langs = [lang || ""]
   supportedLanguages.map(x => {langs.push(x.id)})
   langs = [...new Set(langs)]

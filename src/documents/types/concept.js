@@ -1,7 +1,7 @@
 import {FaTag} from 'react-icons/fa'
 import { editorialState, accessState, label, altLabel } from "../../props"
 import { defaultFieldsets } from '../../fieldsets'
-import { coalescedLabel } from '../../helpers/helpers'
+import { coalesceLabel } from '../../helpers/helpers'
 
 export default {
   title: 'Concept',
@@ -60,13 +60,13 @@ export default {
   preview: {
     select: {
       title: 'label',
-      broader: 'broader.0.label.nor'
+      broader: 'broader'
     },
     prepare (selection) {
       const {title, broader} = selection
       return {
-        title: coalescedLabel(title),
-        subtitle: broader ? `⬆️` + broader : '🔝 Overordnet type/konsept'
+        title: coalesceLabel(title),
+        subtitle: coalesceLabel(broader) ? `⬆️` + coalesceLabel(broader) : '🔝 Overordnet type/konsept'
       }
     }
   }

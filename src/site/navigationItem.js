@@ -18,6 +18,7 @@ export default {
       {
         title: 'Landing page',
         name: 'landingPageRoute',
+        description: 'Referanse til en "route" i datasettet',
         type: 'reference',
         fieldset: 'link',
         to: [{type: 'route'}]
@@ -25,6 +26,7 @@ export default {
       {
         title: 'Path',
         name: 'route',
+        description: 'Referense til en path i frontend',
         fieldset: 'link',
         description: 'Example: /blog',
         type: 'string'

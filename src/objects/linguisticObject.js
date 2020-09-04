@@ -26,7 +26,7 @@ export default {
       name: "body",
       title: "Tekst",
       titleEN: "Body",
-      type: "genericText",
+      type: "blockContent",
     },
     {
       name: "language",

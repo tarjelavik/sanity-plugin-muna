@@ -27,7 +27,7 @@ export default {
       },
       {
         name: 'excerpt',
-        type: 'simpleText',
+        type: 'simpleBlockContent',
         title: 'Excerpt',
         description:
           'This ends up on summary pages, on Google, when people share your post in social media.',
@@ -39,7 +39,7 @@ export default {
       },
       {
         name: 'body',
-        type: 'genericText',
+        type: 'blockContent',
         title: 'Body',
       },
       {

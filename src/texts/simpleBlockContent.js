@@ -8,7 +8,7 @@ const highlightRender = props => (
 )
 
 export default {
-  name: 'simpleText',
+  name: 'simpleBlockContent',
   type: 'array',
   title: 'Excerpt',
   of: [

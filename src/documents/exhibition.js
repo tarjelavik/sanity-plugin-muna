@@ -1,7 +1,7 @@
 import { FaGlasses } from "react-icons/fa";
 import { editorialState, accessState, referredToBy, labelSingleton, identifiedBy, language, usedSpecificObjectSet, tookPlaceAt } from "../props";
 import { defaultFieldsets } from "../fieldsets";
-import { coalescedLabel } from "../helpers/helpers";
+import { coalesceLabel } from "../helpers/helpers";
 
 export default {
   title: "Exhibition",
@@ -56,7 +56,7 @@ export default {
       const { title } = selection;
 
       return {
-        title: coalescedLabel(title),
+        title: coalesceLabel(title),
       };
     },
   },

@@ -35,13 +35,15 @@
     "react": "^16.13.1"
   },
   "dependencies": {
+    "@sanity/block-content-to-react": "^2.0.7",
     "@sanity/code-input": "^1.149.16",
     "@sanity/color-input": "^1.149.16",
     "capitalize": "^2.0.3",
     "dayjs": "^1.8.32",
     "jsonata": "^1.8.3",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.20",
     "react-icons": "^3.7.0",
-    "react-instagram-embed": "^1.5.0"
+    "react-instagram-embed": "^1.5.0",
+    "react-twitter-embed": "^3.0.3"
   }
 }
