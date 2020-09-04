@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Muna',
   tagline: 'Muna (remember) is a Sanity schema for describing and presenting cultural heritage objects.',
-  url: 'https://docs.muna.xyz/',
+  url: 'https://docs.muna.xyz',
   baseUrl: '/',
   favicon: 'img/favicon.ico',
   organizationName: 'tarjelavik', // Usually your GitHub org/user name.
@@ -17,7 +17,7 @@ module.exports = {
         {
           to: 'docs/installation',
           activeBasePath: 'docs',
-          label: 'Install',
+          label: 'Installation',
           position: 'left',
         },
         {
