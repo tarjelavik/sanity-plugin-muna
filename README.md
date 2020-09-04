@@ -8,7 +8,7 @@ Muna tries to combine the expressiveness of CIDOC-CRM and the customizable edito
 
 ## Documentation
 
-Visit [muna-docs.vercel.app](https://muna-docs.vercel.app) for documentation.
+Visit [docs.muna.xyz](https://docs.muna.xyz/docs/model/home) for documentation.
 
 ## Install
 
