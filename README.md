@@ -8,7 +8,7 @@ Muna tries to combine the expressiveness of CIDOC-CRM and the customizable edito
 
 ## Documentation
 
-Very early [documentation](https://docs.muna.xyz/) of the schema. You might need it and i need to write it.
+Visit [docs.muna.xyz](https://docs.muna.xyz/docs/model/home) for documentation.
 
 ## Install
 
