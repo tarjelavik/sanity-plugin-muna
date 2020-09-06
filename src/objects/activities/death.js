@@ -1,5 +1,6 @@
 import { carriedOutBy, timespan, tookPlaceAt, referredToBy } from '../../props'
 import { defaultFieldsets } from '../../fieldsets'
+import { timespanAsString } from '../../helpers/helpers';
 
 var capitalize = require('capitalize')
 
@@ -16,20 +17,21 @@ export default {
   ],
   preview: {
     select: {
-      bb: 'timespan.0.beginOfTheBegin',
-      eb: 'timespan.0.endOfTheBegin',
-      date: 'timespan.0.date',
-      be: 'timespan.0.beginOfTheEnd',
-      ee: 'timespan.0.endOfTheEnd',
-      blocks: 'description',
-      type: '_type'
+      bb: "timespan.0.beginOfTheBegin",
+      eb: "timespan.0.endOfTheBegin",
+      date: "timespan.0.date",
+      be: "timespan.0.beginOfTheEnd",
+      ee: "timespan.0.endOfTheEnd",
+      blocks: "description",
+      type: "_type",
     },
-    prepare (selection) {
-      const {type, bb, eb, date, be, ee} = selection
+    prepare(selection) {
+      const { type, bb, eb, date, be, ee } = selection;
+      const timespan = timespanAsString(bb, eb, date, be, ee, 'nb')
       return {
-        title: `${date || ''}${bb || ''}${bb && eb ? '~' : ''}${eb || ''}` + `${(bb || eb) && (be || ee) ? ' / ' : ''}` + `${be || ''}${be && ee ? '~' : ''}${ee || ''}`,
-        subtitle: `${capitalize(type)}`
-      }
-    }
-  }
+        title: timespan,
+        subtitle: `${capitalize(type)}`,
+      };
+    },
+  },
 }

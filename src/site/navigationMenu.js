@@ -1,10 +1,12 @@
 export default {
     type: 'document',
     name: 'navigationMenu',
+    title: 'Navigation menu',
     fields: [
       {
         type: 'string',
-        name: 'title'
+        name: 'title',
+        title: 'title',
       },
       {
         type: 'array',

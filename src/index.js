@@ -49,6 +49,7 @@ export { default as sectionType } from './documents/types/sectionType.js'
 export { default as storageType } from './documents/types/storageType.js'
 export { default as technique } from './documents/types/technique.js'
 export { default as textType } from './documents/types/textType.js'
+export { default as workType } from './documents/types/workType.js'
 
 export { default as annotation } from './iiif/annotation.js'
 export { default as annotationPage } from './iiif/annotationPage.js'

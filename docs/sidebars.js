@@ -8,7 +8,11 @@ module.exports = {
     {
       type: 'category',
       label: 'Model',
-      items: ['model/home'],
+      items: [
+        'model/introduction',
+        'model/documents',
+        'model/objects',
+      ],
     },
   ],
 };

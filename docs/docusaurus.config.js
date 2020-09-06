@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'Muna',
+  title: 'Muna | ᛗᚢᚾᚨ',
   tagline: 'Muna (remember) is a Sanity schema for describing and presenting cultural heritage objects.',
   url: 'https://docs.muna.xyz',
   baseUrl: '/',
@@ -21,7 +21,7 @@ module.exports = {
           position: 'left',
         },
         {
-          to: 'docs/model/home',
+          to: 'docs/model/introduction',
           activeBasePath: 'docs/model',
           label: 'Model',
           position: 'left',

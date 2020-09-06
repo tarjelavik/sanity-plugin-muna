@@ -1,5 +1,6 @@
 import { timespan, carriedOutBy, tookPlaceAt, referredToBy } from "../../props";
 import { defaultFieldsets } from "../../fieldsets";
+import { timespanAsString } from "../../helpers/helpers";
 
 var capitalize = require("capitalize");
 
@@ -21,11 +22,9 @@ export default {
     },
     prepare(selection) {
       const { type, bb, eb, date, be, ee } = selection;
+      const timespan = timespanAsString(bb, eb, date, be, ee, 'nb')
       return {
-        title:
-          `${date || ""}${bb || ""}${bb && eb ? "~" : ""}${eb || ""}` +
-          `${(bb || eb) && (be || ee) ? " / " : ""}` +
-          `${be || ""}${be && ee ? "~" : ""}${ee || ""}`,
+        title: timespan,
         subtitle: `${capitalize(type)}`,
       };
     },

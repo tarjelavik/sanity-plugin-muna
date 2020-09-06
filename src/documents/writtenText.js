@@ -70,6 +70,18 @@ export default {
       ],
     },
     {
+      name: "hasTranslation",
+      title: "Oversettelser",
+      titleEN: "Has translation",
+      type: "array",
+      of: [
+        {
+          type: "reference",
+          to: [{ type: "writtenText" }],
+        },
+      ],
+    },
+    {
       name: "publishedAt",
       title: "Publikasjonsdato",
       titleEN: "Published at",
@@ -88,7 +100,7 @@ export default {
       name: "body",
       title: "Tekst",
       titleEN: "Body",
-      type: "localeBlock",
+      type: "blockContent",
     },
     {
       name: "mainImage",

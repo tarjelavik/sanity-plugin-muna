@@ -38,7 +38,6 @@ const mainRepresentation = {
   title: "Hovedbilde",
   titleEN: "Main image",
   name: "mainRepresentation",
-  fieldset: "representation",
   description:
     'Velg et bilde fra egen samling eller fra NB.no. Legg til bildetekst ved å trykke "Edit".',
   descriptionEN: "Choose a image from out own collection or from NB.no.",
@@ -51,7 +50,6 @@ const subjectOfManifest = {
   description:
     "Hovedmanifestet til objektet, for eksempel: https://digi.ub.uni-heidelberg.de/diglit/iiif/cpgraec132/manifest.json.",
   descriptionEN: "The main manifest of this object",
-  fieldset: "representation",
   name: "subjectOfManifest",
   type: "url",
 };
@@ -59,7 +57,6 @@ const subjectOfManifest = {
 const iiifStructures = {
   title: "IIIF structures",
   name: "structures",
-  fieldset: "representation",
   type: "array",
   of: [{ type: "range" }],
 };
@@ -68,7 +65,6 @@ const preferredIdentifier = {
   name: "preferredIdentifier",
   title: "Foretrukket identifikator",
   titleEN: "Preferred identifier",
-  fieldset: "minimum",
   type: "string",
   /* validation: Rule => Rule.required().custom(async prefId => {
     // eslint-disable-next-line no-template-curly-in-string
@@ -83,7 +79,6 @@ const label = {
   titleEN: "Title",
   description: "",
   descriptionEN: "",
-  fieldset: "minimum",
   type: "localeString",
   validation: (Rule) => Rule.required(),
 };
@@ -94,7 +89,6 @@ const labelSingleton = {
   titleEN: "Title",
   description: "",
   descriptionEN: "",
-  fieldset: "minimum",
   type: "string",
   validation: (Rule) => Rule.required(),
 };
@@ -110,7 +104,6 @@ const identifiedBy = {
   titleEN: "Identified by",
   description: "Legg til titler, navn eller identifikatorer.",
   descriptionEN: "Add all known titles, name or identifiers.",
-  fieldset: "minimum",
   type: "array",
   of: [{ type: "name" }, { type: "identifier" }],
   options: {
@@ -124,7 +117,6 @@ const hasType = {
   titleEN: "Classified as",
   description: "",
   descriptionEN: "",
-  fieldset: "minimum",
   type: "array",
   of: [
     {
@@ -151,7 +143,6 @@ const license = {
   titleEN: "License",
   description: "Velg den korrekt lisensen eller rettighetserklæringen. ",
   descriptionEN: "Choose the correct lisense or mark",
-  fieldset: "minimum",
   type: "string",
   options: {
     list: licenseTypes,
@@ -163,7 +154,6 @@ const subject = {
   name: "subject",
   title: "Emne",
   titleEN: "Subject",
-  fieldset: "minimum",
   type: "array",
   of: [
     {
@@ -180,7 +170,6 @@ const referredToBy = {
   description:
     "Objektet kan ha mange beskrivelser, korte og/eller lange. Tekstene kan types for ulike brukeformål.",
   descriptionEN: "A shortish description",
-  fieldset: "minimum",
   type: "array",
   of: [
     { type: "linguisticObject" },
@@ -252,7 +241,6 @@ const isSubjectOf = {
   titleEN: "Subject of",
   description: "Tekster om dette objektet",
   descriptionEN: "Texts that have this object as its main subject, both internal and other texts",
-  fieldset: "additionalInformation",
   type: "array",
   of: [
     {
@@ -267,7 +255,6 @@ const depicts = {
   title: "Avbilder",
   titleEN: "Depicts",
   type: "array",
-  fieldset: "additionalInformation",
   of: [
     {
       type: "reference",
@@ -304,7 +291,6 @@ const showsVisualObject = {
   title: "Viser merke eller bilde",
   titleEN: "Shown visual item",
   type: "array",
-  fieldset: "additionalInformation",
   of: [{ type: "visualObject" }],
 };
 
@@ -313,7 +299,6 @@ const carries = {
   title: "Bærer verk",
   titleEN: "Carries work",
   type: "array",
-  fieldset: "additionalInformation",
   of: [{ type: "reference", to: [{ type: "work" }] }],
 };
 
@@ -322,7 +307,6 @@ const measurement = {
   title: "Måling",
   titleEN: "Measurement",
   type: "array",
-  fieldset: "physicalDescription",
   of: [{ type: "measurement" }],
 };
 
@@ -334,7 +318,6 @@ const consistsOf = {
   descriptionEN:
     "The material the item is produced with, eg. leather and-or parchment.",
   type: "array",
-  fieldset: "technique",
   of: [
     {
       type: "reference",
@@ -347,7 +330,6 @@ const usedGeneralTechnique = {
   name: "usedGeneralTechnique",
   title: "Brukte generell teknikk",
   titleEN: "Used general technique",
-  fieldset: "technique",
   type: "array",
   of: [
     {
@@ -361,7 +343,6 @@ const usedSpecificTechnique = {
   name: "usedSpecificTechnique",
   title: "Brukte spesifikk teknikk",
   titleEN: "Used spesific technique",
-  fieldset: "technique",
   type: "array",
   of: [{ type: "reference", to: [{ type: "designOrProcedure" }] }],
 };
@@ -370,7 +351,6 @@ const usedObjectOfType = {
   name: "usedObjectOfType",
   title: "Brukte objekt av type",
   titleEN: "Used object of type",
-  fieldset: "technique",
   type: "array",
   of: [
     {
@@ -384,7 +364,6 @@ const usedSpecificObject = {
   name: "usedSpecificObject",
   title: "Brukte spesifikt objekt",
   titleEN: "Used spesific object",
-  fieldset: "technique",
   type: "array",
   of: [{ type: "reference", to: [{ type: "madeObject" }] }],
 };

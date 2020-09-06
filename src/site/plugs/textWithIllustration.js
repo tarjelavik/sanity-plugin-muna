@@ -1,18 +1,22 @@
 export default {
   type: 'object',
   name: 'textWithIllustration',
+  title: 'Text with illustration',
   fields: [
     {
       type: 'string',
-      name: 'title'
+      name: 'title',
+      title: 'Title',
     },
     {
       type: 'simpleBlockContent',
-      name: 'text'
+      name: 'text',
+      title: 'text',
     },
     {
       type: 'illustration',
-      name: 'illustration'
+      name: 'illustration',
+      title: 'Illustration'
     }
   ]
 }

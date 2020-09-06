@@ -4,19 +4,41 @@ title: Installation
 sidebar_label: Installation
 ---
 
-## [Experimental] "One-click" installation
+export const ButtonLink = ({children, color, href}) => (
+  <a
+    class="button"
+    style={{
+      display: 'inline-block',
+      backgroundColor: color,
+      borderRadius: '5px',
+      border: 'none',
+      color: '#fff',
+      padding: '1rem',
+      margin: '0 0.5rem 0 0',
+      fontSize: '1.1rem',
+      textTransform: 'uppercase',
+      textDecoration: 'none',
+    }}
+    href={href}>
+    {children}
+  </a>
+)
 
-:::danger
-Combine the experimental Create functionality of sanity.io/create with the unstable Muna schema! Great fun 💥!
-
-<button class="button"><a href="https://www.sanity.io/create?template=tarjelavik/sanity-template-muna">Create your Muna Studio</a></button> 
-
-[Github template](https://github.com/tarjelavik/sanity-template-muna)
+:::warning
+Muna will be unstable for some time. Fork and do you own thing or [suggest improvements!](https://github.com/tarjelavik/sanity-plugin-muna/issues) 
 :::
 
-## Install as a plugin in your existing Studio
+## [Experimental] "One-click" installation
 
-***Warning!*** Muna will be unstable for some time. Fork and do you own thing or [suggest improvements!](https://github.com/tarjelavik/sanity-plugin-muna/issues) 
+:::caution
+Combine the experimental community feature of [sanity.io/create](https://www.sanity.io/create) with the unstable nature of the Muna schema! 💥 Great fun💥 ! You might get `Cannot read property 'login' of null` or you might get a spanking new Studio!
+
+<ButtonLink color="#25c2a0" href="https://www.sanity.io/create?template=tarjelavik/sanity-template-muna">Create your Muna Studio</ButtonLink> <a href="https://github.com/tarjelavik/sanity-template-muna">Muna Template (WIP)</a>
+:::
+
+## [Experimental] Install as a plugin in your existing Studio
+
+
 
 ```bash
 npm install -g @sanity/cli

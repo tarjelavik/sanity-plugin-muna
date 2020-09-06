@@ -1,10 +1,6 @@
 import { FaCrown } from 'react-icons/fa'
-import { label, labelSingleton, identifiedBy } from "../props"
+import { editorialState, accessState, labelSingleton, identifiedBy } from "../props"
 import { defaultFieldsets } from '../fieldsets'
-
-/**
- * WIP
- */
 
 export default {
   title: 'Work',
@@ -13,6 +9,24 @@ export default {
   icon: FaCrown,
   fieldsets: defaultFieldsets,
   fields: [
+    editorialState,
+    accessState,
+    {
+      name: "hasType",
+      title: "Klassifisert som",
+      titleEN: "Classified as",
+      description: "",
+      descriptionEN: "",
+      fieldset: "minimum",
+      type: "array",
+      of: [
+        {
+          type: "reference",
+          to: [{ type: "workType" }],
+        },
+      ],
+      validation: (Rule) => Rule.required(),
+    },
     labelSingleton,
     identifiedBy,
     {

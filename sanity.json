@@ -5,8 +5,7 @@
   },
   "plugins": [
     "@sanity/code-input",
-    "@sanity/color-input",
-    "intl-input"
+    "@sanity/color-input"
   ],
   "parts": [
     {
@@ -200,6 +199,10 @@
     {
       "implements": "part:@sanity/base/schema-type",
       "path": "documents/types/textType.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "documents/types/workType.js"
     },
     {
       "implements": "part:@sanity/base/schema-type",

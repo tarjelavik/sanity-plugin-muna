@@ -7,7 +7,6 @@ import {
   mainRepresentation,
   subjectOfManifest,
   preferredIdentifier,
-  label,
   license,
   subject,
   referredToBy,
