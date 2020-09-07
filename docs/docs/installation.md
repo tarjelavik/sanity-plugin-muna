@@ -31,9 +31,9 @@ Muna will be unstable for some time. Fork and do you own thing or [suggest impro
 ## [Experimental] "One-click" installation
 
 :::caution
-Combine the experimental community feature of [sanity.io/create](https://www.sanity.io/create) with the unstable nature of the Muna schema! 💥 Great fun💥 ! You might get `Cannot read property 'login' of null` or you might get a spanking new Studio!
+Combine the experimental community feature of [sanity.io/create](https://www.sanity.io/create) with the unstable nature of the Muna schema! Great fun!
 
-<ButtonLink color="#25c2a0" href="https://www.sanity.io/create?template=tarjelavik/sanity-template-muna">Create your Muna Studio</ButtonLink> <a href="https://github.com/tarjelavik/sanity-template-muna">Muna Template (WIP)</a>
+<ButtonLink color="#25c2a0" href="https://www.sanity.io/create?template=tarjelavik/sanity-template-muna">💥 Create your Muna Studio 💥</ButtonLink> <a href="https://github.com/tarjelavik/sanity-template-muna">Muna Template (WIP)</a>
 :::
 
 ## [Experimental] Install as a plugin in your existing Studio
