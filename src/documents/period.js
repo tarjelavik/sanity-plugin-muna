@@ -7,7 +7,7 @@ import {
   referredToBy,
   tookPlaceAt,
 } from "../props";
-import { defaultFieldsets } from "../fieldsets";
+import { coalesceLabel } from "../helpers/helpers";
 
 export default {
   title: "Period",
@@ -19,19 +19,50 @@ export default {
     accessState: "open",
   },
   icon: FaEmpire,
-  fieldsets: defaultFieldsets,
+  fieldsets: [
+    {
+      name: "state",
+      title: "Status",
+      options: { collapsible: true, collapsed: false },
+    },
+    {
+      name: "minimum",
+      title: "Basic metadata",
+      options: { collapsible: true, collapsed: false },
+    },
+    {
+      name: "timelineMedium",
+      title: "Hovedbilde (brukt i tidslinke)",
+      options: { collapsible: true, collapsed: true },
+    },
+    {
+      name: "relations",
+      title: "Relations to other stuff",
+      options: { collapsible: true, collapsed: false },
+    },
+  ],
   fields: [
     editorialState,
     accessState,
     label,
-    referredToBy,
-    timespan,
-    tookPlaceAt,
+    {
+      ...referredToBy,
+      fieldset: "minimum",
+    },
+    {
+      ...timespan,
+      fieldset: "minimum",
+    },
+    {
+      ...tookPlaceAt,
+      fieldset: "minimum",
+    },
     {
       name: "media",
       title: "Media",
       titleEN: "Media",
       type: "mediaObject",
+      fieldset: "timelineMedium",
     },
     {
       name: "consistsOf",
@@ -55,15 +86,15 @@ export default {
   ],
   preview: {
     select: {
-      type: "hasType.0.label.nor",
-      title: "label.nor",
+      type: "hasType.0.label",
+      title: "label",
     },
     prepare(selection) {
       const { title, type } = selection;
 
       return {
-        title: title,
-        subtitle: type,
+        title: coalesceLabel(title),
+        subtitle: coalesceLabel(type),
       };
     },
   },

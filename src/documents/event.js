@@ -1,16 +1,13 @@
+import { timespanAsString, coalesceLabel } from "../helpers/helpers";
 import { FaCalendar } from "react-icons/fa";
 import {
   timespan,
   editorialState,
   accessState,
-  label,
   referredToBy,
   labelSingleton,
-  identifiedBy,
+  tookPlaceAt,
 } from "../props";
-import { defaultFieldsets } from "../fieldsets";
-import { timespanAsString } from "../helpers/helpers";
-import { capitalize } from "lodash";
 
 export default {
   title: "Event",
@@ -22,12 +19,44 @@ export default {
     accessState: "secret",
   },
   icon: FaCalendar,
-  fieldsets: defaultFieldsets,
+  fieldsets: [
+    {
+      name: "state",
+      title: "Status",
+      options: { collapsible: true, collapsed: false },
+    },
+    {
+      name: "minimum",
+      title: "Basic metadata",
+      options: { collapsible: true, collapsed: false },
+    },
+    {
+      name: "timelineMedium",
+      title: "Hovedbilde (brukt i tidslinke)",
+      options: { collapsible: true, collapsed: true },
+    },
+    {
+      name: "relations",
+      title: "Relations to other stuff",
+      options: { collapsible: true, collapsed: false },
+    },
+  ],
   fields: [
     editorialState,
     accessState,
     labelSingleton,
-    identifiedBy,
+    {
+      ...referredToBy,
+      fieldset: "minimum",
+    },
+    {
+      ...timespan,
+      fieldset: "minimum",
+    },
+    {
+      ...tookPlaceAt,
+      fieldset: "minimum",
+    },
     {
       name: "hasType",
       title: "Klassifisert som",
@@ -41,28 +70,19 @@ export default {
       ],
       validation: (Rule) => Rule.required(),
     },
-    referredToBy,
-    timespan,
+    {
+      name: "media",
+      title: "Media",
+      titleEN: "Media",
+      type: "mediaObject",
+      fieldset: "timelineMedium",
+    },
     {
       name: "location",
       title: "Lokasjon",
       titleEN: "Location",
       description: "Where the hell did this happen?!",
       type: "geopoint",
-    },
-    {
-      name: "tookPlaceAt",
-      title: "Tok sted ved",
-      titleEN: "Took place at",
-      description: "Det generelle området eller stedet dette skjedde",
-      type: "array",
-      of: [{ type: "reference", to: [{ type: "place" }] }],
-    },
-    {
-      name: "media",
-      title: "Media",
-      titleEN: "Media",
-      type: "mediaObject",
     },
   ],
   preview: {
@@ -73,7 +93,7 @@ export default {
       date: 'timespan.0.date',
       be: 'timespan.0.beginOfTheEnd',
       ee: 'timespan.0.endOfTheEnd',
-      type: "hasType.0.label.nor",
+      type: "hasType.0.label",
     },
     prepare(selection) {
       const { title, type, bb, eb, date, be, ee } = selection;
@@ -81,7 +101,7 @@ export default {
       console.log(type)
       return {
         title: title,
-        subtitle: `${type ? capitalize(type) + ': ' : ''} ${timespan}`
+        subtitle: `${coalesceLabel(type)} ${timespan}`
       };
     },
   },

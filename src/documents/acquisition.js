@@ -1,5 +1,5 @@
 import { FaGifts } from "react-icons/fa";
-import { editorialState, accessState, timespan, label, referredToBy, labelSingleton, identifiedBy } from "../props";
+import { editorialState, accessState, timespan, label, referredToBy, labelSingleton, identifiedBy, isSubjectOf, transferredTitleOf, transferredTitleFrom, transferredTitleTo } from "../props";
 import { defaultFieldsets } from "../fieldsets";
 
 export default {
@@ -11,17 +11,45 @@ export default {
     accessState: "secret",
   },
   icon: FaGifts,
-  fieldsets: defaultFieldsets,
+  fieldsets: [
+    {
+      name: "state",
+      title: "Status",
+      options: { collapsible: true, collapsed: false },
+    },
+    {
+      name: "minimum",
+      title: "Basic metadata",
+      options: { collapsible: true, collapsed: false },
+    },
+    {
+      name: "ownership",
+      title: "Felt relatert til eierskap",
+      options: { collapsible: true, collapsed: false },
+    },
+  ],
   fields: [
     editorialState,
     accessState,
     labelSingleton,
-    identifiedBy,
+      {
+        ...identifiedBy,
+        fieldset: "minimum",
+      },
+      {
+        ...referredToBy,
+        fieldset: "minimum",
+      },
+      {
+        ...isSubjectOf,
+        fieldset: "minimum",
+      },
     {
       name: "hasType",
       title: "Klassifisert som",
       titleEN: "Classified as",
       type: "array",
+      fieldset: "minimum",
       of: [
         {
           type: "reference",
@@ -29,36 +57,18 @@ export default {
         },
       ],
     },
-    referredToBy,
     timespan,
     {
-      name: "transferredTitleTo",
-      title: "Overførte tittel til",
-      titleEN: "Transferred title to",
-      description: "",
-      type: "array",
-      of: [{ type: "reference", to: [{ type: "group" }, { type: "actor" }] }],
+      ...transferredTitleOf,
+      fieldset: "ownership",
     },
     {
-      name: "transferredTitleFrom",
-      title: "Overførte tittel fra",
-      titleEN: "Transferred title from",
-      description: "",
-      type: "array",
-      of: [{ type: "reference", to: [{ type: "group" }, { type: "actor" }] }],
+      ...transferredTitleFrom,
+      fieldset: "ownership",
     },
     {
-      name: "transferredTitleOf",
-      title: "Overførte tittel",
-      titleEN: "Transferred title of",
-      description: "",
-      type: "array",
-      of: [
-        {
-          type: "reference",
-          to: [{ type: "madeObject" }, { type: "collection" }],
-        },
-      ],
+      ...transferredTitleTo,
+      fieldset: "ownership",
     },
     {
       name: "consistsOf",

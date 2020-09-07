@@ -22,9 +22,6 @@ export default {
       titleEN: 'Alternative text',
       description: 'Important for SEO and accessiblity.',
       type: 'string',
-      options: {
-        isHighlighted: true
-      },
       validation: Rule => Rule.warning('You should fill out the alternative text.')
     }
   ],

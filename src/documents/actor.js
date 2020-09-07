@@ -1,8 +1,7 @@
 import { FaUser } from "react-icons/fa";
-import { editorialState, accessState, referredToBy, labelSingleton, identifiedBy, memberOf } from "../props";
-import { defaultFieldsets } from "../fieldsets";
+import { editorialState, accessState, referredToBy, labelSingleton, identifiedBy, memberOf, mainRepresentation } from "../props";
 import { timespanAsString } from "../helpers/helpers";
-import { capitalize } from "lodash";
+
 
 export default {
   title: "Actor",
@@ -13,17 +12,46 @@ export default {
     accessState: "secret",
   },
   icon: FaUser,
-  fieldsets: defaultFieldsets,
+  fieldsets: [
+    {
+      name: "state",
+      title: "Status",
+      options: { collapsible: true, collapsed: false },
+    },
+    {
+      name: "minimum",
+      title: "Basic metadata",
+      options: { collapsible: true, collapsed: false },
+    },
+    {
+      name: "representation",
+      title: "Hovedbilde og IIIF manifest",
+      options: { collapsible: true, collapsed: false },
+    },
+    {
+      name: "relations",
+      title: "Relations to other stuff",
+      options: { collapsible: true, collapsed: false },
+    },
+  ],
   fields: [
     editorialState,
     accessState,
     labelSingleton,
-    identifiedBy,
+    {
+      ...identifiedBy,
+      fieldset: "minimum",
+    },
+    {
+      ...referredToBy,
+      fieldset: "minimum",
+    },
     {
       name: "hasType",
       title: "Klassifisert som",
       titleEN: "Classified as",
       type: "array",
+      fieldset: "minimum",
       of: [
         {
           type: "reference",
@@ -32,16 +60,10 @@ export default {
       ],
     },
     {
-      name: "mainRepresentation",
-      title: "Hovedbilde",
-      titleEN: "Image",
-      type: "image",
-      options: {
-        hotspot: true,
-      },
+      ...mainRepresentation,
+      fieldset: "representation",
     },
     memberOf,
-    referredToBy,
     {
       name: "activityStream",
       title: "Aktivitetsstrøm",

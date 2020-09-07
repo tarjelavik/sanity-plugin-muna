@@ -1,13 +1,11 @@
 import { FaCrown } from 'react-icons/fa'
 import { editorialState, accessState, labelSingleton, identifiedBy } from "../props"
-import { defaultFieldsets } from '../fieldsets'
 
 export default {
   title: 'Work',
   name: 'work',
   type: 'document',
   icon: FaCrown,
-  fieldsets: defaultFieldsets,
   fields: [
     editorialState,
     accessState,
@@ -17,7 +15,6 @@ export default {
       titleEN: "Classified as",
       description: "",
       descriptionEN: "",
-      fieldset: "minimum",
       type: "array",
       of: [
         {

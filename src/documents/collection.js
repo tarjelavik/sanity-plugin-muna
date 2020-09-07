@@ -1,5 +1,4 @@
 import { GiBookshelf } from "react-icons/gi";
-
 import {
   editorialState,
   accessState,
@@ -7,8 +6,8 @@ import {
   preferredIdentifier,
   labelSingleton,
   identifiedBy,
+  isSubjectOf,
 } from "../props";
-import { defaultFieldsets } from "../fieldsets";
 
 export default {
   title: "Collection",
@@ -19,14 +18,60 @@ export default {
     accessState: "secret",
   },
   icon: GiBookshelf,
-  fieldsets: defaultFieldsets,
+  fieldsets: [
+    {
+      name: "state",
+      title: "Status",
+      options: { collapsible: true, collapsed: false },
+    },
+    {
+      name: "minimum",
+      title: "Basic metadata",
+      options: { collapsible: true, collapsed: false },
+    },
+    {
+      name: "representation",
+      title: "Hovedbilde og IIIF manifest",
+      options: { collapsible: true, collapsed: false },
+    },
+    {
+      name: "relations",
+      title: "Relations to other stuff",
+      options: { collapsible: true, collapsed: false },
+    },
+    {
+      name: "partsAndContent",
+      title: "Felt relatert til deler eller innhold",
+      options: { collapsible: true, collapsed: false },
+    },
+    {
+      name: "physicalDescription",
+      title: "Felt relatert til fysisk beskrivelse",
+      options: { collapsible: true, collapsed: false },
+    },
+    {
+      name: "ownership",
+      title: "Felt relatert til eierskap",
+      options: { collapsible: true, collapsed: false },
+    },
+  ],
   fields: [
     editorialState,
     accessState,
     preferredIdentifier,
     labelSingleton,
-    identifiedBy,
-    referredToBy,
+    {
+      ...identifiedBy,
+      fieldset: "minimum",
+    },
+    {
+      ...referredToBy,
+      fieldset: "minimum",
+    },
+    {
+      ...isSubjectOf,
+      fieldset: "minimum",
+    },
     {
       name: "activityStream",
       title: "Aktivitetsstrøm",
@@ -54,21 +99,6 @@ export default {
         "Other identified subcollections this collection is composed of",
       type: "array",
       of: [{ type: "reference", to: [{ type: "collection" }] }],
-    },
-    {
-      name: "isSubjectOf",
-      title: "Omhandlet i",
-      titleEN: "Subject of",
-      description: "Tekster om dette objektet",
-      descriptionEN: "Texts about this object, both internal and other texts",
-      fieldset: "additionalInformation",
-      type: "array",
-      of: [
-        {
-          type: "reference",
-          to: [{ type: "linguisticObject" }],
-        },
-      ],
     },
   ],
   preview: {

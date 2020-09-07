@@ -1,5 +1,4 @@
 import { FaProjectDiagram } from "react-icons/fa";
-
 import {
   editorialState,
   accessState,
@@ -8,25 +7,52 @@ import {
   referredToBy,
   identifiedBy,
 } from "../props";
-import { defaultFieldsets } from "../fieldsets";
+import { coalesceLabel } from "../helpers/helpers";
 
 export default {
   title: "Project",
   name: "project",
   type: "document",
   icon: FaProjectDiagram,
-  fieldsets: defaultFieldsets,
+  fieldsets: [
+    {
+      name: "state",
+      title: "Status",
+      options: { collapsible: true, collapsed: false },
+    },
+    {
+      name: "minimum",
+      title: "Basic metadata",
+      options: { collapsible: true, collapsed: false },
+    },
+    {
+      name: "relations",
+      title: "Relations to other stuff",
+      options: { collapsible: true, collapsed: false },
+    },
+  ],
   fields: [
     editorialState,
     accessState,
     label,
-    identifiedBy,
     {
       name: "active",
       title: "Pågående?",
       titleEN: "Ongoing?",
       type: "boolean",
-      fieldset: "state",
+      fieldset: "minimum",
+    },
+    {
+      ...identifiedBy,
+      fieldset: "minimum",
+    },
+    {
+      ...referredToBy,
+      fieldset: "minimum",
+    },
+    {
+      ...timespan,
+      fieldset: "minimum",
     },
     {
       name: "isAbout",
@@ -42,20 +68,6 @@ export default {
         },
       ],
     },
-    timespan,
-    referredToBy,
-    /* {
-      title: 'Activity stream',
-      description: 'Events and activities connected to this object',
-      name: 'activityStream',
-      type: 'array',
-      of: [
-        {type: 'measurement'}
-      ],
-      options: {
-        editModal: 'fullscreen'
-      }
-    }, */
     {
       name: "consistsOf",
       title: "Underprosjekt",
@@ -81,8 +93,8 @@ export default {
   ],
   preview: {
     select: {
-      type: "hasType.0.label.nor",
-      title: "label.nor",
+      type: "hasType.0.label",
+      title: "label",
       blocks: "description.nor",
       published: "accessState",
       active: "active",
@@ -94,8 +106,8 @@ export default {
       const a = active ? "Active" : "Completed";
 
       return {
-        title: title,
-        subtitle: secret + " " + a + (type || ""),
+        title: coalesceLabel(title),
+        subtitle: secret + " " + a + (coalesceLabel(type) || ""),
         description: block
           ? block.children
               .filter((child) => child._type === "span")

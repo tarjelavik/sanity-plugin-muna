@@ -4,7 +4,7 @@ title: Muna introduction
 sidebar_label: Introduction
 ---
 
-Sanity use document as equivalent to class. A property can refer to another document or create a nested object on the original document. Objects are sadly not directly queryable and can not be referred to by other documents. **Muna** nest data for quick editorial experience for the end user. Converting Sanity data to JSON-LD could easily convert *objects* to *documents* and poplate a rdf triplestore for detailed querying. A conversion of a dataset using **Muna** to rdf should treat document and object as equals.
+Sanity documenta are equivalent to classes. A property can refer to another document or create a nested object on the original document. Objects are sadly not directly queryable and can not be referred to by other documents. **Muna** nest data for quick editorial experience for the end user. Converting Sanity data to JSON-LD could easily convert *objects* to *documents* and poplate a rdf triplestore for detailed querying. A conversion of a dataset using **Muna** to rdf should treat document and object as equals.
 
 ## Properties
 

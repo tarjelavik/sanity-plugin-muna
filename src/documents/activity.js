@@ -1,23 +1,52 @@
+import { timespanAsString, coalesceLabel } from "../helpers/helpers";
 import { MdLocalActivity } from "react-icons/md";
-import { timespan, referredToBy, carriedOutBy, usedSpecificTechnique, usedGeneralTechnique, usedSpecificObject, label, tookPlaceAt, hadParticipant, usedObjectOfType, identifiedBy, labelSingleton } from "../props";
-import { defaultFieldsets } from "../fieldsets";
-import { capitalize } from "lodash";
-import { timespanAsString } from "../helpers/helpers";
+import { timespan, referredToBy, carriedOutBy, usedSpecificTechnique, usedGeneralTechnique, usedSpecificObject, tookPlaceAt, hadParticipant, usedObjectOfType, identifiedBy, labelSingleton, accessState, editorialState } from "../props";
 
 export default {
   title: "Activity",
   name: "activity",
   type: "document",
   icon: MdLocalActivity,
-  fieldsets: defaultFieldsets,
+  fieldsets: [
+    {
+      name: "state",
+      title: "Status",
+      options: { collapsible: true, collapsed: false },
+    },
+    {
+      name: "minimum",
+      title: "Basic metadata",
+      options: { collapsible: true, collapsed: false },
+    },
+    {
+      name: "technique",
+      title: "Felt relatert til teknikk",
+      options: { collapsible: true, collapsed: false },
+    },
+    {
+      name: "purpose",
+      title: "Formål med aktiviteten",
+      options: { collapsible: true, collapsed: false },
+    },
+  ],
   fields: [
+    editorialState,
+    accessState,
     labelSingleton,
-    identifiedBy,
+    {
+      ...identifiedBy,
+      fieldset: "minimum",
+    },
+    {
+      ...referredToBy,
+      fieldset: "minimum",
+    },
     {
       name: "hasType",
       title: "Aktivitetstype",
       titleEN: "Activity type",
       type: "array",
+      fieldset: "minimum",
       of: [
         {
           type: "reference",
@@ -36,7 +65,6 @@ export default {
     },
     timespan,
     tookPlaceAt,
-    referredToBy,
     {
       name: "consistsOf",
       title: "Underaktiviteter",
@@ -78,10 +106,22 @@ export default {
         },
       ],
     },
-    usedObjectOfType,
-    usedSpecificObject,
-    usedGeneralTechnique,
-    usedSpecificTechnique,
+    {
+      ...usedGeneralTechnique,
+      fieldset: "technique",
+    },
+    {
+      ...usedSpecificTechnique,
+      fieldset: "technique",
+    },
+    {
+      ...usedObjectOfType,
+      fieldset: "technique",
+    },
+    {
+      ...usedSpecificObject,
+      fieldset: "technique",
+    },
     {
       name: "generalPurpose",
       title: "Generelt formål",
@@ -135,7 +175,7 @@ export default {
       date: 'timespan.0.date',
       be: 'timespan.0.beginOfTheEnd',
       ee: 'timespan.0.endOfTheEnd',
-      type: "hasType.0.label.nor",
+      type: "hasType.0.label",
     },
     prepare(selection) {
       const { title, type, bb, eb, date, be, ee } = selection;
@@ -143,7 +183,7 @@ export default {
   
       return {
         title: title,
-        subtitle: `${type ? capitalize(type) + ': ' : ''} ${timespan}`
+        subtitle: `${coalesceLabel(type)} ${timespan}`
       };
     },
   },

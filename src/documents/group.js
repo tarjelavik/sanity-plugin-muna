@@ -1,6 +1,6 @@
 import { FaUsers } from "react-icons/fa";
-import { accessState, label, editorialState, referredToBy, labelSingleton, identifiedBy } from "../props";
-import { defaultFieldsets } from "../fieldsets";
+import { accessState, editorialState, referredToBy, labelSingleton, identifiedBy } from "../props";
+import { coalesceLabel } from "../helpers/helpers";
 
 export default {
   title: "Group",
@@ -11,17 +11,46 @@ export default {
     accessState: "secret",
   },
   icon: FaUsers,
-  fieldsets: defaultFieldsets,
+  fieldsets: [
+    {
+      name: "state",
+      title: "Status",
+      options: { collapsible: true, collapsed: false },
+    },
+    {
+      name: "minimum",
+      title: "Basic metadata",
+      options: { collapsible: true, collapsed: false },
+    },
+    {
+      name: "representation",
+      title: "Hovedbilde og IIIF manifest",
+      options: { collapsible: true, collapsed: false },
+    },
+    {
+      name: "relations",
+      title: "Relations to other stuff",
+      options: { collapsible: true, collapsed: false },
+    },
+  ],
   fields: [
     editorialState,
     accessState,
     labelSingleton,
-    identifiedBy,
+    {
+      ...identifiedBy,
+      fieldset: "minimum",
+    },
+    {
+      ...referredToBy,
+      fieldset: "minimum",
+    },
     {
       name: "hasType",
       title: "Klassifisert som",
       titleEN: "Classified as",
       type: "array",
+      fieldset: "minimum",
       of: [
         {
           type: "reference",
@@ -30,7 +59,6 @@ export default {
       ],
       validation: (Rule) => Rule.required(),
     },
-    referredToBy,
     {
       name: "activityStream",
       title: "Aktivitetsstrøm",
@@ -52,14 +80,14 @@ export default {
   preview: {
     select: {
       title: "label",
-      type: "hasType.0.label.nor",
+      type: "hasType.0.label",
     },
     prepare(selection) {
       const { title, type } = selection;
 
       return {
         title: title,
-        subtitle: type,
+        subtitle: coalesceLabel(type),
       };
     },
   },

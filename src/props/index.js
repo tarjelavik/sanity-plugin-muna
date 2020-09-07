@@ -1,23 +1,24 @@
 import { licenseTypes } from "../vocabularies/defaultVocabularies";
 
-const editorialState = {
+export const editorialState = {
   name: "editorialState",
-  title: "Redaksjonell status",
-  titleEN: "Editorial state",
+  title: "Status",
+  titleEN: "State",
   type: "string",
   fieldset: "state",
   validation: (Rule) => Rule.required(),
   options: {
     list: [
-      { title: "Publisert", value: "published" },
-      { title: "Til gjennomgang", value: "review" },
       { title: "Utkast", value: "draft" },
+      { title: "Til gjennomgang", value: "review" },
+      { title: "Publisert", value: "published" },
     ],
     layout: "radio",
+    direction: "horizontal"
   },
 };
 
-const accessState = {
+export const accessState = {
   name: "accessState",
   title: "Tilgangsstatus",
   titleEN: "Access state",
@@ -34,17 +35,17 @@ const accessState = {
   },
 };
 
-const mainRepresentation = {
+export const mainRepresentation = {
   title: "Hovedbilde",
   titleEN: "Main image",
   name: "mainRepresentation",
   description:
-    'Velg et bilde fra egen samling eller fra NB.no. Legg til bildetekst ved å trykke "Edit".',
+    'Velg et bilde fra en av kildene.',
   descriptionEN: "Choose a image from out own collection or from NB.no.",
   type: "mainRepresentation",
 };
 
-const subjectOfManifest = {
+export const subjectOfManifest = {
   title: "Hovedmanifest",
   titleEN: "Main manifest",
   description:
@@ -54,26 +55,26 @@ const subjectOfManifest = {
   type: "url",
 };
 
-const iiifStructures = {
+export const iiifStructures = {
   title: "IIIF structures",
   name: "structures",
   type: "array",
   of: [{ type: "range" }],
 };
 
-const preferredIdentifier = {
+export const preferredIdentifier = {
   name: "preferredIdentifier",
   title: "Foretrukket identifikator",
   titleEN: "Preferred identifier",
   type: "string",
   /* validation: Rule => Rule.required().custom(async prefId => {
     // eslint-disable-next-line no-template-curly-in-string
-    const docs = await client.fetch('*[preferredIdentifier == "${prefId}" && !(_id in path("drafts.**"))] { preferredIdentifier }', {prefId})
+    export const docs = await client.fetch('*[preferredIdentifier == "${prefId}" && !(_id in path("drafts.**"))] { preferredIdentifier }', {prefId})
     return docs.length > 1 ? 'Value is not unique' : true
   }) */
 };
 
-const label = {
+export const label = {
   name: "label",
   title: "Tittel",
   titleEN: "Title",
@@ -83,7 +84,7 @@ const label = {
   validation: (Rule) => Rule.required(),
 };
 
-const labelSingleton = {
+export const labelSingleton = {
   name: "label",
   title: "Tittel",
   titleEN: "Title",
@@ -98,7 +99,7 @@ const labelSingleton = {
  * P1_is_identified_by
  */
 
-const identifiedBy = {
+export const identifiedBy = {
   name: "identifiedBy",
   title: "Identifisert av",
   titleEN: "Identified by",
@@ -111,7 +112,7 @@ const identifiedBy = {
   },
 };
 
-const hasType = {
+export const hasType = {
   name: "hasType",
   title: "Klassifisert som",
   titleEN: "Classified as",
@@ -137,7 +138,7 @@ const hasType = {
  * dct:license
  */
 
-const license = {
+export const license = {
   name: "license",
   title: "Lisensiering",
   titleEN: "License",
@@ -150,7 +151,7 @@ const license = {
   validation: (Rule) => Rule.required(),
 };
 
-const subject = {
+export const subject = {
   name: "subject",
   title: "Emne",
   titleEN: "Subject",
@@ -163,7 +164,7 @@ const subject = {
   ],
 };
 
-const referredToBy = {
+export const referredToBy = {
   name: "referredToBy",
   title: "Beskrivelse",
   titleEN: "Description",
@@ -180,7 +181,7 @@ const referredToBy = {
   },
 };
 
-const relation = {
+export const relation = {
   name: "relation",
   title: "Relaterte ting",
   titleEN: "Related stuff",
@@ -200,7 +201,24 @@ const relation = {
   ],
 };
 
-const hasCurrentOwner = {
+export const wasPresentAt = {
+  name: "wasPresentAt",
+  title: "Var tilstede ved",
+  titleEN: "Was present at",
+  description: "Dette objektet var tilstede ved en hendelse eller aktivitet",
+  type: "array",
+  of: [
+    {
+      type: "reference",
+      to: [
+        { type: "event" },
+        { type: "activity" },
+      ],
+    },
+  ],
+};
+
+export const hasCurrentOwner = {
   name: "hasCurrentOwner",
   title: "Nåværende eier",
   type: "array",
@@ -212,7 +230,7 @@ const hasCurrentOwner = {
   ],
 };
 
-const hasFormerOrCurrentOwner = {
+export const hasFormerOrCurrentOwner = {
   name: "hasFormerOrCurrentOwner",
   title: "Tidligere eller nåværende eier",
   type: "array",
@@ -224,7 +242,7 @@ const hasFormerOrCurrentOwner = {
   ],
 };
 
-const composedOf = {
+export const composedOf = {
   name: "composedOf",
   title: "Består av",
   titleEN: "Composed of",
@@ -235,7 +253,7 @@ const composedOf = {
   of: [{ type: "reference", to: [{ type: "madeObject" }] }],
 };
 
-const isSubjectOf = {
+export const isSubjectOf = {
   name: "isSubjectOf",
   title: "Omhandlet i",
   titleEN: "Subject of",
@@ -250,7 +268,7 @@ const isSubjectOf = {
   ],
 };
 
-const depicts = {
+export const depicts = {
   name: "depicts",
   title: "Avbilder",
   titleEN: "Depicts",
@@ -268,7 +286,7 @@ const depicts = {
   ],
 };
 
-const represents = {
+export const represents = {
   name: "represents",
   title: "Representerer",
   titleEN: "Represents",
@@ -286,7 +304,7 @@ const represents = {
   ],
 };
 
-const showsVisualObject = {
+export const showsVisualObject = {
   name: "showsVisualObject",
   title: "Viser merke eller bilde",
   titleEN: "Shown visual item",
@@ -294,7 +312,7 @@ const showsVisualObject = {
   of: [{ type: "visualObject" }],
 };
 
-const carries = {
+export const carries = {
   name: "carries",
   title: "Bærer verk",
   titleEN: "Carries work",
@@ -302,7 +320,7 @@ const carries = {
   of: [{ type: "reference", to: [{ type: "work" }] }],
 };
 
-const measurement = {
+export const measurement = {
   name: "measurement",
   title: "Måling",
   titleEN: "Measurement",
@@ -310,7 +328,7 @@ const measurement = {
   of: [{ type: "measurement" }],
 };
 
-const consistsOf = {
+export const consistsOf = {
   name: "consistsOf",
   title: "Laget av",
   titleEn: "Consists of",
@@ -326,7 +344,7 @@ const consistsOf = {
   ],
 };
 
-const usedGeneralTechnique = {
+export const usedGeneralTechnique = {
   name: "usedGeneralTechnique",
   title: "Brukte generell teknikk",
   titleEN: "Used general technique",
@@ -339,7 +357,7 @@ const usedGeneralTechnique = {
   ],
 };
 
-const usedSpecificTechnique = {
+export const usedSpecificTechnique = {
   name: "usedSpecificTechnique",
   title: "Brukte spesifikk teknikk",
   titleEN: "Used spesific technique",
@@ -347,7 +365,7 @@ const usedSpecificTechnique = {
   of: [{ type: "reference", to: [{ type: "designOrProcedure" }] }],
 };
 
-const usedObjectOfType = {
+export const usedObjectOfType = {
   name: "usedObjectOfType",
   title: "Brukte objekt av type",
   titleEN: "Used object of type",
@@ -360,7 +378,7 @@ const usedObjectOfType = {
   ],
 };
 
-const usedSpecificObject = {
+export const usedSpecificObject = {
   name: "usedSpecificObject",
   title: "Brukte spesifikt objekt",
   titleEN: "Used spesific object",
@@ -368,7 +386,7 @@ const usedSpecificObject = {
   of: [{ type: "reference", to: [{ type: "madeObject" }] }],
 };
 
-const usedSpecificObjectSet = {
+export const usedSpecificObjectSet = {
   name: "usedSpecificObject",
   title: "Brukte spesifikt objekt",
   titleEN: "Used spesific object",
@@ -376,7 +394,7 @@ const usedSpecificObjectSet = {
 };
 
 
-const timespan = {
+export const timespan = {
   name: "timespan",
   title: "Tidsspenn",
   titleEN: "Timespan",
@@ -389,7 +407,7 @@ const timespan = {
     Rule.length(1).warning("You should only register one timespan"),
 };
 
-const carriedOutBy = {
+export const carriedOutBy = {
   name: "carriedOutBy",
   title: "Utført av",
   titleEN: "Carried out by",
@@ -397,7 +415,7 @@ const carriedOutBy = {
   of: [{ type: "actorInRole" }],
 };
 
-const hadParticipant = {
+export const hadParticipant = {
   name: "hadParticipant",
   title: "Hadde medvirkende",
   titleEN: "Had participant",
@@ -405,7 +423,7 @@ const hadParticipant = {
   of: [{ type: "actorInRole" }],
 };
 
-const tookPlaceAt = {
+export const tookPlaceAt = {
   name: "tookPlaceAt",
   title: "Skjedde ved",
   titleEN: "Took place at",
@@ -416,7 +434,7 @@ const tookPlaceAt = {
 /**
  * skos:altLabel
  */
-const altLabel = {
+export const altLabel = {
   name: "altLabel",
   title: "Alternativt navn",
   titleEN: "Alternative label",
@@ -426,7 +444,7 @@ const altLabel = {
 /**
  * P35_has_identified
  */
-const hasIdentified = {
+export const hasIdentified = {
   name: "hasIdentified",
   title: "Identifiserte tilstander",
   titleEN: "Has identified condition states",
@@ -434,7 +452,7 @@ const hasIdentified = {
   of: [{ type: "conditionState" }],
 };
 
-const valueSlider = {
+export const valueSlider = {
   name: "value",
   title: "Verdi",
   titleEN: "Value",
@@ -446,7 +464,7 @@ const valueSlider = {
   },
 };
 
-const language = {
+export const language = {
   name: "language",
   title: "Språk",
   titleEN: "Language",
@@ -454,7 +472,7 @@ const language = {
   of: [{ type: "reference", to: [{ type: "language" }] }],
 };
 
-const memberOf = {
+export const memberOf = {
   name: "memberOf",
   title: "Medlem av",
   titleEN: "Member of",
@@ -466,7 +484,7 @@ const memberOf = {
  * hasMember
  * la:has_member
  */
-const hasMember = {
+export const hasMember = {
   name: "hasMember",
   title: "Har deler",
   titleEN: "Has member",
@@ -478,7 +496,7 @@ const hasMember = {
  * broader
  * skos:broader
  */
-const broader = {
+export const broader = {
   name: "broader",
   title: "Overordnet term",
   titleEN: "Broader",
@@ -486,7 +504,7 @@ const broader = {
   of: [{ type: "reference", to: [{ type: "typeClass" }] }],
 };
 
-const narrower = {
+export const narrower = {
   name: "narrower",
   title: "Underordnet term",
   titleEN: "Narrower",
@@ -495,7 +513,7 @@ const narrower = {
   of: [{ type: "reference", to: [{ type: "typeClass" }] }],
 };
 
-const domain = {
+export const domain = {
   name: "domain",
   title: "Domene",
   titleEN: "Domain",
@@ -503,7 +521,7 @@ const domain = {
   of: [{ type: "reference", to: [{ type: "typeClass" }] }],
 };
 
-const definedByGeoJSON = {
+export const definedByGeoJSON = {
   name: "definedByGeoJSON",
   title: "GeoJSON",
   titleEN: "GeoJSON",
@@ -512,48 +530,56 @@ const definedByGeoJSON = {
   of: [{ type: "geojsonFeatureCollection" }, { type: "geojson" }],
 };
 
-export {
-  editorialState,
-  accessState,
-  mainRepresentation,
-  subjectOfManifest,
-  iiifStructures,
-  preferredIdentifier,
-  label,
-  labelSingleton,
-  identifiedBy,
-  hasType,
-  license,
-  subject,
-  referredToBy,
-  relation,
-  hasCurrentOwner,
-  hasFormerOrCurrentOwner,
-  composedOf,
-  isSubjectOf,
-  depicts,
-  represents,
-  showsVisualObject,
-  carries,
-  measurement,
-  consistsOf,
-  usedGeneralTechnique,
-  usedSpecificTechnique,
-  usedObjectOfType,
-  usedSpecificObject,
-  usedSpecificObjectSet,
-  timespan,
-  carriedOutBy,
-  hadParticipant,
-  tookPlaceAt,
-  altLabel,
-  hasIdentified,
-  valueSlider,
-  language,
-  memberOf,
-  hasMember,
-  broader,
-  narrower,
-  domain,
-  definedByGeoJSON,
+export const transferredTitleTo = {
+  name: "transferredTitleTo",
+  title: "Overførte tittel til",
+  titleEN: "Transferred title to",
+  description: "",
+  type: "array",
+  of: [{ type: "reference", to: [{ type: "group" }, { type: "actor" }] }],
+};
+
+export const transferredTitleFrom = {
+  name: "transferredTitleFrom",
+  title: "Overførte tittel fra",
+  titleEN: "Transferred title from",
+  description: "",
+  type: "array",
+  of: [{ type: "reference", to: [{ type: "group" }, { type: "actor" }] }],
+};
+
+export const transferredTitleOf = {
+  name: "transferredTitleOf",
+  title: "Overførte tittel",
+  titleEN: "Transferred title of",
+  description: "",
+  type: "array",
+  of: [
+    {
+      type: "reference",
+      to: [{ type: "madeObject" }, { type: "collection" }],
+    },
+  ],
+};
+
+export const concerned = {
+  name: "concerned",
+  title: "Omhandler",
+  titleEN: "About",
+  description: "Which collection(s) or object(s) is this an assessment of.",
+  type: "array",
+  of: [
+    {
+      type: "reference",
+      to: [{ type: "madeObject" }, { type: "collection" }],
+    },
+  ],
+};
+
+export const motivated = {
+  name: "motivated",
+  title: "Motiverte",
+  titleEN: "Motivated",
+  type: "array",
+  of: [{ type: "treatment" }],
 };

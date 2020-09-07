@@ -3,7 +3,8 @@ export default {
   type: 'image',
   title: 'Image',
   options: {
-    hotspot: true
+    hotspot: true,
+    metadata: ['exif', 'location', 'lqip', 'palette'],
   },
   fields: [
     {
@@ -21,10 +22,7 @@ export default {
       titleEN: 'Alternative text',
       description: 'Important for SEO and accessiblity.',
       type: 'string',
-      options: {
-        isHighlighted: true
-      },
-      validation: Rule => Rule.warning('You have to fill out the alternative text.')
+      validation: Rule => Rule.warning('You should to fill out the alternative text.')
     }
   ],
   preview: {

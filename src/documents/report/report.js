@@ -9,9 +9,9 @@ import {
   usedSpecificObject,
   referredToBy,
   hasIdentified,
+  concerned,
+  motivated,
 } from "../../props";
-import { defaultFieldsets } from "../../fieldsets";
-
 
 /**
  * Report
@@ -27,29 +27,48 @@ export default {
     accessState: "secret",
   },
   icon: GiCrackedGlass,
-  fieldsets: defaultFieldsets,
+  fieldsets: [
+    {
+      name: "state",
+      title: "Status",
+      options: { collapsible: true, collapsed: false },
+    },
+    {
+      name: "minimum",
+      title: "Basic metadata",
+      options: { collapsible: true, collapsed: false },
+    },
+    {
+      name: "relations",
+      title: "Relations to other stuff",
+      options: { collapsible: true, collapsed: false },
+    },
+    {
+      name: "partsAndContent",
+      title: "Felt relatert til deler eller innhold",
+      options: { collapsible: true, collapsed: false },
+    },
+    {
+      name: "technique",
+      title: "Felt relatert til teknikk",
+      options: { collapsible: true, collapsed: false },
+    },
+    {
+      name: "documentation",
+      title: "Dokumentasjon",
+      options: { collapsible: true, collapsed: false },
+    },
+  ],
   fields: [
     editorialState,
     accessState,
-    {
-      name: "concerned",
-      title: "Omhandler",
-      titleEN: "About",
-      description: "Which collection(s) or object(s) is this an assessment of.",
-      type: "array",
-      of: [
-        {
-          type: "reference",
-          to: [{ type: "madeObject" }, { type: "collection" }],
-        },
-      ],
-    },
     label,
     {
       name: "hasType",
       title: "Klassifisert som",
       titleEN: "Classified as",
       type: "array",
+      fieldset: "minimum",
       of: [
         {
           type: "reference",
@@ -58,8 +77,13 @@ export default {
       ],
       validation: (Rule) => Rule.required(),
     },
-    referredToBy,
+    {
+      ...referredToBy,
+      fieldset: "minimum",
+    },
+    concerned,
     hasIdentified,
+    motivated,
     {
       name: "activityStream",
       title: "Aktivitetsstrøm",
@@ -73,16 +97,21 @@ export default {
         { type: "treatment" },
       ],
     },
-    usedGeneralTechnique,
-    usedSpecificTechnique,
-    usedObjectOfType,
-    usedSpecificObject,
     {
-      name: "motivated",
-      title: "Motiverte",
-      titleEN: "Motivated",
-      type: "array",
-      of: [{ type: "treatment" }],
+      ...usedGeneralTechnique,
+      fieldset: "technique",
+    },
+    {
+      ...usedSpecificTechnique,
+      fieldset: "technique",
+    },
+    {
+      ...usedObjectOfType,
+      fieldset: "technique",
+    },
+    {
+      ...usedSpecificObject,
+      fieldset: "technique",
     },
     {
       name: "documentationImage",

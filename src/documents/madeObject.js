@@ -23,8 +23,9 @@ import {
   consistsOf,
   labelSingleton,
   iiifStructures,
+  wasPresentAt,
 } from "../props";
-import { defaultFieldsets } from "../fieldsets";
+import { coalesceLabel } from "../helpers/helpers";
 
 export default {
   name: "madeObject",
@@ -37,21 +38,64 @@ export default {
     accessState: "secret",
   },
   icon: FaBookDead,
-  fieldsets: defaultFieldsets,
+  fieldsets: [
+    {
+      name: "state",
+      title: "Status",
+      options: { collapsible: true, collapsed: false },
+    },
+    {
+      name: "minimum",
+      title: "Basic metadata",
+      options: { collapsible: true, collapsed: false },
+    },
+    {
+      name: "representation",
+      title: "Hovedbilde og IIIF manifest",
+      options: { collapsible: true, collapsed: false },
+    },
+    {
+      name: "relations",
+      title: "Relations to other stuff",
+      options: { collapsible: true, collapsed: false },
+    },
+    {
+      name: "partsAndContent",
+      title: "Felt relatert til deler eller innhold",
+      options: { collapsible: true, collapsed: false },
+    },
+    {
+      name: "physicalDescription",
+      title: "Felt relatert til fysisk beskrivelse",
+      options: { collapsible: true, collapsed: false },
+    },
+    {
+      name: "ownership",
+      title: "Felt relatert til eierskap",
+      options: { collapsible: true, collapsed: false },
+    },
+  ],
   fields: [
     editorialState,
     accessState,
     preferredIdentifier,
     labelSingleton,
-    identifiedBy,
+    {
+      ...identifiedBy,
+      fieldset: "minimum",
+    },
+    {
+      ...referredToBy,
+      fieldset: "minimum",
+    },
     {
       name: "hasType",
+      type: "array",
       title: "Klassifisert som",
       titleEN: "Classified as",
       description: "",
       descriptionEN: "",
       fieldset: "minimum",
-      type: "array",
       of: [
         {
           type: "reference",
@@ -60,12 +104,30 @@ export default {
       ],
       validation: (Rule) => Rule.required(),
     },
-    referredToBy,
-    subject,
-    license,
-    mainRepresentation,
-    subjectOfManifest,
-    iiifStructures,
+    {
+      ...subject,
+      fieldset: "minimum",
+    },
+    {
+      ...isSubjectOf,
+      fieldset: "minimum",
+    },
+    {
+      ...license,
+      fieldset: "minimum",
+    },
+    {
+      ...mainRepresentation,
+      fieldset: "representation",
+    },
+    {
+      ...subjectOfManifest,
+      fieldset: "representation",
+    },
+    {
+      ...iiifStructures,
+      fieldset: "representation",
+    },
     {
       name: "activityStream",
       title: "Aktivitetsstrøm",
@@ -82,22 +144,52 @@ export default {
         { type: "destruction" },
       ],
     },
-    relation,
-    hasCurrentOwner,
-    hasFormerOrCurrentOwner,
-    composedOf,
-    isSubjectOf,
-    depicts, // remove?
-    showsVisualObject,
-    carries,
-    measurement,
-    consistsOf,
+    {
+      ...relation,
+      fieldset: "relations",
+    },
+    {
+      ...wasPresentAt,
+      fieldset: "relations",
+    },
+    {
+      ...depicts,
+      fieldset: "partsAndContent",
+    },
+    {
+      ...showsVisualObject,
+      fieldset: "partsAndContent",
+    },
+    {
+      ...carries,
+      fieldset: "partsAndContent",
+    },
+    {
+      ...composedOf,
+      fieldset: "partsAndContent",
+    },
+    {
+      ...measurement,
+      fieldset: "physicalDescription",
+    },
+    {
+      ...consistsOf,
+      fieldset: "physicalDescription",
+    },
+    {
+      ...hasCurrentOwner,
+      fieldset: "ownership",
+    },
+    {
+      ...hasFormerOrCurrentOwner,
+      fieldset: "ownership",
+    },
   ],
   preview: {
     select: {
       title: "label",
       id: "preferredIdentifier",
-      type: "hasType.0.label.nor",
+      type: "hasType.0.label",
       blocks: "description",
       media: "mainRepresentation",
       published: "accessState",
@@ -110,7 +202,7 @@ export default {
 
       return {
         title: title,
-        subtitle: secret + (id ? id + ", " : "") + type,
+        subtitle: secret + (id ? id + ", " : "") + coalesceLabel(type),
         description: block
           ? block.children
               .filter((child) => child._type === "span")
@@ -140,12 +232,7 @@ export default {
     {
       title: "Foretrukket id, Stigende",
       name: "preferredIdentifier",
-      by: [
-        {
-          field: "preferredIdentifier",
-          direction: "asc",
-        },
-      ],
+      by: [{ field: "preferredIdentifier", direction: "asc" }],
     },
   ],
 };

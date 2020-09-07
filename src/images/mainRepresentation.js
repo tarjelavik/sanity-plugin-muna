@@ -2,9 +2,6 @@ export default {
   name: 'mainRepresentation',
   title: 'Image',
   type: 'image',
-  initialValue: {
-    conformsTo: 'http://iiif.io/api/image'
-  },
   options: {
     hotspot: true,
     metadata: ['exif', 'location', 'lqip', 'palette']
@@ -19,11 +16,6 @@ export default {
         isHighlighted: true
       }
     },
-    {
-      name: 'conformsTo',
-      title: 'Conforms to',
-      type: 'string'
-    }
   ],
   preview: {
     select: {

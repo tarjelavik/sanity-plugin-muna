@@ -20,7 +20,7 @@ Treatment is a object connected to a report. This is because treatment should ne
 
 ## Timeline
 
-Modified versjon of [TimelineJS JSON data format](https://timeline.knightlab.com/docs/json-format.html) and [Knut Melværs](https://github.com/kmelve) [Sanity Timeline.js schemas](https://github.com/kmelve/sanity-plugin-timelinejs).
+Modified version of [TimelineJS JSON data format](https://timeline.knightlab.com/docs/json-format.html) and [Knut Melværs](https://github.com/kmelve) [Sanity Timeline.js schemas](https://github.com/kmelve/sanity-plugin-timelinejs).
 With added capability of referencing events and more from the Muna schema.
 
 [Example](https://www.saelen.family/id/2654ca9e-32c4-4b2c-a35f-ae2d4a012625)
