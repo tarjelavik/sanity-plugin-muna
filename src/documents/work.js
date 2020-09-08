@@ -6,6 +6,13 @@ export default {
   name: 'work',
   type: 'document',
   icon: FaCrown,
+  fieldsets: [
+    {
+      name: "state",
+      title: "Status",
+      options: { collapsible: true, collapsed: false },
+    },
+  ],
   fields: [
     editorialState,
     accessState,
