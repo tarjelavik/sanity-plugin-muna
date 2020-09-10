@@ -8,7 +8,7 @@ export default {
   name: "writtenText",
   type: "document",
   initialValue: {
-    editorialState: "workingDraft",
+    editorialState: "draft",
     accessState: "secret",
   },
   icon: FaMarker,

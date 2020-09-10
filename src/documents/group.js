@@ -7,7 +7,7 @@ export default {
   name: "group",
   type: "document",
   initialValue: {
-    editorialState: "workingDraft",
+    editorialState: "draft",
     accessState: "secret",
   },
   icon: FaUsers,

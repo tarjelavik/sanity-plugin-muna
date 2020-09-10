@@ -7,7 +7,7 @@ export default {
   type: "document",
   title: "Timeline",
   initialValue: {
-    editorialState: "workingDraft",
+    editorialState: "draft",
     accessState: "secret",
   },
   icon: GiCalendar,

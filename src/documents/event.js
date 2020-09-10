@@ -15,7 +15,7 @@ export default {
   description: "Should be fetched from KulturNav",
   type: "document",
   initialValue: {
-    editorialState: "workingDraft",
+    editorialState: "draft",
     accessState: "secret",
   },
   icon: FaCalendar,

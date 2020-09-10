@@ -34,7 +34,7 @@ export default {
   description: "Menneskapte objekt",
   type: "document",
   initialValue: {
-    editorialState: "workingDraft",
+    editorialState: "draft",
     accessState: "secret",
   },
   icon: FaBookDead,

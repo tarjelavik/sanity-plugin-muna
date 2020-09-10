@@ -23,7 +23,7 @@ export default {
   name: "report",
   type: "document",
   initialValue: {
-    editorialState: "workingDraft",
+    editorialState: "draft",
     accessState: "secret",
   },
   icon: GiCrackedGlass,

@@ -7,7 +7,7 @@ export default {
   name: "acquisition",
   type: "document",
   initialValue: {
-    editorialState: "workingDraft",
+    editorialState: "draft",
     accessState: "secret",
   },
   icon: FaGifts,
