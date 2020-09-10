@@ -25,20 +25,18 @@ export const ButtonLink = ({children, color, href}) => (
 )
 
 :::warning
-Muna will be unstable for some time. Fork and do you own thing or [suggest improvements!](https://github.com/tarjelavik/sanity-plugin-muna/issues) 
+**Muna** will be unstable for some time. Fork and do you own thing or [suggest improvements!](https://github.com/tarjelavik/sanity-plugin-muna/issues) 
 :::
 
 ## [Experimental] "One-click" installation
 
-:::caution
-Combine the experimental community feature of [sanity.io/create](https://www.sanity.io/create) with the unstable nature of the Muna schema! Great fun!
+Combine the experimental community feature of [sanity.io/create](https://www.sanity.io/create) with the unstable nature of the **Muna** schema! Great fun!
 
 <ButtonLink color="#25c2a0" href="https://www.sanity.io/create?template=tarjelavik/sanity-template-muna">💥 Create your Muna Studio 💥</ButtonLink> <a href="https://github.com/tarjelavik/sanity-template-muna">Muna Template (WIP)</a>
-:::
+
+The template for Sanity Studio comes with the **Muna** plugin installed and a predefined desk structure.
 
 ## [Experimental] Install as a plugin in your existing Studio
-
-
 
 ```bash
 npm install -g @sanity/cli
@@ -49,7 +47,7 @@ sanity start
 
 The Sanity studio will fire up on http://localhost:3333/, but without the desk structure you deserve!.
 
-## Desk structure
+### Desk structure
 
 Copy the content of the deskStructure folder into your Sanity studio and add this to sanity.json:
 
