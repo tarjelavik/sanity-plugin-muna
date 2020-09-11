@@ -1,6 +1,6 @@
 module.exports = {
   title: 'Muna | ᛗᚢᚾᚨ',
-  tagline: 'Muna (remember) is a Sanity schema for describing and presenting cultural heritage objects.',
+  tagline: 'Muna (remember) is a Sanity Studio tieh a data schema for describing and presenting cultural heritage objects.',
   url: 'https://docs.muna.xyz',
   baseUrl: '/',
   favicon: 'img/favicon.ico',
@@ -25,6 +25,11 @@ module.exports = {
           activeBasePath: 'docs/model',
           label: 'Model',
           position: 'left',
+        },
+        {
+          href: 'https://www.sanity.io/create?template=tarjelavik/sanity-template-muna',
+          label: 'Create your Muna Studio',
+          position: 'right',
         },
         {
           href: 'https://github.com/tarjelavik/sanity-plugin-muna',
