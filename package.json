@@ -23,27 +23,28 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@babel/cli": "^7.10.5",
-    "@babel/core": "^7.11.0",
-    "@babel/preset-env": "^7.11.0",
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
     "babel-preset-env": "^1.6.1",
-    "eslint": "^7.6.0",
+    "eslint": "^7.9.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
-    "prettier": "^2.0.5",
+    "prettier": "^2.1.1",
     "react": "^16.13.1"
   },
   "dependencies": {
     "@sanity/block-content-to-react": "^2.0.7",
-    "@sanity/code-input": "^1.149.16",
-    "@sanity/color-input": "^1.149.16",
+    "@sanity/code-input": "^1.150.1",
+    "@sanity/color-input": "^1.150.1",
     "capitalize": "^2.0.3",
-    "dayjs": "^1.8.32",
+    "dayjs": "^1.8.35",
     "jsonata": "^1.8.3",
     "lodash": "^4.17.20",
-    "react-icons": "^3.7.0",
+    "react-icons": "^3.11.0",
     "react-instagram-embed": "^1.5.0",
-    "react-twitter-embed": "^3.0.3"
+    "react-twitter-embed": "^3.0.3",
+    "sanity-plugin-iiif-manifest-input": "0.0.6"
   }
 }

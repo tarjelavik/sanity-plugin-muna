@@ -49,10 +49,10 @@ export const subjectOfManifest = {
   title: "Hovedmanifest",
   titleEN: "Main manifest",
   description:
-    "Hovedmanifestet til objektet, for eksempel: https://digi.ub.uni-heidelberg.de/diglit/iiif/cpgraec132/manifest.json.",
+    "Hovedmanifestet til objektet.",
   descriptionEN: "The main manifest of this object",
   name: "subjectOfManifest",
-  type: "url",
+  type: "iiifManifest",
 };
 
 export const iiifStructures = {

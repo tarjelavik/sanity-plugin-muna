@@ -5,7 +5,8 @@
   },
   "plugins": [
     "@sanity/code-input",
-    "@sanity/color-input"
+    "@sanity/color-input",
+    "iiif-manifest-input"
   ],
   "parts": [
     {
