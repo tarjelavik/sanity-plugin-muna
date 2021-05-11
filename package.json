@@ -41,7 +41,7 @@
     "capitalize": "^2.0.3",
     "dayjs": "^1.8.35",
     "jsonata": "^1.8.3",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "react-icons": "^3.11.0",
     "react-instagram-embed": "^1.5.0",
     "react-twitter-embed": "^3.0.3",
